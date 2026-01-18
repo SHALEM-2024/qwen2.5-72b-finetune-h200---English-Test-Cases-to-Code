@@ -204,7 +204,7 @@ nano context.txt
 ```
 
 **3. Prepare the Inference Script**
-Ensure the `batch_inference.py` (V-14) script is present in your directory. This script handles the VLLM initialization, LoRA loading, and smart context filtering.
+Ensure the `run_batch_tests_v14.py` (V-14) script is present in your directory. This script handles the VLLM initialization, LoRA loading, and smart context filtering.
 
 **4. Create Input Files**
 Create text files inside the `inputs/` folder (e.g., `inputs/Test_01.txt`).
@@ -214,7 +214,7 @@ Create text files inside the `inputs/` folder (e.g., `inputs/Test_01.txt`).
 **5. Run the Engine**
 
 ```bash
-python batch_inference.py
+python run_batch_tests_v14.py
 
 ```
 
@@ -226,6 +226,3 @@ ls -l outputs/
 cat outputs/Test_01.xml
 
 ```
-
-<img width="800" alt="image" src="https://github.com/user-attachments/assets/7df5f1b4-7906-422c-a757-08ab118f577d" />
-
