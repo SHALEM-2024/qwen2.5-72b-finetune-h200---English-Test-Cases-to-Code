@@ -23,6 +23,8 @@ This repository documents the engineering pipeline used to fine-tune a **72-Bill
 This project tackles the complexity of generating strict, proprietary XML structures (`.blkx`) from unstructured natural language. To understand the nuance of automotive verification, I fine-tuned the **Qwen-2.5-72B** model specifically for this domain.
 
 > **![Uploading Before_after_AI_GENERATED.png…]()**
+> ![Uploading image.png…]()
+
 
 ---
 
