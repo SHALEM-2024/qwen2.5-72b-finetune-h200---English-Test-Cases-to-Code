@@ -74,7 +74,8 @@ accelerate launch -m axolotl.cli.train config.yaml
 
 ```
 
-> **![PLACEHOLDER: Insert a screenshot of your terminal showing the training loop/loss curve here]**
+> **![Uploading image.png…]()
+**
 
 ---
 
