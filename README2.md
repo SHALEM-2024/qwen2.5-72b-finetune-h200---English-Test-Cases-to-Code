@@ -1,4 +1,4 @@
-# 🚗 Bridging the Gap: Test Plans ➡️ Test Benches
+# Bridging the Gap: Test Plans ➡️ Test Benches
 ### A Generative AI Pipeline for Automotive HIL Validation
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python)
