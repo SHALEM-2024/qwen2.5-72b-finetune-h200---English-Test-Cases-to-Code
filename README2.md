@@ -161,8 +161,7 @@ python test_inference.py
 cat output.xml
 
 ```
-
-> **<img width="1919" height="872" alt="image" src="https://github.com/user-attachments/assets/7df5f1b4-7906-422c-a757-08ab118f577d" />**
+**<img width="1719" height="872" alt="image" src="https://github.com/user-attachments/assets/7df5f1b4-7906-422c-a757-08ab118f577d" />**
 
 ---
 
