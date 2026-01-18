@@ -115,12 +115,6 @@ Wait for `=== UPLOAD COMPLETE ===` and check your Hugging Face repo link.
 
 ---
 
-Here is the updated **Phase 5** section. I have consolidated the detailed Infrastructure, Environment, and Model Setup steps you provided into this phase, converting your "Phases 1-4" into sequential **Steps** within this section.
-
-I have also removed the raw Python code as requested, replacing it with instructions to ensure the file exists.
-
-You can replace the entire current **Phase 5** (and Phase 6, as this covers batch processing) with this block:
-
 ## 🧪 Phase 5: Production Infrastructure & Inference Engine
 
 This phase covers the end-to-end production workflow: from provisioning the GPU infrastructure to running the "V14" Batch Inference Engine.
