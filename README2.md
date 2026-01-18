@@ -40,7 +40,7 @@ This guide is split into two main parts: **Training the Model** (Fine-tuning) an
 
 ### 📋 Prerequisites
 * **Environment:** Access to the GPU workspace container.
-* **Hardware:** Sufficient VRAM for Qwen 72B (Logs indicate **~40GB+** utilized).
+* **Hardware:** Sufficient VRAM for Qwen 72B (**~40GB+**).
 * **Files:** `config.yaml` and `fine_tuning_data.jsonl` must be in the project root.
 
 ### ⚙️ Setup & Installation
@@ -84,7 +84,7 @@ accelerate launch -m axolotl.cli.train config.yaml
 
 ## ☁️ Part 2: Model Upload Workflow
 
-*Pushing the adapter and tokenizer to Hugging Face.*
+*Pushing the adapter and tokenizer to Hugging Face. - Used LoRA adapter*
 
 ### 🛑 Pre-flight
 
@@ -124,10 +124,9 @@ Wait for `=== UPLOAD COMPLETE ===` and check your Hugging Face repo link.
 
 ### 🏗️ Phase 1: Infrastructure Setup (RunPod)
 
-*Goal: Deploy a GPU instance with enough persistent storage to handle large model weights without crashing.*
 
-1. **Select GPU:** Navigate to **RunPod Secure Cloud**.
-* Choose **1x A100 80GB PCIe** (Essential for 72B models) or **H100**.
+1. **Select GPU:** 
+* Choose **1x A100 80GB PCIe** (Essential for 72B parameter model).
 
 
 2. **Select Template:**
@@ -136,14 +135,14 @@ Wait for `=== UPLOAD COMPLETE ===` and check your Hugging Face repo link.
 
 3. **Configure Storage (CRITICAL):**
 * Click "Edit Pod Settings".
-* **Container Disk:** Default (20GB).
-* **Volume Disk:** `100 GB` (Do not skip this. We need this space in `/workspace` for the model).
+* **Container Disk:** Default (200GB).
+* **Volume Disk:** `100 GB`.
 
 
 
 ### 🛠️ Phase 2: Environment Initialization
 
-Once your pod is **Running**, click **Connect > Start Web Terminal**.
+Once your pod is **Running**.
 
 **1. Install Dependencies**
 Update Python tools and install the inference engine (`vllm`) and Hugging Face tools.
@@ -163,9 +162,9 @@ huggingface-cli login
 
 ```
 
-### 📥 Phase 3: Model Setup (The "No-Crash" Method)
+### 📥 Phase 3: Model Setup
 
-We manually download models to the `/workspace` volume to avoid filling up the root drive.
+Manually download models to the `/workspace` volume to avoid filling up the root drive. - This caused a lot of trouble for me.
 
 ```bash
 # 1. Create a safe directory on the Volume drive
@@ -201,12 +200,11 @@ Paste your entire JSON library dictionary into this file.
 
 ```bash
 nano context.txt
-# Paste JSON content -> Ctrl+O -> Enter -> Ctrl+X
 
 ```
 
 **3. Prepare the Inference Script**
-Ensure the `batch_inference.py` script is present in your directory. This script handles the VLLM initialization, LoRA loading, and smart context filtering.
+Ensure the `batch_inference.py` (V-14) script is present in your directory. This script handles the VLLM initialization, LoRA loading, and smart context filtering.
 
 **4. Create Input Files**
 Create text files inside the `inputs/` folder (e.g., `inputs/Test_01.txt`).
