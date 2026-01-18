@@ -201,16 +201,3 @@ ls -l outputs/
 
 > **![PLACEHOLDER: Insert a screenshot of the batch script running in the terminal with the progress logs]**
 
-```
-
-***
-
-### 📸 What I need from you
-To make this README perfect, please provide the following screenshots (you can just paste them in this chat or upload them to your repo and link them):
-
-1.  **Before/After:** A visual comparison of a simple English instruction vs. the complex XML output.
-2.  **Training Log:** A screenshot of your terminal while `accelerate launch` was running (showing the loss decreasing).
-3.  **Side-by-Side:** A screenshot of VS Code showing `input.txt` on one side and the generated `output.xml` on the other.
-4.  **Batch Run:** A screenshot of the `batch_inference.py` script running in the terminal showing the list of files being processed.
-
-```
