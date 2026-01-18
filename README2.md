@@ -74,9 +74,7 @@ accelerate launch -m axolotl.cli.train config.yaml
 
 ```
 
-> **<img width="1919" height="872" alt="image" src="https://github.com/user-attachments/assets/9f839771-0622-48d0-9e35-28711bb3b9e0" />
-
-**
+> **<img width="1919" height="872" alt="image" src="https://github.com/user-attachments/assets/9f839771-0622-48d0-9e35-28711bb3b9e0" />**
 
 ---
 
