@@ -1,0 +1,321 @@
+<MainLibrary.Serial name="PreConditions">
+    <subsystems>
+        <MainLibrary.SetSignal name="Set_Battery_Voltage_to_13.5V">
+            <parameters>
+                <MainLibrary.Value name="Value" type="double">13.5</MainLibrary.Value>
+            </parameters>
+            <links>
+                <MainLibrary.SignalLink name="Signal" target="{5CA3C7AD-E6DB-4D0F-ABAE-D3D7BFADEECC}" />
+            </links>
+        </MainLibrary.SetSignal>
+        <MainLibrary.SetSignal name="Turn_Ignition_ON">
+            <parameters>
+                <MainLibrary.Value name="Value" type="int32">1</MainLibrary.Value>
+            </parameters>
+            <links>
+                <MainLibrary.SignalLink name="Signal" target="{D3D7BFADEECC-5CA3-4D0F-ABAE-C7ADE6DBD0F1}" />
+            </links>
+        </MainLibrary.SetSignal>
+        <MainLibrary.SetSignal name="Crank_the_vehicle">
+            <parameters>
+                <MainLibrary.Value name="Value" type="int32">1</MainLibrary.Value>
+            </parameters>
+            <links>
+                <MainLibrary.SignalLink name="Signal" target="{D3D7BFADEECC-5CA3-4D0F-ABAE-C7ADEECCD0F1}" />
+            </links>
+        </MainLibrary.SetSignal>
+        <MainLibrary.Check name="Check_that_No_CAN_failure_MIL_failure_is_present">
+            <links>
+                <MainLibrary.SignalLink name="Signal" target="{D3D7BFADEECC-5CA3-4D0F-ABAE-C7ADEECCD0F1}" />
+            </links>
+        </MainLibrary.Check>
+        <MainLibrary.SetSignal name="Simulate_Gear_Position_Sensor_IP_Neutral">
+            <parameters>
+                <MainLibrary.Value name="Value" type="int32">2</MainLibrary.Value>
+            </parameters>
+            <links>
+                <MainLibrary.SignalLink name="Signal" target="{D3D7BFADEECC-5CA3-4D0F-ABAE-C7ADEECCD0F1}" />
+            </links>
+        </MainLibrary.SetSignal>
+        <MainLibrary.SetSignal name="Simulate_ACC_PEDAL_IP_to_achieve_DISPLAY_SPEED_0kmph">
+            <parameters>
+                <MainLibrary.Value name="Value" type="int32">0</MainLibrary.Value>
+            </parameters>
+            <links>
+                <MainLibrary.SignalLink name="Signal" target="{D3D7BFADEECC-5CA3-4D0F-ABAE-C7ADEECCD0F1}" />
+            </links>
+        </MainLibrary.SetSignal>
+        <MainLibrary.Exec name="Navigate_to_Menu_Display_Setup_Light_and_Dark_Mode_and_Select_Dark_mode">
+            <parameters>
+                <MainLibrary.String name="Command" type="string">Menu -&gt; Display Setup -&gt; Light and Dark Mode and Select Dark mode</MainLibrary.String>
+            </parameters>
+        </MainLibrary.Exec>
+        <MainLibrary.Exec name="Check_that_Display_is_set_to_Dark_mode">
+            <parameters>
+                <MainLibrary.String name="Command" type="string">Check that Display is set to Dark mode</MainLibrary.String>
+            </parameters>
+        </MainLibrary.Exec>
+        <MainLibrary.Exec name="Navigate_to_Menu_Ride_Mode_and_Select_Urban_mode">
+            <parameters>
+                <MainLibrary.String name="Command" type="string">Menu -&gt; Ride Mode and Select Urban mode</MainLibrary.String>
+            </parameters>
+        </MainLibrary.Exec>
+        <MainLibrary.Exec name="Check_that_Ride_Mode_is_set_to_Urban_mode">
+            <parameters>
+                <MainLibrary.String name="Command" type="string">Check that Ride Mode is set to Urban mode</MainLibrary.String>
+            </parameters>
+        </MainLibrary.Exec>
+        <MainLibrary.SetSignal name="Simulate_ACC_PEDAL_IP_to_achieve_DISPLAY_SPEED_50kmph">
+            <parameters>
+                <MainLibrary.Value name="Value" type="int32">30</MainLibrary.Value>
+            </parameters>
+            <links>
+                <MainLibrary.SignalLink name="Signal" target="{D3D7BFADEECC-5CA3-4D0F-ABAE-C7ADEECCD0F1}" />
+            </links>
+        </MainLibrary.SetSignal>
+        <MainLibrary.SetSignal name="Simulate_Gear_Position_Sensor_IP_3rd_Gear">
+            <parameters>
+                <MainLibrary.Value name="Value" type="int32">7</MainLibrary.Value>
+            </parameters>
+            <links>
+                <MainLibrary.SignalLink name="Signal" target="{D3D7BFADEECC-5CA3-4D0F-ABAE-C7ADEECCD0F1}" />
+            </links>
+        </MainLibrary.SetSignal>
+        <MainLibrary.Exec name="Check_that_Vehicle_shall_be_moving_at_50_kmph_in_3rd_gear">
+            <parameters>
+                <MainLibrary.String name="Command" type="string">Check that Vehicle shall be moving at 50 kmph in 3rd gear: ENGINE_DATA_1.GEAR_POSITION[0x150] = 7, ABS_DATA_3(0x450): WHEEL_SPEED_FRONT = 50, ABS_DATA_3(0x450: WHEEL_SPEED_REAR = 50</MainLibrary.String>
+            </parameters>
+        </MainLibrary.Exec>
+        <MainLibrary.SetSignal name="Set_conditions_such_that_no_EMS_malfunction_exists_using_below_CAN_signal">
+            <parameters>
+                <MainLibrary.Value name="Value" type="int32">0</MainLibrary.Value>
+            </parameters>
+            <links>
+                <MainLibrary.SignalLink name="Signal" target="{D3D7BFADEECC-5CA3-4D0F-ABAE-C7ADEECCD0F1}" />
+            </links>
+        </MainLibrary.SetSignal>
+        <MainLibrary.Exec name="Check_that_EMS_MIL_Telltale_shall_be_OFF">
+            <parameters>
+                <MainLibrary.String name="Command" type="string">Check that EMS MIL Telltale shall be OFF</MainLibrary.String>
+            </parameters>
+        </MainLibrary.Exec>
+        <MainLibrary.SetSignal name="Simulate_EMS_malfunction_through_below_CAN_Signal">
+            <parameters>
+                <MainLibrary.Value name="Value" type="int32">1</MainLibrary.Value>
+            </parameters>
+            <links>
+                <MainLibrary.SignalLink name="Signal" target="{D3D7BFADEECC-5CA3-4D0F-ABAE-C7ADEECCD0F1}" />
+            </links>
+        </MainLibrary.SetSignal>
+        <MainLibrary.Exec name="Check_that_EMS_MIL_Telltale_shall_be_ON_(Glowing_in_Amber_color)">
+            <parameters>
+                <MainLibrary.String name="Command" type="string">Check that EMS MIL Telltale shall be ON (Glowing in Amber color)</MainLibrary.String>
+            </parameters>
+        </MainLibrary.Exec>
+        <MainLibrary.SetSignal name="Stop_the_EMS_Malfunction_through_below_CAN_Signal">
+            <parameters>
+                <MainLibrary.Value name="Value" type="int32">0</MainLibrary.Value>
+            </parameters>
+            <links>
+                <MainLibrary.SignalLink name="Signal" target="{D3D7BFADEECC-5CA3-4D0F-ABAE-C7ADEECCD0F1}" />
+            </links>
+        </MainLibrary.SetSignal>
+        <MainLibrary.Exec name="Check_that_EMS_MIL_Telltale_shall_be_OFF_2">
+            <parameters>
+                <MainLibrary.String name="Command" type="string">Check that EMS MIL Telltale shall be OFF</MainLibrary.String>
+            </parameters>
+        </MainLibrary.Exec>
+        <MainLibrary.Exec name="Click_on_Menu_Trip_details_Select_Reset_select_Yes">
+            <parameters>
+                <MainLibrary.String name="Command" type="string">Click on Menu-&gt;Trip details-&gt;Select 'Reset'-&gt; select 'Yes'</MainLibrary.String>
+            </parameters>
+        </MainLibrary.Exec>
+        <MainLibrary.SetSignal name="Turn_Ignition_ON_2">
+            <parameters>
+                <MainLibrary.Value name="Value" type="int32">1</MainLibrary.Value>
+            </parameters>
+            <links>
+                <MainLibrary.SignalLink name="Signal" target="{D3D7BFADEECC-5CA3-4D0F-ABAE-C7ADEECCD0F1}" />
+            </links>
+        </MainLibrary.SetSignal>
+        <MainLibrary.SetSignal name="Set_Battery_Voltage_to_13.5V_2">
+            <parameters>
+                <MainLibrary.Value name="Value" type="double">13.5</MainLibrary.Value>
+            </parameters>
+            <links>
+                <MainLibrary.SignalLink name="Signal" target="{5CA3C7AD-E6DB-4D0F-ABAE-D3D7BFADEECC}" />
+            </links>
+        </MainLibrary.SetSignal>
+    </subsystems>
+</MainLibrary.Serial> To fulfill your request for inserting the appropriate XML blocks based on the given user input and the relevant library dictionary, I will analyze each step of the user input and match it with the corresponding block from the library dictionary. Here’s the final output:
+
+```xml
+<MainLibrary.Serial name="PreConditions">
+    <subsystems>
+        <!-- Step 1 -->
+        <MainLibrary.SetSignal name="Set_Battery_Voltage_to_13.5V">
+            <parameters>
+                <MainLibrary.Value name="Value" type="double">13.5</MainLibrary.Value>
+            </parameters>
+            <links>
+                <MainLibrary.SignalLink name="Signal" target="{5CA3C7AD-E6DB-4D0F-ABAE-D3D7BFADEECC}" />
+            </links>
+        </MainLibrary.SetSignal>
+        
+        <!-- Step 2 -->
+        <MainLibrary.SetSignal name="Turn_Ignition_ON">
+            <parameters>
+                <MainLibrary.Value name="Value" type="int32">1</MainLibrary.Value>
+            </parameters>
+            <links>
+                <MainLibrary.SignalLink name="Signal" target="{D3D7BFADEECC-5CA3-4D0F-ABAE-C7ADE6DBD0F1}" />
+            </links>
+        </MainLibrary.SetSignal>
+        
+        <!-- Step 3 -->
+        <MainLibrary.SetSignal name="Crank_the_vehicle">
+            <parameters>
+                <MainLibrary.Value name="Value" type="int32">1</MainLibrary.Value>
+            </parameters>
+            <links>
+                <MainLibrary.SignalLink name="Signal" target="{D3D7BFADEECC-5CA3-4D0F-ABAE-C7ADEECCD0F1}" />
+            </links>
+        </MainLibrary.SetSignal>
+        
+        <!-- Step 4 -->
+        <MainLibrary.Check name="Check_that_No_CAN_failure_MIL_failure_is_present">
+            <links>
+                <MainLibrary.SignalLink name="Signal" target="{D3D7BFADEECC-5CA3-4D0F-ABAE-C7ADEECCD0F1}" />
+            </links>
+        </MainLibrary.Check>
+        
+        <!-- Step 5 -->
+        <MainLibrary.SetSignal name="Simulate_Gear_Position_Sensor_IP_Neutral">
+            <parameters>
+                <MainLibrary.Value name="Value" type="int32">2</MainLibrary.Value>
+            </parameters>
+            <links>
+                <MainLibrary.SignalLink name="Signal" target="{D3D7BFADEECC-5CA3-4D0F-ABAE-C7ADEECCD0F1}" />
+            </links>
+        </MainLibrary.SetSignal>
+        
+        <!-- Step 6 -->
+        <MainLibrary.SetSignal name="Simulate_ACC_PEDAL_IP_to_achieve_DISPLAY_SPEED_0kmph">
+            <parameters>
+                <MainLibrary.Value name="Value" type="int32">0</MainLibrary.Value>
+            </parameters>
+            <links>
+                <MainLibrary.SignalLink name="Signal" target="{D3D7BFADEECC-5CA3-4D0F-ABAE-C7ADEECCD0F1}" />
+            </links>
+        </MainLibrary.SetSignal>
+        
+        <!-- Step 7 -->
+        <MainLibrary.Exec name="Navigate_to_Menu_Display_Setup_Light_and_Dark_Mode_and_Select_Dark_mode">
+            <parameters>
+                <MainLibrary.String name="Command" type="string">Menu -&gt; Display Setup -&gt; Light and Dark Mode and Select Dark mode</MainLibrary.String>
+            </parameters>
+        </MainLibrary.Exec>
+        
+        <!-- Step 8 -->
+        <MainLibrary.Exec name="Check_that_Display_is_set_to_Dark_mode">
+            <parameters>
+                <MainLibrary.String name="Command" type="string">Check that Display is set to Dark mode</MainLibrary.String>
+            </parameters>
+        </MainLibrary.Exec>
+        
+        <!-- Step 9 -->
+        <MainLibrary.Exec name="Navigate_to_Menu_Ride_Mode_and_Select_Urban_mode">
+            <parameters>
+                <MainLibrary.String name="Command" type="string">Menu -&gt; Ride Mode and Select Urban mode</MainLibrary.String>
+            </parameters>
+        </MainLibrary.Exec>
+        
+        <!-- Step 10 -->
+        <MainLibrary.Exec name="Check_that_Ride_Mode_is_set_to_Urban_mode">
+            <parameters>
+                <MainLibrary.String name="Command" type="string">Check that Ride Mode is set to Urban mode</MainLibrary.String>
+            </parameters>
+        </MainLibrary.Exec>
+        
+        <!-- Step 11 -->
+        <MainLibrary.SetSignal name="Simulate_ACC_PEDAL_IP_to_achieve_DISPLAY_SPEED_50kmph">
+            <parameters>
+                <MainLibrary.Value name="Value" type="int32">30</MainLibrary.Value>
+            </parameters>
+            <links>
+                <MainLibrary.SignalLink name="Signal" target="{D3D7BFADEECC-5CA3-4D0F-ABAE-C7ADEECCD0F1}" />
+            </links>
+        </MainLibrary.SetSignal>
+        
+        <!-- Step 12 -->
+        <MainLibrary.SetSignal name="Simulate_Gear_Position_Sensor_IP_3rd_Gear">
+            <parameters>
+                <MainLibrary.Value name="Value" type="int32">7</MainLibrary.Value>
+            </parameters>
+            <links>
+                <MainLibrary.SignalLink name="Signal" target="{D3D7BFADEECC-5CA3-4D0F-ABAE-C7ADEECCD0F1}" />
+            </links>
+        </MainLibrary.SetSignal>
+        
+        <!-- Step 13 -->
+        <MainLibrary.Exec name="Check_that_Vehicle_shall_be_moving_at_50_kmph_in_3rd_gear">
+            <parameters>
+                <MainLibrary.String name="Command" type="string">Check that Vehicle shall be moving at 50 kmph in 3rd gear: ENGINE_DATA_1.GEAR_POSITION[0x150] = 7, ABS_DATA_3(0x450): WHEEL_SPEED_FRONT = 50, ABS_DATA_3(0x450: WHEEL_SPEED_REAR = 50</MainLibrary.String>
+            </parameters>
+        </MainLibrary.Exec>
+        
+        <!-- Step 14 -->
+        <MainLibrary.SetSignal name="Set_conditions_such_that_no_EMS_malfunction_exists_using_below_CAN_signal">
+            <parameters>
+                <MainLibrary.Value name="Value" type="int32">0</MainLibrary.Value>
+            </parameters>
+            <links>
+                <MainLibrary.SignalLink name="Signal" target="{D3D7BFADEECC-5CA3-4D0F-ABAE-C7ADEECCD0F1}" />
+            </links>
+        </MainLibrary.SetSignal>
+        
+        <!-- Step 15 -->
+        <MainLibrary.Exec name="Check_that_EMS_MIL_Telltale_shall_be_OFF">
+            <parameters>
+                <MainLibrary.String name="Command" type="string">Check that EMS MIL Telltale shall be OFF</MainLibrary.String>
+            </parameters>
+        </MainLibrary.Exec>
+        
+        <!-- Step 16 -->
+        <MainLibrary.SetSignal name="Simulate_EMS_malfunction_through_below_CAN_Signal">
+            <parameters>
+                <MainLibrary.Value name="Value" type="int32">1</MainLibrary.Value>
+            </parameters>
+            <links>
+                <MainLibrary.SignalLink name="Signal" target="{D3D7BFADEECC-5CA3-4D0F-ABAE-C7ADEECCD0F1}" />
+            </links>
+        </MainLibrary.SetSignal>
+        
+        <!-- Step 17 -->
+        <MainLibrary.Exec name="Check_that_EMS_MIL_Telltale_shall_be_ON_(Glowing_in_Amber_color)">
+            <parameters>
+                <MainLibrary.String name="Command" type="string">Check that EMS MIL Telltale shall be ON (Glowing in Amber color)</MainLibrary.String>
+            </parameters>
+        </MainLibrary.Exec>
+        
+        <!-- Step 18 -->
+        <MainLibrary.SetSignal name="Stop_the_EMS_Malfunction_through_below_CAN_Signal">
+            <parameters>
+                <MainLibrary.Value name="Value" type="int32">0</MainLibrary.Value>
+            </parameters>
+            <links>
+                <MainLibrary.SignalLink name="Signal" target="{D3D7BFADEECC-5CA3-4D0F-ABAE-C7ADEECCD0F1}" />
+            </links>
+        </MainLibrary.SetSignal>
+        
+        <!-- Step 19 -->
+        <MainLibrary.Exec name="Check_that_EMS_MIL_Telltale_shall_be_OFF_2">
+            <parameters>
+                <MainLibrary.String name="Command" type="string">Check that EMS MIL Telltale shall be OFF</MainLibrary.String>
+            </parameters>
+        </MainLibrary.Exec>
+        
+        <!-- Step 20 -->
+        <MainLibrary.Exec name="Click_on_Menu_Trip_details_Select_Reset_select_Yes">
+            <parameters>
+                <MainLibrary.String name="Command" type="string">Click on Menu-&gt;Trip details-&gt
