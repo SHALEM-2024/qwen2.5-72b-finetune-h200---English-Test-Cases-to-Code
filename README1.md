@@ -2,13 +2,14 @@
 
 **A QLoRA fine-tuning pipeline for Qwen-2.5-72B on H200 hardware, specialized for generating proprietary XML structures for Automotive Hardware-in-Loop systems.**
 
-In the automotive industry, verifying hardware involves a massive manual bottleneck: translating thousands of English test cases into proprietary code for dSPACE Automation Desk. This repository documents the engineering pipeline used to fine-tune a 72-Billion parameter LLM on an NVIDIA H200. The result is an AI agent capable of autonomously writing syntactically perfect `.blkx` (XML) test scripts, eliminating manual coding labor and significantly accelerating the vehicle validation Time-to-Market.
+In the automotive industry, verifying hardware involves a massive manual bottleneck: translating thousands of English test cases into proprietary code for dSPACE Automation Desk (almost 2500 test cases). This repository documents the engineering pipeline used to fine-tune a 72-Billion parameter LLM on an NVIDIA H200. The result is an AI agent capable of autonomously writing syntactically perfect `.blkx` (XML) test scripts, eliminating manual coding labor and significantly accelerating the vehicle validation Time-to-Market.
 
-### Details about the project
+### Technical Details about the project
 
-This project tackles the complexity of generating strict, proprietary XML structures (`.blkx`) from unstructured natural language. Utilizing the massive compute of NVIDIA H200s, we fine-tuned Qwen-2.5-72B to understand the nuance of automotive verification. This pipeline moves beyond simple code completion, creating a domain-specific model that automates the rigorous workflow of dSPACE Hardware-in-Loop (HIL) testing, turning human intent into machine execution.
+This project tackles the complexity of generating strict, proprietary XML structures (`.blkx`) from unstructured natural language. To understand the nuance of automotive verification I used Qwen-2.5-72B model and fine-tuned it. 
 
 ---
+If you want to replicate the process follow the steps:
 
 ## Axolotl Training Workflow: Qwen 72B Fine-Tuning
 
@@ -21,8 +22,6 @@ This section outlines the standard operating procedure for initializing the envi
 * **Files:** Ensure `config.yaml` and `fine_tuning_data.jsonl` are present in the project root.
 
 ### 2. Setup & Installation
-
-**Important:** Do not attempt to run commands from the root `/` directory. You must navigate to the workspace directory where the axolotl repository is cloned.
 
 **Step 2.1: Navigate to Project Directory**
 The `setup.py` and project files are located in `/workspace/axolotl`.
@@ -59,8 +58,6 @@ ls -lh fine_tuning_data.jsonl config.yaml
 
 ```
 
-*Expected Output: You should see both files listed with non-zero file sizes (e.g., 1.0M for the jsonl file).*
-
 ### 4. Launching Training
 
 Run the training module using `accelerate`.
@@ -73,18 +70,14 @@ accelerate launch -m axolotl.cli.train config.yaml
 **Understanding the Launch Log**
 Once the command is running, watch for the following stages in the logs to confirm success:
 
-* **Configuration Warning:** You may see warnings about defaults (`--num_processes=1`, `mixed_precision='no'`). These can usually be ignored unless you specifically need multi-node setup.
 * **Dataset Processing:**
-* **Tokenizing Prompts:** Progress bar showing tokenization.
-* **Sample Packing:** "explicitly setting eval_sample_packing to match sample_packing".
-
+* **Tokenizing Prompts:** 
+* **Sample Packing:** 
 
 * **Model Loading:**
 * Loading `Qwen/Qwen2.5-72B-Instruct`.
-* **VRAM Check:** GPU memory usage will jump (approx 38GB-40GB).
 
-
-* **Training Loop:** Look for the loss output to verify the model is learning.
+* **Training Loop:**
 
 ---
 
@@ -101,7 +94,7 @@ huggingface-cli login
 
 ```
 
-*(Paste your Write Token when asked).*
+*(Give your Huggingface Write Token when asked).*
 
 ### Step 1: Navigate to the Correct Folder
 
@@ -114,7 +107,7 @@ cd /workspace/axolotl
 
 ### Step 2: Run the Upload Script
 
-Ensure the script `upload_direct.py` is present in your directory (refer to the repository files). This script handles creating the repo, and uploading the adapter files and the tokenizer.
+Ensure the script `upload_direct.py` is present in your directory. This script handles creating the repo, and uploading the adapter files and the tokenizer.
 
 ```bash
 python upload_direct.py
@@ -127,9 +120,8 @@ Watch the screen. Once you see `=== UPLOAD COMPLETE ===`, you can click the link
 
 ---
 
-## Phase 5: The Stress Test (Production Simulation)
+## Phase 5: Production Simulation - not final
 
-This phase simulates a real-world scenario by processing large dictionary contexts and complex test steps. We utilize external text files to keep the Python execution clean.
 
 ### 1. Create Input Files
 
@@ -143,8 +135,8 @@ nano context.txt
 
 ```
 
-**B. Create the Test Case File (Formatted)**
-**CRITICAL:** You must structure your test case with clear headers: **Precondition**, **Action**, and **Postcondition**.
+**B. Create the Test Case File**
+**CRITICAL:** You must structure your test case with clear headers: **Precondition**, **Action**, and **Postcondition** (or else the test script wont get segrigated into Precondition, Action, Postcondition)
 
 ```bash
 nano input.txt
@@ -186,7 +178,7 @@ cat output.xml
 
 ---
 
-## Phase 6: Batch Processing & Context Filtering (The "V14" Engine)
+## Phase 6: Batch Processing & Context Filtering ("V14")
 
 This is the advanced automation script ("Version 14"). It upgrades your setup from a simple test to a production engine that can:
 
