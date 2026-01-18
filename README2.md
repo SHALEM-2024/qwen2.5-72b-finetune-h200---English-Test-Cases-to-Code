@@ -5,9 +5,6 @@
 ![Model](https://img.shields.io/badge/Model-Qwen_2.5_72B-violet?style=for-the-badge&logo=huggingface)
 ![Hardware](https://img.shields.io/badge/Hardware-NVIDIA_H200-green?style=for-the-badge&logo=nvidia)
 ![System](https://img.shields.io/badge/Target-dSPACE_Automation_Desk-orange?style=for-the-badge)
-
-</div>
-
 ---
 
 ## 📖 Project Overview
