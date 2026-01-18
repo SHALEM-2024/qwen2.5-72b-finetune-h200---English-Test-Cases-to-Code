@@ -76,7 +76,7 @@ pip install -e . --no-deps
 accelerate launch -m axolotl.cli.train config.yaml
 
 ```
-**<img width="1619" height="872" alt="image" src="https://github.com/user-attachments/assets/9f839771-0622-48d0-9e35-28711bb3b9e0" />**
+**<img width="1719" height="872" alt="image" src="https://github.com/user-attachments/assets/9f839771-0622-48d0-9e35-28711bb3b9e0" />**
 ---
 
 ## ☁️ Model Upload Workflow
@@ -162,7 +162,7 @@ cat output.xml
 
 ```
 
-> **> <img width="1919" height="872" alt="image" src="https://github.com/user-attachments/assets/7df5f1b4-7906-422c-a757-08ab118f577d" />**
+> **<img width="1919" height="872" alt="image" src="https://github.com/user-attachments/assets/7df5f1b4-7906-422c-a757-08ab118f577d" />**
 
 ---
 
