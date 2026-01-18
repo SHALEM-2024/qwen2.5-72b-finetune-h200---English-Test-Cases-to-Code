@@ -226,3 +226,6 @@ ls -l outputs/
 cat outputs/Test_01.xml
 
 ```
+
+<img width="1919" height="870" alt="image" src="https://github.com/user-attachments/assets/08e766e4-1962-4a39-89f2-89f93bc4fccf" />
+
