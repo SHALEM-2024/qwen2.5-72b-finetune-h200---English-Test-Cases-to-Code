@@ -71,7 +71,7 @@ pip install -e . --no-deps
 
 **Pre-Flight Check:** Verify files exist (`ls -lh fine_tuning_data.jsonl config.yaml`).
 
-**Ignition:**
+**Start Fine Tuning:**
 
 ```bash
 accelerate launch -m axolotl.cli.train config.yaml
