@@ -1,0 +1,1165 @@
+﻿ID,Name,Test Case Description,Pre-Action,Test Steps.Action,Post-Action
+,VHIL_H100_VehFunc_ODO_Reset_DID_LessThan300km_Neutral,"To verify the Reset ODO value through DID, when ODO value is less than 300km at Neutral gear","1.Set Battery Voltage to 13.5V
+
+2.Turn Ignition ON[Ignition_SW_IP= 1]
+
+3.Crank the vehicle[HIL_Engine_Start_SW=1]
+
+4.No CAN failure & ODO related failure should not be present
+
+5.Simulate HIL_Mdl_GPS= Neutral [GEAR_POSITION[0x150=0x2]
+
+6.Simulate HIL_Mdl_Cons_APS to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Simulate HIL_Mdl_GPS= 3rd[GEAR_POSITION[0x150=0x7]
+
+2.Simulate HIL_Mdl_Cons_APS 30% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 50kmph.
+
+3.Simulate HIL_Mdl_Cons_APS to achieve [ODO_CLUSTER[0X550] = 190km]
+
+At step 3:
+
+Cluster should display,
+
+a)ODO_CLUSTER [0x550] = ""190""km
+
+b)3rd gear, 50Kmph
+
+EMS should publish,
+
+a)ENGINE_STATUS [0x151] = 0[Running]
+
+4.Simulate HIL_Mdl_GPS= Neutral [GEAR_POSITION[0x150=0x2]
+
+5.Simulate HIL_Mdl_Cons_APS to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph
+
+6.Write ODO value through DID value[E119] =0km [ODO_CLUSTER[0X550] = 0][For All ODO values writing procedure please refer Sheet 3]
+
+At step 6:
+
+Cluster should display,
+
+a)ODO_CLUSTER [0x550] = ""0""km
+
+b)Neutral gear, 0Kmph
+
+EMS should publish,
+
+a)ENGINE_STATUS [0x151] = 0[Running]","1.Turn Ignition OFF[Ignition_SW_IP= 0]
+
+2. Set Battery Voltage to 0V"
+,VHIL_H100_VehFunc_ODO_Reset_DID_forthAttempt_LessThan300km_Neutral,"To verify the Reset ODO value through DID for 4th time, when ODO value is less than 300km at Neutral gear","1.Set Battery Voltage to 13.5V
+
+2.Turn Ignition ON[HIL_Mdl_HIL_Mdl_Ignition_SW_IP= 1]
+
+3. Crank the vehicle[HIL_Mdl_Engine_Start_SW=1]
+
+4.No CAN failure & ODO related failure should not be present
+
+5.Simulate HIL_Mdl_GPS= Neutral [GEAR_POSITION[0x150=0x2]
+
+6.Simulate HIL_Mdl_Cons_APS to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1..Simulate HIL_Mdl_GPS= 3rd[GEAR_POSITION[0x150=0x7]
+
+2.Simulate HIL_Mdl_Cons_APS to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED ~= 50kmph.
+
+3.Simulate HIL_Mdl_Cons_APS to achieve [ODO_CLUSTER[0X550] = 10km]
+
+At step 3
+
+Cluster should display,
+
+a)ODO_CLUSTER [0x550] = ""10""km
+
+b)3rd gear, 50Kmph
+
+4.Simulate HIL_Mdl_GPS= Neutral [GEAR_POSITION[0x150=0x2]
+
+5.Simulate HIL_Mdl_Cons_APS to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED ~= 0kmph
+
+6.Write ODO value through DID value[E119] =20km [ODO_CLUSTER[0X550] = 0]
+
+At step 6
+
+Cluster should display,
+
+a)ODO_CLUSTER [0x550] = ""20""km
+
+b)Neutral gear, 0Kmph
+
+7.Simulate HIL_Mdl_GPS= 1st[GEAR_POSITION[0x150=0x1]
+
+8.Simulate HIL_Mdl_Cons_APS to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED ~= 30kmph.
+
+9.Simulate HIL_Mdl_Cons_APS to achieve [ODO_CLUSTER[0x550] = 105km]
+
+At step 9
+
+Cluster should display,
+
+a)ODO_CLUSTER [0x550] = ""105""km
+
+b)1st gear, 30Kmph
+
+10.Simulate HIL_Mdl_GPS= Neutral [GEAR_POSITION[0x150=0x2]
+
+11.Simulate HIL_Mdl_Cons_APS to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED ~= 0kmph
+
+12.Write ODO value through DID value[E119] =200km
+
+[ODO_CLUSTER[0X550] = 4]
+
+At step 12:
+
+Cluster should display,
+
+a)ODO_CLUSTER [0x550] = ""200""km
+
+b)Neutral gear, 0Kmph
+
+13.Simulate HIL_Mdl_Cons_APS to achieve [ODO_CLUSTER[0x550] = 295km]
+
+At step 13
+
+Cluster should display,
+
+a)ODO_CLUSTER [0x550] = ""295""km
+
+b)1st gear, 30Kmph
+
+14.Write ODO value through DID value[E119] =299km
+
+[ODO_CLUSTER[0X550] = 299]
+
+At step 14:
+
+Cluster should display,
+
+a)ODO_CLUSTER [0x550] = ""298""km[""299Km"" reset will not happen, since reset is for 4th time]
+
+b)Neutral gear, 0Kmph","1.Turn Ignition OFF[HIL_Mdl_Ignition_SW_IP= 0]
+
+2. Set Battery Voltage to 0V"
+,VHIL_H100_VehFunc_ODO_Reset_DID_SpeedNotZero_1stGear,"To verify the Reset ODO value through DID, when the speed is not equal to ""0"" at 1st gear","1.Set Battery Voltage to 13.5V
+
+2.Turn Ignition ON[HIL_Mdl_Ignition_SW_IP= 1]
+
+3. Crank the vehicle[HIL_Mdl_Engine_Start_SW=1]
+
+4.No CAN failure & ODO related failure should not be present
+
+5.Simulate HIL_Mdl_GPS= Neutral [GEAR_POSITION[0x150=0x2]
+
+6.Simulate HIL_Mdl_Cons_APS to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1..Simulate HIL_Mdl_GPS= 2nd[GEAR_POSITION[0x150=0x4]
+
+2.Simulate HIL_Mdl_Cons_APS to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED ~= 30kmph.
+
+3.Simulate HIL_Mdl_Cons_APS to achieve [ODO_CLUSTER[0X550] = 90km]
+
+At step 3
+
+Cluster should display,
+
+a)ODO_CLUSTER [0x550] = ""90""km
+
+b)2nd gear, 30Kmph
+
+4.Write ODO value through DID value[E119] =0km [ODO_CLUSTER[0x550] = 0]
+
+At step 4
+
+Cluster should display,
+
+a)ODO_CLUSTER [0x550] = ""90""km[ODO reset will not happen at speed!=0]
+
+b)2nd gear,30kmph","1.Turn Ignition OFF[HIL_Mdl_Ignition_SW_IP= 0]
+
+2. Set Battery Voltage to 0V"
+,VHIL_H100_VehFunc_ODO_Reset_DID_MoreThan300km_Neutral,"To verify the Reset ODO value through DID, when ODO value is more than 300km at Neutral gear","1.Set Battery Voltage to 13.5V
+
+2.Turn Ignition ON[HIL_Mdl_Ignition_SW_IP= 1]
+
+3.Crank the vehicle[HIL_Mdl_Engine_Start_SW=1]
+
+4.No CAN failure & ODO related failure should not be present
+
+5.Simulate HIL_Mdl_GPS= Neutral [GEAR_POSITION[0x150=0x2]
+
+6.Simulate HIL_Mdl_Cons_APS to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1..Simulate HIL_Mdl_GPS= 5th[GEAR_POSITION[0x150=0xB]
+
+2.Simulate HIL_Mdl_Cons_APS to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED ~= 70kmph.
+
+3.Simulate HIL_Mdl_Cons_APS to achieve [ODO_CLUSTER[0X550] = 390km]
+
+At step 3
+
+Cluster should display,
+
+a)ODO_CLUSTER [0x550] = ""390""km
+
+b)5th gear, 70Kmph
+
+4.Simulate HIL_Mdl_GPS= Neutral [GEAR_POSITION[0x150=0x2]
+
+5.Simulate HIL_Mdl_Cons_APS to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED ~= 0kmph
+
+6.Write ODO value through DID value[E119] =0km [ODO_CLUSTER[0x550] = 0]
+
+At step 6
+
+Cluster should display,
+
+a)ODO_CLUSTER [0x550] = ""390""km[ODO reset cannot happen more than 300km]
+
+b)Neutral gear, 0Kmph","1.Turn Ignition OFF[HIL_Mdl_Ignition_SW_IP= 0]
+
+2. Set Battery Voltage to 0V"
+,VHIL_H100_VehFunc_ODO_Reset_DID_SpeedFault_InvalidSignal,"To verify the Reset ODO value through DID, when there is speed fault
+(Rear & Front Wheel Speed Senor signal is invalid)","1.Set Battery Voltage to 13.5V
+
+2.Turn Ignition ON[Ignition_SW_IP= 1]
+
+3.Crank the vehicle[HIL_Engine_Start_SW=1]
+
+4.No CAN failure & ODO related failure should not be present
+
+5.Simulate HIL_Mdl_GPS= Neutral [GEAR_POSITION[0x150=0x2]
+
+6.Simulate HIL_Mdl_Cons_APS to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Simulate HIL_Mdl_GPS= 4th[GEAR_POSITION[0x150=0x8]
+
+2.Simulate HIL_Mdl_Cons_APS to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 45kmph.
+
+3.Simulate HIL_Mdl_Cons_APS to achieve [ODO_CLUSTER[0X550] = 140km]
+
+At step 3
+
+Cluster should display,
+
+a)ODO_CLUSTER [0x550] = ""140""km
+
+b) 4th gear, 45Kmph
+
+4.a.Perform Open Circuit for [WSS_REAR_IP]
+
+BUS_ABS_DATA_3_0x451_WHEEL_SPEED_REAR[0x451=0x3]; Signal Invalid
+
+4.b.Perform Open Circuit for [WSS_FRONT_IP]
+
+BUS_ABS_DATA_3_0x451_WHEEL_SPEED_FRONT[0x451=0x3]; Signal Invalid
+
+5.Simulate HIL_Mdl_GPS= Neutral [GEAR_POSITION[0x150=0x2]
+
+6.Write ODO value through DID value[E119] =0km [ODO_CLUSTER[0X550] = 0]
+
+After step 6:
+
+ABS should publish
+
+a) DISTANCE_REAR = Invalid
+
+b) DISTNACE_FRONT = Invalid
+
+c)WSS_REAR = Invalid
+
+d)WSS_FRONT = Invalid
+
+Cluster should display,
+
+a)ODO_CLUSTER [0x550] = ""140""km[Because of WSS failure]","1.Turn Ignition OFF[Ignition_SW_IP= 0]
+
+2. Set Battery Voltage to 0V"
+,VHIL_H100_VehFunc_ODO_Reset_DID_SpeedFault_SensorDefective,"To verify the Reset ODO value through DID, when there is speed fault
+(Rear & Front Wheel Speed Senor is defective)","1.Set Battery Voltage to 13.5V
+
+2.Turn Ignition ON[Ignition_SW_IP= 1]
+
+3. Crank the vehicle[HIL_Engine_Start_SW=1]
+
+4.No CAN failure & ODO related failure should not be present
+
+5.Simulate HIL_Mdl_GPS= Neutral [GEAR_POSITION[0x150=0x2]
+
+6.Simulate HIL_Mdl_Cons_APS to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Simulate HIL_Mdl_GPS= 4th[GEAR_POSITION[0x150=0x8]
+
+2.Simulate HIL_Mdl_Cons_APS to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 55kmph.
+
+3.Simulate HIL_Mdl_Cons_APS to achieve [ODO_CLUSTER[0X550] = 180km]
+
+At step 3:
+
+Cluster should display,
+
+a)ODO_CLUSTER [0x550] = ""180""km
+
+b)4th gear, 55Kmph
+
+4.a.Perform Open Circuit for [WSS_REAR_IP]
+
+BUS_ABS_DATA_3_0x451_WHEEL_SPEED_REAR[0x451=0x2]; Sensor Defect
+
+4.b.Perform Open Circuit for [WSS_FRONT_IP]
+
+BUS_ABS_DATA_3_0x451_WHEEL_SPEED_FRONT[0x451=0x2]; Sensor Defect
+
+After step 4:
+
+ABS should publish
+
+a) DISTANCE_REAR = Invalid
+
+b) DISTNACE_FRONT = Invalid
+
+c)WSS_REAR = Invalid
+
+d)WSS_FRONT = Invalid
+
+Cluster should display,
+
+a)ODO_CLUSTER [0x550] = ""180""km","1.Turn Ignition OFF[Ignition_SW_IP= 0]
+
+2. Set Battery Voltage to 0V"
+,VHIL_H100_VehFunc_ODO_TextBlink_InvalidSignal_Reserved,"To verify the Reset ODO value through DID, when there is speed fault
+(Front Wheel Speed Senor is defective)","1.Set Battery Voltage to 13.5V
+
+2.Turn Ignition ON[Ignition_SW_IP= 1]
+
+3. Crank the vehicle[HIL_Engine_Start_SW=1]
+
+4.No CAN failure & ODO related failure should not be present
+
+5.Simulate HIL_Mdl_GPS= Neutral [GEAR_POSITION[0x150=0x2]
+
+6.Simulate HIL_Mdl_Cons_APS to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Simulate HIL_Mdl_GPS= 3rd[GEAR_POSITION[0x150=0x8]
+
+2.Simulate HIL_Mdl_Cons_APS to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 35kmph.
+
+3.Simulate HIL_Mdl_Cons_APS to achieve [ODO_CLUSTER[0X550] = 180km]
+
+At step 3:
+
+Cluster should display,
+
+a)ODO_CLUSTER [0x550] = ""180""km
+
+b)3rd gear, 35Kmph
+
+4.Perform Open Circuit for [WSS_FRONT_IP]
+
+BUS_ABS_DATA_3_0x451_WHEEL_SPEED_FRONT[0x451=0x1]; Sensor defect
+
+5.Write ODO value through DID value[E119] =0km [ODO_CLUSTER[0X550] = 0]
+
+After step 5:
+
+ABS should publish
+
+a) DISTANCE_REAR = Invalid
+
+b) DISTNACE_FRONT = Invalid
+
+c)WSS_REAR = Invalid
+
+d)WSS_FRONT = Invalid
+
+Cluster should display,
+
+a)ODO_CLUSTER [0x550] = ""140""km[ODO reset will not happen]","1.Turn Ignition OFF[Ignition_SW_IP= 0]
+
+2. Set Battery Voltage to 0V"
+,VHIL_H100_VehFunc_ODO_Rollback_MaxValue_999999km,"To verify the ODO value doesn’t rolls back to 0, when Odometer value reach the maximum value (999999km) ","1.Set Battery Voltage to 13.5V
+
+2.Turn Ignition ON[HIL_Mdl_Ignition_SW_IP= 1]
+
+3.Crank the vehicle[HIL_Mdl_Engine_Start_SW=1]
+
+4.No CAN failure & ODO related failure should not be present
+
+5.Simulate HIL_Mdl_GPS= Neutral [GEAR_POSITION[0x150=0x2]
+
+6.Simulate HIL_Mdl_Cons_APS to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Write ODO value through DID value[E119] = 999999km [ODO_CLUSTER[0X550] = 999999]
+
+At step 1
+
+Cluster should display,
+
+a)ODO_CLUSTER [0x550] = ""999999""km
+
+b)Neutral gear, 0Kmph
+
+2.Simulate HIL_Mdl_GPS= 3 [GEAR_POSITION[0x150=0x7]; 3 Gear]
+
+3.Simulate HIL_Mdl_Cons_APS to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED ~= 40kmph
+
+4. Drive the vehicle for 1Km [Scenario to be decided]
+
+At step 4
+
+Cluster should display,
+
+a) ODO doesnt roll back to ""0""Km and should remain at maximum value
+
+b)3 gear, 40kmph","1.Turn Ignition OFF[HIL_Mdl_Ignition_SW_IP= 0]
+
+2. Set Battery Voltage to 0V"
+,VHIL_H100_VehFunc_ODO_Resolution_1km_Above100000,To verify the Odometer resolution is 1km  when the displayed ODO value is >=100000,"1.Set Battery Voltage to 13.5V
+
+2.Turn Ignition ON[Ignition_SW_IP= 1]
+
+3. Crank the vehicle[HIL_Engine_Start_SW=1]
+
+4.No CAN failure & ODO related failure should not be present
+
+5.Simulate HIL_Mdl_GPS= Neutral [GEAR_POSITION[0x150=0x2]
+
+6.Simulate HIL_Mdl_Cons_APS to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1..Write ODO value through DID value[E119] = 100000km [ODO_CLUSTER[0X550] = 100000]
+
+At step 1
+
+Cluster should display,
+
+a)ODO_CLUSTER [0x550] = ""100000""km
+
+b)Neutral gear, 0Kmph
+
+2.Simulate HIL_Mdl_GPS= 3 [GEAR_POSITION[0x150=0x7]; 3 Gear]
+
+3.Simulate HIL_Mdl_Cons_APS to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 40kmph
+
+4. Drive the vehicle for 1 Km [Scenario to be decided]
+
+5. Verify the ODO value after step 4
+
+At step 5
+
+Cluster should display,
+
+a) ODO_CLUSTER [0x550] = ""100001""km (Resolution of 1Km)
+
+b) 3 gear, 40kmph
+
+c) Distance_Rear = Calculated as per WSS_REAR_IP","1.Turn Ignition OFF[Ignition_SW_IP= 0]
+
+2. Set Battery Voltage to 0V"
+,VHIL_H100_VehFunc_ODO_Resolution_0_1km_Below999999_9,To verify the Odometer resolution is 1 km  when the displayed ODO value is below 999999Km,"1.Set Battery Voltage to 13.5V
+
+2.Turn Ignition ON[HIL_Mdl_Ignition_SW_IP= 1]
+
+3. Crank the vehicle[HIL_Mdl_Engine_Start_SW=1]
+
+4.No CAN failure & ODO related failure should not be present
+
+5.Simulate HIL_Mdl_GPS= Neutral [GEAR_POSITION[0x150=0x2]
+
+6.Simulate HIL_Mdl_Cons_APS to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1..Write ODO value through DID value[E119] = 999998km [ODO_CLUSTER[0X550] = 999998]
+
+At step 1
+
+Cluster should display,
+
+a)ODO_CLUSTER [0x550] = ""999998""km
+
+b)Neutral gear, 0Kmph
+
+2.Simulate HIL_Mdl_GPS= 1 [GEAR_POSITION[0x150=0x1]; 1 Gear]
+
+3.Simulate HIL_Mdl_Cons_APS to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED ~= 10kmph
+
+4. Drive the vehicle for 0.9 Km [Scenario to be decided]
+
+At step 4
+
+Cluster should display,
+
+a) ODO_CLUSTER [0x550] = ""999998""km (Resolution of 1 Km)
+
+b) 1 gear, 10kmph
+
+5. Continue driving for 1 Km [Scenario to be decided]
+
+At step 5
+
+Cluster should not display,
+
+a) ODO_CLUSTER [0x550] = ""999999""km (Resolution of 1 Km)
+
+b) 1 gear, 10kmph","1.Turn Ignition OFF[HIL_Mdl_Ignition_SW_IP= 0]
+
+2. Set Battery Voltage to 0V"
+,VHIL_H100_VehFunc_ODO_Function_IgnitionCycles,To verify the Odometer functioning during ignition cycles,"1.Set Battery Voltage to 13.5V
+
+2.Turn Ignition ON[Ignition_SW_IP= 1]
+
+3. Crank the vehicle[HIL_Engine_Start_SW=1]
+
+4.No CAN failure & ODO related failure should not be present
+
+5.Simulate HIL_Mdl_GPS= Neutral [GEAR_POSITION[0x150=0x2]
+
+6.Simulate HIL_Mdl_Cons_APS to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Simulate HIL_Mdl_GPS= 5th [GEAR_POSITION[0x150=0xB]
+
+2.Simulate HIL_Mdl_Cons_APS to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 90kmph
+
+3.Simulate HIL_Mdl_Cons_APS to achieve [ODO_CLUSTER[0X550] = 160km]
+
+At step 3:
+
+Cluster should display,
+
+a)ODO_CLUSTER [0x550] = ""160""km
+
+b)3rd gear, 90Kmph
+
+4. Ride for 5 minutes(Approx) and Turn Ignition OFF[Ignition_SW_IP= 0]
+
+At step 4:
+
+Cluster display is OFF and the Odometer is not functional
+
+5. Monitor ODO value after step 2
+
+6. Turn Ignition ON[Ignition_SW_IP= 1]
+
+7.Simulate HIL_Mdl_GPS= Neutral [GEAR_POSITION[0x150=0x2]
+
+8.Simulate HIL_Mdl_Cons_APS to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph
+
+At step 8:
+
+Cluster should display,
+
+a)ODO_CLUSTER [0x550] = ""180""km
+
+b)Neutral gear, 0Kmph","1.Turn Ignition OFF[Ignition_SW_IP= 0]
+
+2. Set Battery Voltage to 0V"
+,VHIL_H100_VehFunc_ODO_Function_BatteryCycles,To verify the Odometer functioning during battery cycles,"1.Set Battery Voltage to 13.5V
+
+2.Turn Ignition ON[Ignition_SW_IP= 1]
+
+3. Crank the vehicle[HIL_Engine_Start_SW=1]
+
+4.No CAN failure & ODO related failure should not be present
+
+5.Simulate HIL_Mdl_GPS= Neutral [GEAR_POSITION[0x150=0x2]
+
+6.Simulate HIL_Mdl_Cons_APS to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Simulate HIL_Mdl_GPS= 5th[GEAR_POSITION[0x150=0xB]
+
+2.Simulate HIL_Mdl_Cons_APS to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 100 kmph.
+
+3.Simulate HIL_Mdl_Cons_APS to achieve [ODO_CLUSTER[0X550] = 15 km]
+
+At step 3:
+
+Cluster should display,
+
+a) ODO_CLUSTER [0x550] = ""15""km
+
+b) 2nd gear, 30Kmph
+
+4. Ride for 5 minutes(Approx) and Disconnect the battery
+
+At step 4:
+
+Cluster display is OFF and the Odometer is not functional
+
+5. Monitor ODO value after step 2
+
+6. Connect the battery
+
+7.Simulate HIL_Mdl_GPS= Neutral [GEAR_POSITION[0x150=0x2]
+
+8.Simulate HIL_Mdl_Cons_APS to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph
+
+At step 8:
+
+Cluster should display,
+
+a)ODO_CLUSTER [0x550] = ""15""km
+
+b)Neutral gear, 0Kmph","1.Turn Ignition OFF[Ignition_SW_IP= 0]
+
+2. Set Battery Voltage to 0V"
+,VHIL_H100_VehFunc_ODO_Update_Every100m_LeadingZeros,To verify the ODO value is updated for every 100m with leading zeros till the ODO value reaches to 0.9 KM,"1.Set Battery Voltage to 13.5V
+
+2.Turn Ignition ON[Ignition_SW_IP= 1]
+
+3. Crank the vehicle[HIL_Engine_Start_SW=1]
+
+4.No CAN failure & ODO related failure should not be present
+
+5.Simulate HIL_Mdl_GPS= Neutral [GEAR_POSITION[0x150=0x2]
+
+6.Simulate HIL_Mdl_Cons_APS to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1. Write ODO value through DID value[E119] = 0km [ODO_CLUSTER[0X550] = 0]
+
+At Step 1
+
+Cluster should display
+
+a) ODO_CLUSTER [0x550] = ""0""km
+
+b)Neutral, 0kmph
+
+2.Simulate HIL_Mdl_GPS= 1 [GEAR_POSITION[0x150=0x1]; 1 Gear]
+
+3.Simulate HIL_Mdl_Cons_APS to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED ~= 10kmph
+
+4.Simulate HIL_Mdl_Cons_APS to achieve [ODO_CLUSTER[0X550] = 0.5km]
+
+At step 4
+
+Cluster Should display
+
+a) ODO_CLUSTER [0x550] = ""0.5""Km (Leading Zero is added)
+
+b) 1st Gear, 10Kmph
+
+5.Simulate HIL_Mdl_Cons_APS to achieve [ODO_CLUSTER[0X550] = 1.5km]
+
+6. Verify the ODO value after step 5
+
+At step 6
+
+Cluster Should display
+
+a) ODO_CLUSTER [0x550] = ""2.5""Km (Leading Zero is suppressed)
+
+b) 1st Gear, 6Kmph","1.Turn Ignition OFF[Ignition_SW_IP= 0]
+
+2. Set Battery Voltage to 0V"
+,VHIL_H100_VehFunc_ODO_Update_FrontWSSDefective_4thGear,"To verify the ODO value updation, when the Front WSS is defective at 4th gear speed of 40kmph","1.Set Battery Voltage to 13.5V
+
+2.Turn Ignition ON[Ignition_SW_IP= 1]
+
+3.Crank the vehicle[HIL_Engine_Start_SW=1]
+
+4.No CAN failure & ODO related failure should not be present
+
+5.Simulate HIL_Mdl_GPS= Neutral [GEAR_POSITION[0x150=0x2]
+
+6.Simulate HIL_Mdl_Cons_APS to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Simulate HIL_Mdl_GPS= 4th[GEAR_POSITION[0x150=0x8]
+
+2.Simulate HIL_Mdl_Cons_APS to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 43kmph.
+
+3.Simulate HIL_Mdl_Cons_APS to achieve [ODO_CLUSTER[0X550] = 160km]
+
+At step 3:
+
+Cluster should display,
+
+a)ODO_CLUSTER [0x550] = ""160""km
+
+b)4th gear, 43Kmph
+
+4.a.Perform Open Circuit for [WSS_REAR_IP]
+
+BUS_ABS_DATA_3_0x451_WHEEL_SPEED_FRONT[0x451=0x2]; Sensor Defect
+
+4.b.Simulate WSS_REAR_IP to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 40kmph
+
+At step 4
+
+ABS should publish,
+
+a)WHEEL_SPEED_FRONT= Invalid
+
+b)WHEEL_SPEED_REAR = 40kmph
+
+c)DISTANCE_FRONT = INVALID
+
+d)DISTANCE_ REAR= Calculated as per WSS_REAR_IP
+
+e)BUS_ABS_DATA_3_0x451_WHEEL_SPEED_REAR[0x451=0x2]; Sensor in order
+
+5. Simulate HIL_Mdl_Cons_APS to achieve [ODO_CLUSTER[0X550] = 162km]
+
+At step 5
+
+Cluster should display,
+
+a)ODO_CLUSTER [0x550] = ""162""km
+
+b) 4th Gear, 43Kmph","1.Turn Ignition OFF[Ignition_SW_IP= 0]
+
+2. Set Battery Voltage to 0V"
+,VHIL_H100_VehFunc_ODO_Update_RearWSSDefective_3rdGear,"To verify the ODO value updation, when the Rear WSS is defective at 3rd gear speed of 50 kmph","1.Set Battery Voltage to 13.5V
+
+2.Turn Ignition ON[Ignition_SW_IP= 1]
+
+3. Crank the vehicle[HIL_Engine_Start_SW=1]
+
+4.No CAN failure & ODO related failure should not be present
+
+5.Simulate HIL_Mdl_GPS= Neutral [GEAR_POSITION[0x150=0x2]
+
+6.Simulate HIL_Mdl_Cons_APS to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Simulate HIL_Mdl_GPS= 5th[GEAR_POSITION[0x150=0xB]
+
+2.Simulate HIL_Mdl_Cons_APS to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 50kmph.
+
+3.Simulate HIL_Mdl_Cons_APS to achieve [ODO_CLUSTER[0X550] = 270km]
+
+At step 3:
+
+Cluster should display,
+
+a)ODO_CLUSTER [0x550] = ""270""km
+
+b)5th gear, 50Kmph
+
+4.a.Perform Open Circuit for [WSS_REAR_IP]
+
+BUS_ABS_DATA_3_0x451_WHEEL_SPEED_REAR[0x451=0x2]; Sensor Defect
+
+4.b.Simulate WSS_FRONT_IP to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 50kmph
+
+At step 4
+
+ABS should publish,
+
+a)WHEEL_SPEED_FRONT= Invalid
+
+b)WHEEL_SPEED_REAR = 47kmph
+
+c)DISTANCE_FRONT = INVALID
+
+d)DISTANCE_ REAR= Calculated as per WSS_REAR_IP
+
+e)BUS_ABS_DATA_3_0x451_WHEEL_SPEED_REAR[0x451=0x2]; Sensor in order
+
+5.Simulate HIL_Mdl_Cons_APS to achieve [ODO_CLUSTER[0X550] = 274km]
+
+Cluster should display,
+
+a)ODO_CLUSTER [0x550] = ""274""km
+
+b) 5th Gear, 50Kmph","1.Turn Ignition OFF[Ignition_SW_IP= 0]
+
+2. Set Battery Voltage to 0V"
+,VHIL_H100_VehFunc_TripA_Rollback_MaxValue_999999_km,"To verify the Trip A Distance value doesn’t rolls back to 0, when trip Odometer value reach the maximum value (999999km) ","1.Set Battery Voltage to 13.5V
+
+2.Turn Ignition ON[HIL_Mdl_Ignition_SW_IP= 1]
+
+3.Crank the vehicle[HIL_Mdl_Engine_Start_SW=1]
+
+4.No CAN failure & ODO related failure should not be present
+
+5.Simulate HIL_Mdl_GPS= Neutral [GEAR_POSITION[0x150=0x2]
+
+6.Simulate HIL_Mdl_Cons_APS to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Write ODO value through DID value[E119] = 999999km [ODO_CLUSTER[0X550] = 999999]
+
+2.Verify Trip A distance ( Goto Menu -> Trip Details -> Trip A)
+
+At step 2
+
+Cluster should display,
+
+a) TRIP A Distance as ""999999""km
+
+b) ODO_CLUSTER [0x550] = ""999999""km
+
+c) Neutral gear, 0Kmph
+
+3.Simulate HIL_Mdl_GPS= 3 [GEAR_POSITION[0x150=0x7]; 3 Gear]
+
+4.Simulate HIL_Mdl_Cons_APS to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED ~= 40kmph
+
+5.Simulate HIL_Mdl_Cons_APS to achieve [ODO_CLUSTER[0X550] = 0 km] since ODO will be resetted
+
+6.Verify Trip A distance ( Goto Menu -> Trip Details -> Trip A)
+
+At step 6
+
+Cluster should display,
+
+a) TRIP A Distance as ""999999""Km ( doesnt Roll Over to 0)
+
+b) ODO_CLUSTER [0x550] = ""999999""km (Resolution of 1 Km)
+
+c) 3rd gear, 40Kmph","1.Turn Ignition OFF[HIL_Mdl_Ignition_SW_IP= 0]
+
+2. Set Battery Voltage to 0V"
+,VHIL_H100_VehFunc_TripB_Rollback_MaxValue_999999_9km,"To verify the Trip B Distance value doesn’t  rolls back to 0, when trip Odometer value reach the maximum value (999999km) ","1.Set Battery Voltage to 13.5V
+
+2.Turn Ignition ON[HIL_Mdl_Ignition_SW_IP= 1]
+
+3.Crank the vehicle[HIL_Mdl_Engine_Start_SW=1]
+
+4.No CAN failure & ODO related failure should not be present
+
+5.Simulate HIL_Mdl_GPS= Neutral [GEAR_POSITION[0x150=0x2]
+
+6.Simulate HIL_Mdl_Cons_APS to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Write ODO value through DID value[E119] = 999999km [ODO_CLUSTER[0X550] = 999999]
+
+2.Verify Trip B distance ( Goto Menu -> Trip Details -> Trip B)
+
+At step 2
+
+Cluster should display,
+
+a) TRIP B Distance as ""999999""km
+
+b) ODO_CLUSTER [0x550] = ""999999""km
+
+c) Neutral gear, 0Kmph
+
+3.Simulate HIL_Mdl_GPS= 3 [GEAR_POSITION[0x150=0x7]; 3 Gear]
+
+4.Simulate HIL_Mdl_Cons_APS to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED ~= 40kmph
+
+5.Simulate HIL_Mdl_Cons_APS to achieve [ODO_CLUSTER[0X550] = 0km] since ODO will be resetted
+
+6.Verify Trip B distance ( Goto Menu -> Trip Details -> Trip B)
+
+At step 6
+
+Cluster should display,
+
+a) TRIP B Distance as ""999999""Km ( doesnt Roll Over to 0)
+
+b) ODO_CLUSTER [0x550] = ""0""km (Resolution of 1 Km)
+
+c) 3rd gear, 40Kmph","1.Turn Ignition OFF[HIL_Mdl_Ignition_SW_IP= 0]
+
+2. Set Battery Voltage to 0V"
+,VHIL_H100_VehFunc_Trip_Rollback_MaxValue_999999_9km,"To verify the  Distance value rolls back to 0, when trip Odometer value reach the maximum value (999999km) ","1.Set Battery Voltage to 13.5V
+
+2.Turn Ignition ON[HIL_Mdl_Ignition_SW_IP= 1]
+
+3.Crank the vehicle[HIL_Mdl_Engine_Start_SW=1]
+
+4.No CAN failure & ODO related failure should not be present
+
+5.Simulate HIL_Mdl_GPS= Neutral [GEAR_POSITION[0x150=0x2]
+
+6.Simulate HIL_Mdl_Cons_APS to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Write ODO value through DID value[E119] = 999999km [ODO_CLUSTER[0X550] = 999999]
+
+2.Verify distance ( Goto Menu -> Trip Details -> )
+
+At step 2
+
+Cluster should display,
+
+a) Distance as ""999999""km
+
+b) ODO_CLUSTER [0x550] = ""999999""km
+
+c) Neutral gear, 0Kmph
+
+3.Simulate HIL_Mdl_GPS= 3 [GEAR_POSITION[0x150=0x7]; 3 Gear]
+
+4.Simulate HIL_Mdl_Cons_APS to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED ~= 40kmph
+
+5. Simulate HIL_Mdl_Cons_APS to achieve [ODO_CLUSTER[0X550] = 0 km]
+
+6.Verify distance ( Goto Menu -> Trip Details -> )
+
+At step 6
+
+Cluster should display,
+
+a) Distance as ""0""Km ( Roll Over to 0)
+
+b) ODO_CLUSTER [0x550] = ""0""km (Resolution of 1 Km)
+
+c) 3rd gear, 40Kmph","1.Turn Ignition OFF[HIL_Mdl_Ignition_SW_IP= 0]
+
+2. Set Battery Voltage to 0V"
+,VHIL_H100_VehFunc_DayTrip_Rollback_MaxValue_999999_9km,"To verify the Day Trip Distance value rolls back to 0, when trip Odometer value reach the maximum value (999999.9km) ","1.Set Battery Voltage to 13.5V
+
+2.Turn Ignition ON[HIL_Mdl_Ignition_SW_IP= 1]
+
+3.Crank the vehicle[HIL_Mdl_Engine_Start_SW=1]
+
+4.No CAN failure & ODO related failure should not be present
+
+5.Simulate HIL_Mdl_GPS= Neutral [GEAR_POSITION[0x150=0x2]
+
+6.Simulate HIL_Mdl_Cons_APS to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Write ODO value through DID value[E119] = 999999km [ODO_CLUSTER[0X550] = 999999]
+
+At step 1
+
+Cluster should display,
+
+a) Day trip Distance as ""999999""km
+
+b) ODO_CLUSTER [0x550] = ""999999""km
+
+c) Neutral gear, 0Kmph
+
+2.Verify Day Trip meter distance ( Goto Menu -> Trip Details -> Day trip meter)
+
+3.Simulate HIL_Mdl_GPS= 3 [GEAR_POSITION[0x150=0x7]; 3 Gear]
+
+4.Simulate HIL_Mdl_Cons_APS to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED ~= 40kmph
+
+At step 4
+
+Cluster should display,
+
+a) Day trip Distance as ""0""Km ( Roll Over to 0)
+
+b) ODO_CLUSTER [0x550] = ""0""km (Resolution of 1 Km) since ODO will be resetted.
+
+c) 3rd gear, 40Kmph
+
+5. Simulate HIL_Mdl_Cons_APS to achieve [ODO_CLUSTER[0X550] = 1 km]
+
+6.Verify Day Trip meter distance ( Goto Menu -> Trip Details -> Day trip meter)","1.Turn Ignition OFF[HIL_Mdl_Ignition_SW_IP= 0]
+
+2. Set Battery Voltage to 0V"
+,VHIL_H100_VehFunc_Trip_Update_Resolution_0_1km,To verify the trip meter updates in 0.1 resolution,"1.Set Battery Voltage to 13.5V
+
+2.Turn Ignition ON[Ignition_SW_IP= 1]
+
+3.Crank the vehicle[HIL_Engine_Start_SW=1]
+
+4.No CAN failure & ODO related failure should not be present
+
+5.Simulate HIL_Mdl_GPS= Neutral [GEAR_POSITION[0x150=0x2]
+
+6.Simulate HIL_Mdl_Cons_APS to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Simulate HIL_Mdl_GPS= 3 [GEAR_POSITION[0x150=0x7]; 3 gear
+
+2.Simulate HIL_Mdl_Cons_APS to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 43kmph.
+
+3.Simulate HIL_Mdl_Cons_APS to achieve [ODO_CLUSTER[0X550] = 160km]
+
+4.Verify Trip B distance ( Goto Menu -> Trip Details -> Trip B)
+
+At step 4
+
+Cluster should display,
+
+a) Trip B distance value as ""160"" Km
+
+b)ODO_CLUSTER [0x550] = ""160""km
+
+c)3rd gear, 43Kmph
+
+5.Simulate HIL_Mdl_Cons_APS to achieve [ODO_CLUSTER[0X550] =160.9 km]
+
+6.Verify Trip B distance ( Goto Menu -> Trip Details -> Trip B)
+
+At step 6
+
+Cluster should display,
+
+a) a) Trip B distance value as ""160.9"" Km (Resolution of 0.1 Km)
+
+b) ODO_CLUSTER [0x550] = ""160.9""km (Resolution of 0.1 Km)
+
+c)3rd gear, 43Kmph","1.Turn Ignition OFF[Ignition_SW_IP= 0]
+
+2. Set Battery Voltage to 0V"
+,VHIL_H100_VehFunc_Trip_Function_IgnitionCycles,To verify the Trip meter functioning during ignition cycles,"1.Set Battery Voltage to 13.5V
+
+2.Turn Ignition ON[Ignition_SW_IP= 1]
+
+3.Crank the vehicle[HIL_Engine_Start_SW=1]
+
+4.No CAN failure & ODO related failure should not be present
+
+5.Simulate HIL_Mdl_GPS= Neutral [GEAR_POSITION[0x150=0x2]
+
+6.Simulate HIL_Mdl_Cons_APS to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Simulate HIL_Mdl_GPS= 3rd[GEAR_POSITION[0x150=0x7]
+
+2.Simulate HIL_Mdl_Cons_APS to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 50kmph.
+
+3.Simulate HIL_Mdl_Cons_APS to achieve [ODO_CLUSTER[0X550] = 170km]
+
+4.Verify distance ( Goto Menu -> Trip Details -> )
+
+At step 4
+
+Cluster should display,
+
+a) Distance as ""170""km
+
+b)ODO_CLUSTER [0x550] = ""170""km
+
+c)3rd gear, 50Kmph
+
+5. Turn Ignition OFF[Ignition_SW_IP= 0]
+
+At step 5:
+
+Cluster display is OFF and the trip meter is not functional
+
+6. Turn Ignition ON[Ignition_SW_IP= 1]
+
+7.Simulate HIL_Mdl_GPS= Neutral [GEAR_POSITION[0x150=0x2]
+
+8.Simulate HIL_Mdl_Cons_APS to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph
+
+9.Verify distance ( Goto Menu -> Trip Details -> )
+
+At step 9:
+
+Cluster should display,
+
+a) Distance as ""170""km (Last dislayed value)
+
+b)ODO_CLUSTER [0x550] = ""170""km
+
+c)Neutral gear, 0Kmph","1.Turn Ignition OFF[Ignition_SW_IP= 0]
+
+2. Set Battery Voltage to 0V"
+,VHIL_H100_VehFunc_TripA_Value_AfterReset,To verify TRIP A distance value after reseting TRIP A,"1.Set Battery Voltage to 13.5V
+
+2.Turn Ignition ON[Ignition_SW_IP= 1]
+
+3.Crank the vehicle[HIL_Engine_Start_SW=1]
+
+4.No CAN failure & ODO related failure should not be present
+
+5.Simulate HIL_Mdl_GPS= Neutral [GEAR_POSITION[0x150=0x2]
+
+6.Simulate HIL_Mdl_Cons_APS to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Simulate HIL_Mdl_GPS= 3 [GEAR_POSITION[0x150=0x7]; 3 gear
+
+2.Simulate HIL_Mdl_Cons_APS to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 43kmph.
+
+3.Simulate HIL_Mdl_Cons_APS to achieve [ODO_CLUSTER[0X550] = 180km]
+
+4.Verify Trip A distance ( Goto Menu -> Trip Details -> Trip A)
+
+At step 4
+
+Cluster should display,
+
+a) Trip A Distance as ""180""km
+
+b)ODO_CLUSTER [0x550] = ""180""km
+
+c)3rd gear, 43Kmph
+
+5.Reset Trip A in cluster HMI (Goto Menu -> Trip Details -> Trip A -> Reset -> Yes)
+
+At step 5
+
+Cluster should display,
+
+a) Trip A Distance as ""0"" km (reset to 0)
+
+b)ODO_CLUSTER [0x550] = ""200""km
+
+c)3rd gear, 43Kmph","1.Turn Ignition OFF[Ignition_SW_IP= 0]
+
+2. Set Battery Voltage to 0V"
+,VHIL_H100_VehFunc_TripB_Value_AfterReset,To verify TRIP B distance value after reseting TRIP B,"1.Set Battery Voltage to 13.5V
+
+2.Turn Ignition ON[Ignition_SW_IP= 1]
+
+3.Crank the vehicle[HIL_Engine_Start_SW=1]
+
+4.No CAN failure & ODO related failure should not be present
+
+5.Simulate HIL_Mdl_GPS= Neutral [GEAR_POSITION[0x150=0x2]
+
+6.Simulate HIL_Mdl_Cons_APS to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Simulate HIL_Mdl_GPS= 4 [GEAR_POSITION[0x150=0x8]; 4 gear
+
+2.Simulate HIL_Mdl_Cons_APS to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 60 kmph.
+
+3.Simulate HIL_Mdl_Cons_APS to achieve [ODO_CLUSTER[0X550] = 200km]
+
+4.Verify Trip B distance ( Goto Menu -> Trip Details -> Trip B)
+
+At step 4
+
+Cluster should display,
+
+a) Trip B Distance as ""200""km
+
+b)ODO_CLUSTER [0x550] = ""200""km
+
+c)4th gear, 60Kmph
+
+5.Reset Trip B in cluster HMI (Goto Menu -> Trip Details -> Trip B -> Reset -> Yes)
+
+At step 5
+
+Cluster should display,
+
+a) Trip B Distance as ""0"" km (reset to 0)
+
+b)ODO_CLUSTER [0x550] = ""200""km
+
+c)4th gear, 60Kmph","1.Turn Ignition OFF[Ignition_SW_IP= 0]
+
+2. Set Battery Voltage to 0V"
+,VHIL_H100_VehFunc_Trip_Value_FirstBatteryConnect,To verify trip meter value during 1st battery connect,"1.Set Battery Voltage to 13.5V
+
+2.Turn Ignition ON[Ignition_SW_IP= 1]
+
+3.Crank the vehicle[HIL_Engine_Start_SW=1]
+
+4.No CAN failure & ODO related failure should not be present
+
+5.Simulate HIL_Mdl_GPS= Neutral [GEAR_POSITION[0x150=0x2]
+
+6.Simulate HIL_Mdl_Cons_APS to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Turn Ignition OFF[Ignition_SW_IP= 0]
+
+2.Turn Ignition ON[Ignition_SW_IP= 1]
+
+At step 2
+
+Cluster should display,
+
+a) Trip A, Trip B, , Day trip meter Distance as ""0""km
+
+b)ODO_CLUSTER [0x550] = ""0""km
+
+c)Neutral, 0Kmph
+
+3. Verify Trip A, Trip B, and Day Trip distance ( Goto Menu -> Trip Details -> Trip A/ Trip B/ / day trip meter)","1.Turn Ignition OFF[Ignition_SW_IP= 0]
+
+2. Set Battery Voltage to 0V"
+,VHIL_H100_VehFunc_Trip_Update_LeadingZeros_Till0_9km,To verify the Trip meter  is updated with leading zeros till the trip value reaches to 0.9 KM,"1.Set Battery Voltage to 13.5V
+
+2.Turn Ignition ON[Ignition_SW_IP= 1]
+
+3.Crank the vehicle[HIL_Engine_Start_SW=1]
+
+4.No CAN failure & ODO related failure should not be present
+
+5.Simulate HIL_Mdl_GPS= Neutral [GEAR_POSITION[0x150=0x2]
+
+6.Simulate HIL_Mdl_Cons_APS to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1. Write ODO value through DID value[E119] = 0km [ODO_CLUSTER[0X550] = 0]
+
+At Step 1
+
+Cluster should display
+
+a) Trip A Distance as ""0""km
+
+b) ODO_CLUSTER [0x550] = ""0""km
+
+c)Neutral, 0kmph
+
+2.Simulate HIL_Mdl_GPS= 1 [GEAR_POSITION[0x150=0x1]; 1 Gear]
+
+3.Simulate HIL_Mdl_Cons_APS to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED ~= 10kmph
+
+4.Simulate HIL_Mdl_Cons_APS to achieve [ODO_CLUSTER[0X550] = 1km]
+
+5.Verify Trip A distance ( Goto Menu -> Trip Details -> Trip A)
+
+At step 5
+
+Cluster Should display
+
+a) Trip A Distance as ""0.5""km (Leading Zero is added)
+
+b) ODO_CLUSTER [0x550] = ""1""Km
+
+c) 1st Gear, 10Kmph
+
+6.Simulate HIL_Mdl_Cons_APS to achieve [ODO_CLUSTER[0X550] = 2km]
+
+At step 6
+
+Cluster Should display
+
+a) Trip A Distance as ""2""km (Leading Zero is suppressed)
+
+b) ODO_CLUSTER [0x550] = ""2""Km
+
+c) 1st Gear, 6Kmph
+
+7.Verify Trip A distance ( Goto Menu -> Trip Details -> Trip A)","1.Turn Ignition OFF[Ignition_SW_IP= 0]
+
+2. Set Battery Voltage to 0V"

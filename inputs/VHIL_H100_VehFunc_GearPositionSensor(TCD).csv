@@ -1,0 +1,835 @@
+﻿ID,Test Case Title,Test Case Description,Pre-Action,Test Steps.Action,Post Condition
+,VHIL_H100_VehFuncTests_Upshift_NeutralTo1Gear,Observing the consistency check during sequential upshift from neutral to 1gear,"1. Set Battery Voltage to 13.5V
+
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+
+3. No CAN failure & Gear control related failure should not be present","1.Simulate HIL_Engine_Start_SW=1;BUS_ENGINE_DATA_1_0x150_ES_SWITCH_STATUS = 0x1 (ES switch pressed)
+
+2.Simulate HIL_Mdl_Cons_APS to acheive [BUS_ENGINE_DATA_1_0x150_ENGINE_RPM~= 1700 RPM]
+
+3.Simulate HIL_Mdl_GPS = Neutral [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x2]
+
+4.Simulate HIL_Mdl_Cons_APS = 0% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED ~= 0kmph
+
+4.1. Check BUS_ENGINE_DATA_1_0x150_ENGINE_RPM ≈ 1700 RPM
+
+4.2. Check BUS_ENGINE_DATA_5_0x151_ENGINE_STATUS = 0x0 (Running)
+
+4.3. Check BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x2 (Neutral)
+
+4.4. Cluster should display neutral gear ,0kmph and 1700RPM
+
+4e. Check if the neutral lamp glows
+
+5.Simulate HIL_Mdl_Cons_APS   20% to acheive [BUS_ENGINE_DATA_1_0x150_ENGINE_RPM~= 4400 RPM]
+
+6.Simulate HIL_Mdl_GPS = 1st [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x1]
+
+6.1. Check BUS_ENGINE_DATA_1_0x150_ENGINE_RPM ≈ 4400 RPM
+
+6.2. Check BUS_ENGINE_DATA_5_0x151_ENGINE_STATUS = 0x0 (Running)
+
+6.3. Check BUS_ENGINE_DATA_1_0x150_GEAR_POSITION=  0x1","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP = 0]
+
+2. Set the Voltage 0V"
+,VHIL_H100_VehFuncTests_Upshift_NeutralTo2Gear,Observing the consistency check during sequential upshift from neutral to 2gear,"1. Set Battery Voltage to 13.5V
+
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+
+3. No CAN failure & Gear control related failure should not be present","1.Simulate HIL_Engine_Start_SW=1;BUS_ENGINE_DATA_1_0x150_ES_SWITCH_STATUS = 0x1 (ES switch pressed)
+
+2.Simulate HIL_Mdl_Cons_APS to acheive [BUS_ENGINE_DATA_1_0x150_ENGINE_RPM~= 1700 RPM]
+
+3.Simulate HIL_Mdl_GPS = Neutral [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x2]
+
+4.Simulate HIL_Mdl_Cons_APS = 0% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED ~= 0kmph
+
+4.1. Check BUS_ENGINE_DATA_1_0x150_ENGINE_RPM ≈ 1700 RPM
+
+4.2. Check BUS_ENGINE_DATA_5_0x151_ENGINE_STATUS = 0x0 (Running)
+
+4.3. Check BUS_ENGINE_DATA_1_0x150_GEAR_POSITION=  0x2
+
+4.4. Cluster should display  Neutral gear and  0kmph and 1700RPM
+
+5.Simulate HIL_Mdl_GPS = 2nd [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x4]
+
+6.Simulate HIL_Mdl_Cons_APS = 26% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED ~= 35 kmph
+
+6.1. BUS_ENGINE_DATA_1_0x150_ENGINE_RPM ≈ 5200 RPM
+
+6.2. BUS_ENGINE_DATA_5_0x151_ENGINE_STATUS = 0x0 (Running)
+
+6.3. BUS_ENGINE_DATA_1_0x150_GEAR_POSITION=  0x4
+
+6.4. Cluster should display 2nd gear, 35kmph and 5200RPM","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP = 0]
+
+2. Set the Voltage 0V"
+,VHIL_H100_VehFuncTests_Upshift_1GearTo2Gear,Observing the consistency check during sequential  upshift  from 1gear to 2gear,"1. Set Battery Voltage to 13.5V
+
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+
+3. No CAN failure & Gear control related failure should not be present","1.Simulate HIL_Engine_Start_SW=1;BUS_ENGINE_DATA_1_0x150_ES_SWITCH_STATUS = 0x1 (ES switch pressed)
+
+2.Simulate HIL_Mdl_Cons_APS to acheive [BUS_ENGINE_DATA_1_0x150_ENGINE_RPM~= 4400 RPM]
+
+3.Simulate HIL_Mdl_GPS = 1st [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x1]
+
+4.Simulate HIL_Mdl_Cons_APS =20 % to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED ~= 20 kmph
+
+4.1. BUS_ENGINE_DATA_1_0x150_ENGINE_RPM ~ 4400 RPM
+
+4.2. BUS_ENGINE_DATA_5_0x151_ENGINE_STATUS = 0x0 (Running)
+
+4.3. BUS_ENGINE_DATA_1_0x150_GEAR_POSITION=  0x1
+
+4.4.Cluster should display 1st gear and 20kmph and 4400RPM
+
+5.Simulate HIL_Mdl_GPS = 2nd [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x4]
+
+6.Simulate HIL_Mdl_Cons_APS = 26% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED ~= 35 kmph
+
+6.1. EMS should publish BUS_ENGINE_DATA_1_0x150_ENGINE_RPM ≈ 5200 RPM
+
+6.2.EMS should publish BUS_ENGINE_DATA_5_0x151_ENGINE_STATUS = 0x0 (Running)
+
+6.3. EMS should publish BUS_ENGINE_DATA_1_0x150_GEAR_POSITION=  0x4
+
+6.4.Cluster should display 2nd gear, 35kmph and 5200RPM","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP = 0]
+
+2. Set the Voltage 0V"
+,VHIL_H100_VehFuncTests_Upshift_2GearTo3Gear,Observing the consistency check during sequential  upshift from 2gear to 3gear,"1. Set Battery Voltage to 13.5V
+
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+
+3. No CAN failure & Gear control related failure should not be present","1.Simulate HIL_Engine_Start_SW=1;BUS_ENGINE_DATA_1_0x150_ES_SWITCH_STATUS = 0x1 (ES switch pressed)
+
+2.Simulate HIL_Mdl_Cons_APS to acheive [BUS_ENGINE_DATA_1_0x150_ENGINE_RPM~= 5200 RPM]
+
+3.Simulate HIL_Mdl_GPS = 2nd [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x4]
+
+4.Simulate HIL_Mdl_Cons_APS = 26% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED ~= 35 kmph
+
+4.1. Check BUS_ENGINE_DATA_1_0x150_ENGINE_RPM ≈ 5200 RPM
+
+4.2. Check BUS_ENGINE_DATA_5_0x151_ENGINE_STATUS = 0x0 (Running)
+
+4.3. Check BUS_ENGINE_DATA_1_0x150_GEAR_POSITION=  0x4
+
+4.4. Cluster should display 2nd gear, 35kmph and 5200RPM
+
+5.Simulate HIL_Mdl_GPS = 3rd [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x7]
+
+6.Simulate HIL_Mdl_Cons_APS = 35% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED ~= 50 kmph
+
+6.1. Check BUS_ENGINE_DATA_1_0x150_ENGINE_RPM ≈ 6000 RPM
+
+6.2. Check BUS_ENGINE_DATA_5_0x151_ENGINE_STATUS = 0x0 (Running)
+
+6.3. Check BUS_ENGINE_DATA_1_0x150_GEAR_POSITION=  0x7
+
+6.4. Cluster should display 3rd gear, 50kmph and 6000RPM","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP = 0]
+
+2. Set the Voltage 0V"
+,VHIL_H100_VehFuncTests_Upshift_3GearTo4Gear,Observing the consistency check during sequential  upshift from 3gear to 4gear,"1. Set Battery Voltage to 13.5V
+
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+
+3. No CAN failure & Gear control related failure should not be present","1.Simulate HIL_Engine_Start_SW=1;BUS_ENGINE_DATA_1_0x150_ES_SWITCH_STATUS = 0x1 (ES switch pressed)
+
+2.Simulate HIL_Mdl_Cons_APS to acheive [BUS_ENGINE_DATA_1_0x150_ENGINE_RPM~= 6000 RPM]
+
+3.Simulate HIL_Mdl_GPS = 3rd [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x7]
+
+4.Simulate HIL_Mdl_Cons_APS = 35% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED ~= 50 kmph
+
+4.1. Check BUS_ENGINE_DATA_1_0x150_ENGINE_RPM ≈ 6000 RPM
+
+4.2. Check BUS_ENGINE_DATA_5_0x151_ENGINE_STATUS = 0x0 (Running)
+
+4.3. Check BUS_ENGINE_DATA_1_0x150_GEAR_POSITION=  0x7
+
+4.4. Cluster should display 3rd gear, 50kmph and 6000RPM
+
+5.Simulate HIL_Mdl_GPS = 4th [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x8]
+
+6.Simulate HIL_Mdl_Cons_APS = 45% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED ~= 70 kmph
+
+6.1. BUS_ENGINE_DATA_1_0x150_ENGINE_RPM ≈ 6800 RPM
+
+6.2. BUS_ENGINE_DATA_5_0x151_ENGINE_STATUS = 0x0 (Running)
+
+6.3. BUS_ENGINE_DATA_1_0x150_GEAR_POSITION=  0x8","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP = 0]
+
+2. Set the Voltage 0V"
+,VHIL_H100_VehFuncTests_Upshift_4GearTo5Gear,Observing the consistency check during sequential  upshift from  4gear to 5gear,"1. Set Battery Voltage to 13.5V
+
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+
+3. No CAN failure & Gear control related failure should not be present","1.Simulate HIL_Engine_Start_SW=1;BUS_ENGINE_DATA_1_0x150_ES_SWITCH_STATUS = 0x1 (ES switch pressed)
+
+2.Simulate HIL_Mdl_Cons_APS to acheive [BUS_ENGINE_DATA_1_0x150_ENGINE_RPM~= 6800 RPM]
+
+3.Simulate HIL_Mdl_GPS = 4th [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x8]
+
+4.Simulate HIL_Mdl_Cons_APS = 45% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED ~= 70 kmph
+
+4.1. Check BUS_ENGINE_DATA_1_0x150_ENGINE_RPM ≈ 6800 RPM
+
+4.2. Check BUS_ENGINE_DATA_5_0x151_ENGINE_STATUS = 0x0 (Running)
+
+4.3. Check BUS_ENGINE_DATA_1_0x150_GEAR_POSITION=  0x8
+
+4.4. Check Cluster should display 4th gear, 70kmph and 6800RPM
+
+5.Simulate HIL_Mdl_GPS = 5th [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0xB]
+
+6.Simulate HIL_Mdl_Cons_APS = 50% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED ~= 85 kmph
+
+6.1. Check BUS_ENGINE_DATA_1_0x150_ENGINE_RPM ≈ 7000 RPM
+
+6.2. Check BUS_ENGINE_DATA_5_0x151_ENGINE_STATUS = 0x0 (Running)
+
+6.3. Check BUS_ENGINE_DATA_1_0x150_GEAR_POSITION=  0xB
+
+6.4. Cluster should display 5th gear, 85kmph and 7000RPM","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP = 0]
+
+2. Set the Voltage 0V"
+,VHIL_H100_VehFuncTests_Upshift_5GearTo6Gear,Observing the consistency check during sequential  upshift from 5gear to 6gear,"1. Set Battery Voltage to 13.5V
+
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+
+3. No CAN failure & Gear control related failure should not be present","1.Simulate HIL_Engine_Start_SW=1;BUS_ENGINE_DATA_1_0x150_ES_SWITCH_STATUS = 0x1 (ES switch pressed)
+
+2.Simulate HIL_Mdl_Cons_APS to acheive [BUS_ENGINE_DATA_1_0x150_ENGINE_RPM~= 7000 RPM]
+
+3.Simulate HIL_Mdl_GPS = 5th [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0xB]
+
+4.Simulate HIL_Mdl_Cons_APS = 50% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED ~= 85 kmph
+
+4.1. Check BUS_ENGINE_DATA_1_0x150_ENGINE_RPM ≈ 7000 RPM
+
+4.2. Check BUS_ENGINE_DATA_5_0x151_ENGINE_STATUS = 0x0 (Running)
+
+4.3. Check BUS_ENGINE_DATA_1_0x150_GEAR_POSITION=  0xB
+
+4.4. Cluster should display 5th gear, 85kmph and 7000RPM
+
+5.Simulate HIL_Mdl_GPS = 6th [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0xD]
+
+6.Simulate HIL_Mdl_Cons_APS = 65% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED ~= 110 kmph
+
+6.1. Check BUS_ENGINE_DATA_1_0x150_ENGINE_RPM ≈ 7600 RPM
+
+6.2. Check BUS_ENGINE_DATA_5_0x151_ENGINE_STATUS = 0x0 (Running)
+
+6.3. Check BUS_ENGINE_DATA_1_0x150_GEAR_POSITION=  0xD
+
+6.4. Cluster should display 6th gear, 110kmph and 7600RPM","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP = 0]
+
+2. Set the Voltage 0V"
+,VHIL_H100_VehFuncTests_Downshift_6GearTo5Gear,Observing the consistency check during sequential downshift from 6gear to 5gear,"1. Set Battery Voltage to 13.5V
+
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+
+3. No CAN failure & Gear control related failure should not be present","1.Simulate HIL_Engine_Start_SW=1;BUS_ENGINE_DATA_1_0x150_ES_SWITCH_STATUS = 0x1 (ES switch pressed)
+
+2.Simulate HIL_Mdl_Cons_APS to acheive [BUS_ENGINE_DATA_1_0x150_ENGINE_RPM~= 7600 RPM]
+
+3.Simulate HIL_Mdl_GPS = 6th [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0xD]
+
+4.Simulate HIL_Mdl_Cons_APS = 65% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED ~= 110 kmph
+
+4.1. Check BUS_ENGINE_DATA_1_0x150_ENGINE_RPM ≈ 7600 RPM
+
+4.2. Check BUS_ENGINE_DATA_5_0x151_ENGINE_STATUS = 0x0 (Running)
+
+4.3. Check BUS_ENGINE_DATA_1_0x150_GEAR_POSITION=  0xD
+
+4.4. Check Cluster should display 6th gear, 110kmph and 7600RPM
+
+5.Simulate HIL_Mdl_GPS = 5th [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0xB]
+
+6.Simulate HIL_Mdl_Cons_APS = 50% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED ~= 85 kmph
+
+6.1. BUS_ENGINE_DATA_1_0x150_ENGINE_RPM ≈ 7000 RPM
+
+6.2. BUS_ENGINE_DATA_5_0x151_ENGINE_STATUS = 0x0 (Running)
+
+6.3. BUS_ENGINE_DATA_1_0x150_GEAR_POSITION=  0xB
+
+6.4. Cluster should display 5th gear, 85kmph and 7000RPM","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP = 0]
+
+2. Set the Voltage 0V"
+,VHIL_H100_VehFuncTests_Downshift_5GearTo4Gear,Observing the consistency check during sequential downshift from  5gear to 4gear,"1. Set Battery Voltage to 13.5V
+
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+
+3. No CAN failure & Gear control related failure should not be present","1.Simulate HIL_Engine_Start_SW=1;BUS_ENGINE_DATA_1_0x150_ES_SWITCH_STATUS = 0x1 (ES switch pressed)
+
+2.Simulate HIL_Mdl_Cons_APS to acheive [BUS_ENGINE_DATA_1_0x150_ENGINE_RPM~= 7000 RPM]
+
+3.Simulate HIL_Mdl_GPS = 5th [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0xB]
+
+4.Simulate HIL_Mdl_Cons_APS = 50% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED ~= 85 kmph
+
+4.1. Check BUS_ENGINE_DATA_1_0x150_ENGINE_RPM ≈ 7000 RPM
+
+4.2. Check BUS_ENGINE_DATA_5_0x151_ENGINE_STATUS = 0x0 (Running)
+
+4.3. Check BUS_ENGINE_DATA_1_0x150_GEAR_POSITION=  0xB
+
+4.4. Check Cluster should display 5th gear,85kmph and 7000RPM
+
+5.Simulate HIL_Mdl_GPS = 4th [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x8]
+
+6.Simulate HIL_Mdl_Cons_APS = 45% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED ~= 70 kmph
+
+6.1. Check BUS_ENGINE_DATA_1_0x150_ENGINE_RPM ≈ 6800 RPM
+
+6.2. Check BUS_ENGINE_DATA_5_0x151_ENGINE_STATUS = 0x0 (Running)
+
+6.3. Check BUS_ENGINE_DATA_1_0x150_GEAR_POSITION=  0x8
+
+6.4. Cluster should display 4th gear, 70kmph and 6800RPM","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP = 0]
+
+2. Set the Voltage 0V"
+,VHIL_H100_VehFuncTests_Downshift_4GearTo3Gear,Observing the consistency check during sequential downshift from  4gear to 3gear,"1. Set Battery Voltage to 13.5V
+
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+
+3. No CAN failure & Gear control related failure should not be present","1.Simulate HIL_Engine_Start_SW=1;BUS_ENGINE_DATA_1_0x150_ES_SWITCH_STATUS = 0x1 (ES switch pressed)
+
+2.Simulate HIL_Mdl_Cons_APS to acheive [BUS_ENGINE_DATA_1_0x150_ENGINE_RPM~= 6800 RPM]
+
+3.Simulate HIL_Mdl_GPS = 4th [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x8]
+
+4.Simulate HIL_Mdl_Cons_APS = 45% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED ~= 70 kmph
+
+4.1. Check BUS_ENGINE_DATA_1_0x150_ENGINE_RPM ≈ 6800 RPM
+
+4.2. Check BUS_ENGINE_DATA_5_0x151_ENGINE_STATUS = 0x0 (Running)
+
+4.3. Check BUS_ENGINE_DATA_1_0x150_GEAR_POSITION=  0x8
+
+4.4. Cluster should display 4th gear, 70kmph and 6800RPM
+
+5.Simulate HIL_Mdl_GPS = 3rd [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x7]
+
+6.Simulate HIL_Mdl_Cons_APS = 35% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED ~= 50 kmph
+
+6.1. Check BUS_ENGINE_DATA_1_0x150_ENGINE_RPM ≈ 6000 RPM
+
+6.2. Check BUS_ENGINE_DATA_5_0x151_ENGINE_STATUS = 0x0 (Running)
+
+6.3. Check BUS_ENGINE_DATA_1_0x150_GEAR_POSITION=  0x7
+
+6.4. Cluster should display 3rd gear, 50kmph and 6000RPM","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP = 0]
+
+2. Set the Voltage 0V"
+,VHIL_H100_VehFuncTests_Downshift_3GearTo2Gear,Observing the consistency check during sequential downshift from  3gear to 2gear ,"1. Set Battery Voltage to 13.5V
+
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+
+3. No CAN failure & Gear control related failure should not be present","1.Simulate HIL_Engine_Start_SW=1;BUS_ENGINE_DATA_1_0x150_ES_SWITCH_STATUS = 0x1 (ES switch pressed)
+
+2.Simulate HIL_Mdl_Cons_APS to acheive [BUS_ENGINE_DATA_1_0x150_ENGINE_RPM~= 6000 RPM]
+
+3.Simulate HIL_Mdl_GPS = 3rd [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x7]
+
+4.Simulate HIL_Mdl_Cons_APS = 35% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED ~= 50 kmph
+
+4.1. Check BUS_ENGINE_DATA_1_0x150_ENGINE_RPM ≈ 6000 RPM
+
+4.2. Check BUS_ENGINE_DATA_5_0x151_ENGINE_STATUS = 0x0 (Running)
+
+4.3. Check BUS_ENGINE_DATA_1_0x150_GEAR_POSITION=  0x7
+
+4.4. Check Cluster should display 3rd gear, 50kmph and 6000RPM
+
+5.Simulate HIL_Mdl_GPS = 2nd [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x4]
+
+6.Simulate HIL_Mdl_Cons_APS = 26% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED ~= 35 kmph
+
+6.1. Check BUS_ENGINE_DATA_1_0x150_ENGINE_RPM ≈ 5200 RPM
+
+6.2. Check BUS_ENGINE_DATA_5_0x151_ENGINE_STATUS = 0x0 (Running)
+
+6.3. Check BUS_ENGINE_DATA_1_0x150_GEAR_POSITION=  0x4
+
+6.4. Check Cluster should display 2nd gear, 35kmph and 5200RPM","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP = 0]
+
+2. Set the Voltage 0V"
+,VHIL_H100_VehFuncTests_Downshift_2GearTo1Gear,Observing the consistency check during sequential downshift from  2gear  to 1gear,"1. Set Battery Voltage to 13.5V
+
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+
+3. No CAN failure & Gear control related failure should not be present","1.Simulate HIL_Engine_Start_SW=1;BUS_ENGINE_DATA_1_0x150_ES_SWITCH_STATUS = 0x1 (ES switch pressed)
+
+2.Simulate HIL_Mdl_Cons_APS to acheive [BUS_ENGINE_DATA_1_0x150_ENGINE_RPM~= 5200 RPM]
+
+3.Simulate HIL_Mdl_GPS = 2nd [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x4]
+
+4.Simulate HIL_Mdl_Cons_APS = 26% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED ~= 35 kmph
+
+4.1. Check BUS_ENGINE_DATA_1_0x150_ENGINE_RPM ≈ 5200 RPM
+
+4.2. Check BUS_ENGINE_DATA_5_0x151_ENGINE_STATUS = 0x0 (Running)
+
+4.3. Check BUS_ENGINE_DATA_1_0x150_GEAR_POSITION=  0x4
+
+4.4. .Check Cluster should display 2nd gear, 20kmph and 5200RPM
+
+5.Simulate HIL_Mdl_GPS = 1st [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x1]
+
+6.Simulate HIL_Mdl_Cons_APS = 20% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED ~= 20 kmph
+
+6.1. Check BUS_ENGINE_DATA_1_0x150_ENGINE_RPM ≈ 4400 RPM
+
+6.2. Check BUS_ENGINE_DATA_5_0x151_ENGINE_STATUS = 0x0 (Running)
+
+6.3. Check BUS_ENGINE_DATA_1_0x150_GEAR_POSITION=  0x1
+
+6.4. Check Cluster should display 1st gear, 20kmph and 4400RPM","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP = 0]
+
+2. Set the Voltage 0V"
+,VHIL_H100_VehFuncTests_Downshift_2GearToNeutral,Observing the consistency check during sequential downshift from 2gear to Neutral,"1. Set Battery Voltage to 13.5V
+
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+
+3. No CAN failure & Gear control related failure should not be present","1.Simulate HIL_Engine_Start_SW=1;BUS_ENGINE_DATA_1_0x150_ES_SWITCH_STATUS = 0x1 (ES switch pressed)
+
+2.Simulate HIL_Mdl_Cons_APS to acheive [BUS_ENGINE_DATA_1_0x150_ENGINE_RPM~= 5200 RPM]
+
+3.Simulate HIL_Mdl_GPS = 2nd [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x4]
+
+4.Simulate HIL_Mdl_Cons_APS = 26% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED ~= 35 kmph
+
+4.1. Check BUS_ENGINE_DATA_1_0x150_ENGINE_RPM ≈ 5200 RPM
+
+4.2. Check BUS_ENGINE_DATA_5_0x151_ENGINE_STATUS = 0x0 (Running)
+
+4.3. Check BUS_ENGINE_DATA_1_0x150_GEAR_POSITION=  0x4
+
+4.4. Check Cluster should display 2nd gear, 35kmph and 5200RPM
+
+5.Simulate HIL_Mdl_GPS = Neutral [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x2]
+
+6.Simulate HIL_Mdl_Cons_APS = 0% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED ~= 0 kmph
+
+6.1. Check BUS_ENGINE_DATA_1_0x150_ENGINE_RPM ≈ 1700 RPM
+
+6.2. Check BUS_ENGINE_DATA_5_0x151_ENGINE_STATUS = 0x0 (Running)
+
+6.3. Check BUS_ENGINE_DATA_1_0x150_GEAR_POSITION=  0x2
+
+6.4. Cluster should display Neutral gear, 0kmph and 1700RPM","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP = 0]
+
+2. Set the Voltage 0V"
+,VHIL_H100_VehFuncTests_Downshift_1GearToNeutral,Observing the consistency check during sequential downshift from 1gear to Neutral,"1. Set Battery Voltage to 13.5V
+
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+
+3. No CAN failure & Gear control related failure should not be present","1.Simulate HIL_Engine_Start_SW=1;BUS_ENGINE_DATA_1_0x150_ES_SWITCH_STATUS = 0x1 (ES switch pressed)
+
+2.Simulate HIL_Mdl_Cons_APS to acheive [BUS_ENGINE_DATA_1_0x150_ENGINE_RPM~= 4400 RPM]
+
+3.Simulate HIL_Mdl_GPS = 1st [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x1]
+
+4.Simulate HIL_Mdl_Cons_APS = 20% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED ~= 20 kmph
+
+4.1. BUS_ENGINE_DATA_1_0x150_ENGINE_RPM ≈ 4400 RPM
+
+4.2. BUS_ENGINE_DATA_5_0x151_ENGINE_STATUS = 0x0 (Running)
+
+4.3. BUS_ENGINE_DATA_1_0x150_GEAR_POSITION=  0x1
+
+4.4.Cluster should display 1st gear, 20kmph and 4400RPM
+
+5.Simulate HIL_Mdl_GPS = Neutral [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x2]
+
+6.Simulate HIL_Mdl_Cons_APS = 0% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED ~= 0 kmph
+
+6.1. Check BUS_ENGINE_DATA_1_0x150_ENGINE_RPM ≈ 1700 RPM
+
+6.2. Check BUS_ENGINE_DATA_5_0x151_ENGINE_STATUS = 0x0 (Running)
+
+6.3. Check BUS_ENGINE_DATA_1_0x150_GEAR_POSITION=  0x2
+
+6.4. Check Cluster should display  Neutral gear, 0kmph and 1700RPM","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP = 0]
+
+2. Set the Voltage 0V"
+,VHIL_H100_VehFuncTests_GearDetermination_MultiIgnCycles,Observing gear position determination during multiple ignition cycles,"1. Set Battery Voltage to 13.5V
+
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+
+3. No CAN failure & Gear control related failure should not be present","1.Simulate HIL_Mdl_Cons_APS = 0% to acheive [BUS_ENGINE_DATA_1_0x150_ENGINE_RPM~= 5200 RPM]
+
+2.Simulate HIL_Mdl_GPS = 2nd [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x4] (If possible, Check for all Gears)
+
+3. Do multiple ignition cycles(Ignition_Off-->Ignition On) 10 times
+
+3.1. BUS_ENGINE_DATA_1_0x150_ENGINE_RPM ≈ 5200 RPM
+
+3.2. BUS_ENGINE_DATA_5_0x151_ENGINE_STATUS = 0x0 (Running)
+
+3.3. BUS_ENGINE_DATA_1_0x150_GEAR_POSITION=  0x4
+
+3.4. Cluster should display 2nd gear, 0kmph ","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP = 0]
+
+2. Set the Voltage 0V"
+,VHIL_H100_VehFuncTests_GearDetermination_BatteryReset,Observing gear position determination during battery reset,"1. Set Battery Voltage to 13.5V
+
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+
+3. No CAN failure & Gear control related failure should not be present","1.Simulate HIL_Mdl_Cons_APS = 0% to acheive [BUS_ENGINE_DATA_1_0x150_ENGINE_RPM~=idle RPM]
+
+2.Simulate HIL_Mdl_GPS = 2nd [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x4]
+
+2.1. Check BUS_ENGINE_DATA_1_0x150_ENGINE_RPM ≈idle RPM
+
+2.2. Check BUS_ENGINE_DATA_5_0x151_ENGINE_STATUS = 0x0 (Running)
+
+2.3. Check BUS_ENGINE_DATA_1_0x150_GEAR_POSITION=  0x4
+
+2.4. Cluster should display 2nd gear,  0kmph and idle RPM
+
+3. Perform Power OFF
+
+3.1. Check if Cluster & EMS will go OFF
+
+4. Perform Power ON
+
+4.1. Check BUS_ENGINE_DATA_1_0x150_GEAR_POSITION=  0x4
+
+4.2. Cluster should display 2nd gear, 0kmph and 5200RPM","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP = 0]
+
+2. Set the Voltage 0V"
+,VHIL_H100_VehFuncTests_GearDetermination_IgnitionCycle,Observing gear position determination during ignition cycles,"1. Set Battery Voltage to 13.5V
+
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+
+3. No CAN failure & Gear control related failure should not be present","
+
+1.Simulate HIL_Mdl_GPS = 2nd [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x4]
+
+2.Simulate HIL_Mdl_Cons_APS = 0%
+
+2.1. Check BUS_ENGINE_DATA_1_0x150_ENGINE_RPM ≈ idle RPM
+
+2.2. Check BUS_ENGINE_DATA_5_0x151_ENGINE_STATUS = 0x0 (Running)
+
+2.3. Check BUS_ENGINE_DATA_1_0x150_GEAR_POSITION=  0x4
+
+2.4. Cluster should display 2nd gear, 0 kmph and idle RPM
+
+3.Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP= 0]
+
+3.1. Check if Cluster & EMS will go OFF
+
+4.Simulate HIL_Mdl_GPS = 1st 
+
+6.Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+
+6.3. Check BUS_ENGINE_DATA_1_0x150_GEAR_POSITION=  0x1
+
+6.4. Cluster should display 1st gear","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP = 0]
+
+2. Set the Voltage 0V"
+,VHIL_H100_VehFuncTests_GearDetermination_Undervoltage,Observing gear position determination during under voltage,"1. Set Battery Voltage to 13.5V
+
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+
+3. No CAN failure & Gear control related failure should not be present","1.Simulate HIL_Mdl_GPS = 2nd [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x4]
+
+2.Simulate HIL_Mdl_Cons_APS = 26%
+
+2.1. Check BUS_ENGINE_DATA_1_0x150_ENGINE_RPM ≈ 5200 RPM
+
+2.2. Check BUS_ENGINE_DATA_5_0x151_ENGINE_STATUS = 0x0 (Running)
+
+2.3. Check BUS_ENGINE_DATA_1_0x150_GEAR_POSITION=  0x4
+
+2.4. Cluster should display 2nd gear, 20kmph and 5200RPM
+
+3. Gradually reduce the battery voltage until it reaches 7.5V
+
+3.1. Cluster & EMS will go OFF
+
+4. Wait for 5 seconds and Check if cluster turned OFF
+
+5. Simulate HIL_Mdl_GPS = 1st  [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x1]
+
+6.Set Battery Voltage to 13.5V 
+
+6.1. Check BUS_ENGINE_DATA_5_0x151_ENGINE_STATUS = 0x0 (Running)
+
+6.2. Check BUS_ENGINE_DATA_1_0x150_GEAR_POSITION=  0x1
+
+6.4. Cluster should display 1st gear (Repeat this procedure for other gears)","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP = 0]
+
+2. Set the Voltage 0V"
+,VHIL_H100_VehFuncTests_GearDetermination_Overvoltage,Observing gear position determination during over voltage,"1. Set Battery Voltage to 13.5V
+
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+
+3. No CAN failure & Gear control related failure should not be present","
+
+1.Simulate HIL_Mdl_GPS = 2nd [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x4]
+
+2.Simulate HIL_Mdl_Cons_APS = 26%
+
+2.1. Check BUS_ENGINE_DATA_1_0x150_ENGINE_RPM ≈ 5200 RPM
+
+2.2. Check BUS_ENGINE_DATA_5_0x151_ENGINE_STATUS = 0x0 (Running)
+
+2.3. Check BUS_ENGINE_DATA_1_0x150_GEAR_POSITION=  0x4
+
+2.4. Cluster should display 2nd gear, 20kmph and 5200RPM
+
+3. Gradually reduce the battery voltage until it reaches 18.6 V
+
+3.1. Cluster & EMS will go OFF
+
+4. Wait for 5 seconds and Check if cluster turned OFF
+
+5. Simulate HIL_Mdl_GPS = 1st  [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x1]
+
+6.Set Battery Voltage to 13.5V 
+
+6.1. Check BUS_ENGINE_DATA_5_0x151_ENGINE_STATUS = 0x0 (Running)
+
+6.2. Check BUS_ENGINE_DATA_1_0x150_GEAR_POSITION=  0x1
+
+6.4. Cluster should display 1st gear (Repeat this procedure for other gears)","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP = 0]
+
+2. Set the Voltage 0V"
+,VHIL_H100_VehFuncTests_GearSensor_OpenCircuitFault,Observing gear position determination during open circuit fault in GPS,"1. Set Battery Voltage to 13.5V
+
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+
+3. No CAN failure & Gear control related failure should not be present","
+
+1. Set battery voltage = 13.5 V
+
+2. Set Ign ON [HIL_Mdl_Ignition_SW_IP= 1]
+
+3.Simulate Gear_Position_Sensor =  2nd  [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x4]
+
+4. Simulate HIL_Mdl_Cons_APS = 20% to acheive [BUS_ENGINE_DATA_1_0x150_ENGINE_RPM~= 4400 RPM]
+
+4.1. Check BUS_ENGINE_DATA_1_0x150_ENGINE_RPM ≈ 4400 RPM
+
+4.2. Check BUS_ENGINE_DATA_5_0x151_ENGINE_STATUS = 0x0 (Running)
+
+4.3. Check BUS_ENGINE_DATA_1_0x150_GEAR_POSITION=  0x4
+
+5. Simulate OC fault of Gear_Position_Sensor
+
+ 6. Check HIL_Mdl_GPS =  Invalid and cluster will display '-'","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP = 0]
+
+2. Set the Voltage 0V"
+,VHIL_H100_VehFuncTests_GearSensor_ShortToBatteryFault,Observing gear position determination during short circuit to battery fault of sensor,"1. Set Battery Voltage to 13.5V
+
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+
+3. No CAN failure & Gear control related failure should not be present","
+
+1. Set battery voltage = 13.5 V
+
+2. Set Ign ON [HIL_Mdl_Ignition_SW_IP= 1]
+
+3.Simulate Gear_Position_Sensor =  2nd  [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x4]
+
+4. Simulate HIL_Mdl_Cons_APS = 20% to acheive [BUS_ENGINE_DATA_1_0x150_ENGINE_RPM~= 4400 RPM]
+
+4.1. Check BUS_ENGINE_DATA_1_0x150_ENGINE_RPM ≈ 4400 RPM
+
+4.2. Check BUS_ENGINE_DATA_5_0x151_ENGINE_STATUS = 0x0 (Running)
+
+4.3. Check BUS_ENGINE_DATA_1_0x150_GEAR_POSITION=  0x4
+
+5. Simulate SCB fault of Gear_Position_Sensor
+
+6. Check HIL_Mdl_GPS =  Invalid and cluster will display '-'","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP = 0]
+
+2. Set the Voltage 0V"
+,VHIL_H100_VehFuncTests_GearSensor_ShortToGroundFault,Observing gear position determination during short circuit to ground fault of sensor,"1. Set Battery Voltage to 13.5V
+
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+
+3. No CAN failure & Gear control related failure should not be present","
+
+1. Set battery voltage = 13.5 V
+
+2. Set Ign ON [HIL_Mdl_Ignition_SW_IP= 1]
+
+3.Simulate Gear_Position_Sensor =  2nd  [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x4]
+
+4. Simulate HIL_Mdl_Cons_APS = 20% to acheive [BUS_ENGINE_DATA_1_0x150_ENGINE_RPM~= 4400 RPM]
+
+4.1. Check BUS_ENGINE_DATA_1_0x150_ENGINE_RPM ≈ 4400 RPM
+
+4.2. Check BUS_ENGINE_DATA_5_0x151_ENGINE_STATUS = 0x0 (Running)
+
+4.3. Check BUS_ENGINE_DATA_1_0x150_GEAR_POSITION=  0x4
+
+5. Simulate SCG fault SCG fault of Gear_Position_Sensor
+
+6. Check HIL_Mdl_GPS =  Invalid and cluster will display '-'","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP = 0]
+
+2. Set the Voltage 0V"
+,VHIL_H100_VehFuncTests_GearSensor_ShortToGroundCANL,Observing gear position determination during short circuit to ground fault of CANL,"1. Set Battery Voltage to 13.5V
+
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+
+3. No CAN failure & Gear control related failure should not be present","
+
+1. Set battery voltage = 13.5 V
+
+2. Set Ign ON [HIL_Mdl_Ignition_SW_IP= 1]
+
+3.Simulate Gear_Position_Sensor =  2nd  [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x4]
+
+4. Simulate HIL_Mdl_Cons_APS = 20% to acheive [BUS_ENGINE_DATA_1_0x150_ENGINE_RPM~= 4400 RPM]
+
+4.1. Check BUS_ENGINE_DATA_1_0x150_ENGINE_RPM ≈ 4400 RPM
+
+4.2. Check BUS_ENGINE_DATA_5_0x151_ENGINE_STATUS = 0x0 (Running)
+
+4.3. Check BUS_ENGINE_DATA_1_0x150_GEAR_POSITION=  0x4
+
+5. Simulate SCG fault SCG fault of CAN L
+
+6. Check HIL_Mdl_GPS =  Invalid and cluster will display '-'",
+,VHIL_H100_VehFuncTests_GearSensor_ShortToGroundCANH,Observing gear position determination during short circuit to ground fault CANH,"1. Set Battery Voltage to 13.5V
+
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+
+3. No CAN failure & Gear control related failure should not be present","
+
+1. Set battery voltage = 13.5 V
+
+2. Set Ign ON [HIL_Mdl_Ignition_SW_IP= 1]
+
+3.Simulate Gear_Position_Sensor =  2nd  [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x4]
+
+4. Simulate HIL_Mdl_Cons_APS = 20% to acheive [BUS_ENGINE_DATA_1_0x150_ENGINE_RPM~= 4400 RPM]
+
+4.1. Check BUS_ENGINE_DATA_1_0x150_ENGINE_RPM ≈ 4400 RPM
+
+4.2. Check BUS_ENGINE_DATA_5_0x151_ENGINE_STATUS = 0x0 (Running)
+
+4.3. Check BUS_ENGINE_DATA_1_0x150_GEAR_POSITION=  0x4
+
+5. Simulate SCG fault of CAN H
+
+6. Check HIL_Mdl_GPS =  Invalid and cluster will display '-'",
+,VHIL_H100_VehFuncTests_GearSensor_ShortToBatteryCANL,Observing gear position determination during short circuit to Battery fault of CAN L,"1. Set Battery Voltage to 13.5V
+
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+
+3. No CAN failure & Gear control related failure should not be present","
+
+1. Set battery voltage = 13.5 V
+
+2. Set Ign ON [HIL_Mdl_Ignition_SW_IP= 1]
+
+3.Simulate Gear_Position_Sensor =  2nd  [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x4]
+
+4. Simulate HIL_Mdl_Cons_APS = 20% to acheive [BUS_ENGINE_DATA_1_0x150_ENGINE_RPM~= 4400 RPM]
+
+4.1. Check BUS_ENGINE_DATA_1_0x150_ENGINE_RPM ≈ 4400 RPM
+
+4.2. Check BUS_ENGINE_DATA_5_0x151_ENGINE_STATUS = 0x0 (Running)
+
+4.3. Check BUS_ENGINE_DATA_1_0x150_GEAR_POSITION=  0x4
+
+5. Simulate SCB fault SCG fault of CAN L
+
+6. Check HIL_Mdl_GPS =  Invalid and cluster will display '-'",
+,VHIL_H100_VehFuncTests_GearSensor_ShortToBatteryCANH,Observing gear position determination during short circuit to Battery fault of CAN H,"1. Set Battery Voltage to 13.5V
+
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+
+3. No CAN failure & Gear control related failure should not be present","
+
+1. Set battery voltage = 13.5 V
+
+2. Set Ign ON [HIL_Mdl_Ignition_SW_IP= 1]
+
+3.Simulate Gear_Position_Sensor =  2nd  [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x4]
+
+4. Simulate HIL_Mdl_Cons_APS = 20% to acheive [BUS_ENGINE_DATA_1_0x150_ENGINE_RPM~= 4400 RPM]
+
+4.1. Check BUS_ENGINE_DATA_1_0x150_ENGINE_RPM ≈ 4400 RPM
+
+4.2. Check BUS_ENGINE_DATA_5_0x151_ENGINE_STATUS = 0x0 (Running)
+
+4.3. Check BUS_ENGINE_DATA_1_0x150_GEAR_POSITION=  0x4
+
+5. Simulate SCB fault SCG fault of CAN H
+
+6. Check HIL_Mdl_GPS =  Invalid and cluster will display '-'",
+,VHIL_H100_VehFuncTests_GearSensor_Shift1-4,Observing the consistency check during sequential downshift from  1 gear to 4 gear,"1. Set Battery Voltage to 13.5V
+
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+
+3. No CAN failure & Gear control related failure should not be present","1.Simulate HIL_Engine_Start_SW=1;BUS_ENGINE_DATA_1_0x150_ES_SWITCH_STATUS = 0x1 (ES switch pressed)
+
+2.Simulate HIL_Mdl_Cons_APS to acheive [BUS_ENGINE_DATA_1_0x150_ENGINE_RPM~= 7000 RPM]
+
+3.Simulate HIL_Mdl_GPS = 1st  [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x1]
+
+4.Simulate HIL_Mdl_Cons_APS = 50% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED ~=13 kmph
+
+4.1. Check BUS_ENGINE_DATA_1_0x150_ENGINE_RPM ≈ refer notes for RPM
+
+4.2. Check BUS_ENGINE_DATA_5_0x151_ENGINE_STATUS = 0x0 (Running)
+
+4.3. Check BUS_ENGINE_DATA_1_0x150_GEAR_POSITION=  0xB
+
+4.4. Cluster should display 1st gear, 13 kmph 
+
+5.Simulate HIL_Mdl_GPS = 4 [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x8]
+
+6.Simulate HIL_Mdl_Cons_APS = 35 % to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED ~=40 kmph
+
+6.1. Check BUS_ENGINE_DATA_1_0x150_ENGINE_RPM ≈ refer notes for RPM
+
+6.2. Check BUS_ENGINE_DATA_5_0x151_ENGINE_STATUS = 0x0 (Running)
+
+6.3. Check BUS_ENGINE_DATA_1_0x150_GEAR_POSITION=  0xD
+
+6.4. Cluster should display 4th  gear,40 kmph ",
+,VHIL_H100_VehFuncTests_GearSensor_Shift6-2,Observing the consistency check during sequential downshift from  6 gear to 2 gear,"1. Set Battery Voltage to 13.5V
+
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+
+3. No CAN failure & Gear control related failure should not be present","1.Simulate HIL_Engine_Start_SW=1;BUS_ENGINE_DATA_1_0x150_ES_SWITCH_STATUS = 0x1 (ES switch pressed)
+
+2.Simulate HIL_Mdl_Cons_APS to acheive [BUS_ENGINE_DATA_1_0x150_ENGINE_RPM~= refer notes for  RPM]
+
+3.Simulate HIL_Mdl_GPS = 6th  [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0xD]
+
+4.Simulate HIL_Mdl_Cons_APS = 80% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED ~=100 kmph
+
+4.1. Check BUS_ENGINE_DATA_1_0x150_ENGINE_RPM ≈ refer notes for RPM
+
+4.2. Check BUS_ENGINE_DATA_5_0x151_ENGINE_STATUS = 0x0 (Running)
+
+4.3. Check BUS_ENGINE_DATA_1_0x150_GEAR_POSITION=  0xB
+
+4.4. Cluster should display 6th gear, 13 kmph 
+
+5.Simulate HIL_Mdl_GPS = 2 [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x4]
+
+6.Simulate HIL_Mdl_Cons_APS = 15 % to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED ~=  23 kmph
+
+6.1. Check BUS_ENGINE_DATA_1_0x150_ENGINE_RPM ≈ refer notes for RPM
+
+6.2. Check BUS_ENGINE_DATA_5_0x151_ENGINE_STATUS = 0x0 (Running)
+
+6.3. Check BUS_ENGINE_DATA_1_0x150_GEAR_POSITION=  0xD
+
+6.4. Cluster should display 2nd gear, 23 kmph ",

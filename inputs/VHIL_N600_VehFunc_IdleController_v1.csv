@@ -1,0 +1,187 @@
+﻿ID,Name,Test Case Description,Pre-Action,Test Steps.Action,Post-Action
+,VHIL_N600_VehFunc_IdleCtrtlr_0DegCCoolant_Neutral,"To Monitor whether engine speed is within the idle controller range during zero deg C coolant temperature, neutral gear and accelerator pedal value is zero","1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[Ignition_SW_IP= 1]
+3. Crank the vehicle[ES_SW_IP=1]
+4. No CAN failure & Idle Controller related failure should not be present
+","1.Simulate Gear_Position_Sensor_IP = Neutral [GEAR_POSITION[0x150] =  0x2]
+2.Simulate ACC_PEDAL_IP = 0%(No action in Accelerator pedal Position) to acheive [ENGINE_RPM[0x150] >= 1350 RPM]
+3.Simulate ACC_PEDAL_IP = 0%(No action in Accelerator pedal Position) to achieve DISPLAY_SPEED[0x120] ~= 0 kmph
+4.Simulate [Engine_Temperature_Sensor_IP];COOLANT_TEMPERATURE(0x350) = 0 deg C
+ 4.1 EMS should publish ENGINE_RPM(0x150) = within 1350 to 1500 RPM
+ 4.2 EMS should publish ENGINE_STATUS(0x151) = 0x0 (Running)
+ 4.3 EMS should publish HANDLE_GRIP_OPEN_PERCENTAGE_1 (0X150)= 0
+ 4.4 EMS should publish HANDLE_GRIP_OPEN_PERCENTAGE_2 (0X175)= 0
+ 4.5 Cluster should display Neutral gear, Speed 0 kmph and within 1350 to 1500 RPM","1. Turn Ignition OFF.[Ignition_SW_IP=0]. 
+2.Set Battery Voltage to V
+"
+,VHIL_N600_VehFunc_IdleCtrtlr_80DegCCoolant_Neutral,"To Monitor whether engine speed is within the idle controller range with 80 deg C coolant temperature, neutral gear,accelerator pedal value is  zero","1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[Ignition_SW_IP= 1]
+3. Crank the vehicle[ES_SW_IP=1]
+4. No CAN failure & Idle Controller related failure should not be present
+","1.Simulate Gear_Position_Sensor_IP = Neutral [GEAR_POSITION[0x150] =  0x2]
+2.Simulate ACC_PEDAL_IP = 0%(No action in Accelerator pedal Position) to acheive [ENGINE_RPM[0x150] >= 1350 RPM]
+3.Simulate ACC_PEDAL_IP = 0%(No action in Accelerator pedal Position) to achieve DISPLAY_SPEED[0x120] ~= 0
+4.Simulate [Engine_Temperature_Sensor_IP];COOLANT_TEMPERATURE(0x350) = 80 deg C
+ 4.1 EMS should publish ENGINE_RPM(0x150) = within 1350 to 1500 RPM
+ 4.2 EMS should publish ENGINE_STATUS(0x151) = 0x0 (Running)
+ 4.3 EMS should publish HANDLE_GRIP_OPEN_PERCENTAGE_1 (0X150)= 0
+ 4.4 EMS should publish HANDLE_GRIP_OPEN_PERCENTAGE_2 (0X175)= 0
+ 4.5 Cluster should display Neutral gear, Speed 0 kmph and within 1350 to 1500 RPM","1. Turn Ignition OFF.[Ignition_SW_IP=0]. 
+2.Set Battery Voltage to V
+"
+,VHIL_N600_VehFunc_IdleCtrtlr_100DegCCoolant_Neutral,"To Monitor whether engine speed is within the idle controller range during 100 deg C coolant temperature, neutral gear,accelerator pedal value is zero","1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[Ignition_SW_IP= 1]
+3. Crank the vehicle[ES_SW_IP=1]
+4. No CAN failure & Idle Controller related failure should not be present
+","1.Simulate Gear_Position_Sensor_IP = Neutral [GEAR_POSITION[0x150] =  0x2]
+2.Simulate ACC_PEDAL_IP = 0%(No action in Accelerator pedal Position) to acheive [ENGINE_RPM[0x150] >= 1350 RPM]
+3.Simulate ACC_PEDAL_IP = 0%(No action in Accelerator pedal Position) to achieve DISPLAY_SPEED[0x120] ~= 0 kmph
+4.Simulate [Engine_Temperature_Sensor_IP];COOLANT_TEMPERATURE(0x350) = 100 deg C
+ 4.1 EMS should publish ENGINE_RPM(0x150) = within 1350 to 1500 RPM
+ 4.2 EMS should publish ENGINE_STATUS(0x151) = 0x0 (Running)
+ 4.3 EMS should publish HANDLE_GRIP_OPEN_PERCENTAGE_1 (0X150)= 0
+ 4.4 EMS should publish HANDLE_GRIP_OPEN_PERCENTAGE_2 (0X175)= 0
+ 4.5 Cluster should display Neutral gear, Speed 0 kmph and within 1350 to 1500 RPM","1. Turn Ignition OFF.[Ignition_SW_IP=0]. 
+2.Set Battery Voltage to V
+"
+,VHIL_N600_VehFunc_IdleCtrtlr_0DegCCoolant_Neutral_Accpedal_SCFault,"To Monitor whether engine speed is within the idle controller range during zero deg C coolant temperature, neutral gear,short circuit accelerator pedal ","1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[Ignition_SW_IP= 1]
+3. Crank the vehicle[ES_SW_IP=1]
+4. No CAN failure & Idle Controller related failure should not be present
+","1.Simulate Gear_Position_Sensor_IP = Neutral [GEAR_POSITION[0x150] =  0x2]
+2.Simulate ACC_PEDAL_IP = 0%(No action in Accelerator pedal Position) to acheive [ENGINE_RPM[0x150] >= 1350 RPM]
+3.Simulate ACC_PEDAL_IP = 0%(No action in Accelerator pedal Position) to achieve DISPLAY_SPEED[0x120] ~= 0x1FFF[Signal invalid]
+4.Simulate [Engine_Temperature_Sensor_IP];COOLANT_TEMPERATURE(0x350) = 0 deg C
+ 4.1 EMS should publish ENGINE_RPM(0x150) = within 1350 to 1500 RPM
+ 4.2 EMS should publish ENGINE_STATUS(0x151) = 0x0 (Running)
+ 4.3 EMS should publish HANDLE_GRIP_OPEN_PERCENTAGE_1 (0X150)= 0xFF(Signal Invalid)
+ 4.4 EMS should publish HANDLE_GRIP_OPEN_PERCENTAGE_2 (0X175)= 0xFF(Signal Invalid)
+ 4.5 Cluster should display Neutral gear, Speed ""--"" kmph and within 1350 to 1500 RPM","1. Turn Ignition OFF.[Ignition_SW_IP=0]. 
+2.Set Battery Voltage to V
+"
+,VHIL_N600_VehFunc_IdleCtrtlr_0DegCCoolant_Neutral_Accpedal_OCFault,"To Monitor whether engine speed is within the idle controller range during zero deg C coolant temperature, neutral gear,open circuit accelerator pedal ","1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[Ignition_SW_IP= 1]
+3. Crank the vehicle[ES_SW_IP=1]
+4. No CAN failure & Idle Controller related failure should not be present
+","1.Simulate Gear_Position_Sensor_IP = Neutral [GEAR_POSITION[0x150] =  0x2]
+2.Simulate ACC_PEDAL_IP = 0%(No action in Accelerator pedal Position) to acheive [ENGINE_RPM[0x150] >= 1350 RPM]
+3.Simulate ACC_PEDAL_IP = 0%(No action in Accelerator pedal Position) to achieve DISPLAY_SPEED[0x120] ~= 0x1FFF[Signal invalid]
+4.Simulate [Engine_Temperature_Sensor_IP];COOLANT_TEMPERATURE(0x350) = 0 deg C
+ 4.1 EMS should publish ENGINE_RPM(0x150) = within 1350 to 1500 RPM
+ 4.2 EMS should publish ENGINE_STATUS(0x151) = 0x0 (Running)
+ 4.3 EMS should publish HANDLE_GRIP_OPEN_PERCENTAGE_1 (0X150)= 0xFF[Signal invalid]
+ 4.4 EMS should publish HANDLE_GRIP_OPEN_PERCENTAGE_2 (0X175)= 0xFF[Signal invalid]
+ 4.5 Cluster should display Neutral gear, Speed - kmph and within 1350 to 1500 RPM
+ ","1. Turn Ignition OFF.[Ignition_SW_IP=0]. 
+2.Set Battery Voltage to V
+"
+,VHIL_N600_VehFunc_IdleCtrtlr_0DegCCoolant_SCFault_Neutral_Accpedal,"To Monitor whether engine speed is within the idle controller range during short circuit the coolant temperature, neutral gear,accelerator pedal value is zero","1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[Ignition_SW_IP= 1]
+3. Crank the vehicle[ES_SW_IP=1]
+4. No CAN failure & Idle Controller related failure should not be present
+","1.Simulate Gear_Position_Sensor_IP = Neutral [GEAR_POSITION[0x150] =  0x2]
+2.Simulate ACC_PEDAL_IP = 0%(No action in Accelerator pedal Position) to acheive [ENGINE_RPM[0x150] >= 1350 RPM]
+3.Simulate ACC_PEDAL_IP = 0%(No action in Accelerator pedal Position) to achieve DISPLAY_SPEED[0x120] ~= 0 kmph
+4.Perform short circuit Engine_Temperature_Sensor_IP to achieve COOLANT_TEMPERATURE(0x350) = 0xFF[Signal invalid]
+ 4.1 EMS should publish ENGINE_RPM(0x150) = within 1350 to 1500 RPM
+ 4.2 EMS should publish ENGINE_STATUS(0x151) = 0x0 (Running)
+ 4.3 EMS should publish HANDLE_GRIP_OPEN_PERCENTAGE_1 (0X150)= 0
+ 4.4 EMS should publish HANDLE_GRIP_OPEN_PERCENTAGE_2 (0X175)= 0
+ 4.5 Cluster should display Neutral gear, Speed 0 kmph and within 1350 to 1500 RPM","1. Turn Ignition OFF.[Ignition_SW_IP=0]. 
+2.Set Battery Voltage to V
+"
+,VHIL_N600_VehFunc_IdleCtrtlr_0DegCCoolant_OCFault_Neutral_Accpedal,"To Monitor whether engine speed is within the idle controller range during open circuit the coolant temperature, neutral gear,accelerator pedal value is zero","1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[Ignition_SW_IP= 1]
+3. Crank the vehicle[ES_SW_IP=1]
+4. No CAN failure & Idle Controller related failure should not be present
+","1.Simulate Gear_Position_Sensor_IP = Neutral [GEAR_POSITION[0x150] =  0x2]
+2.Simulate ACC_PEDAL_IP = 0%(No action in Accelerator pedal Position) to acheive [ENGINE_RPM[0x150] >= 1350 RPM]
+3.Simulate ACC_PEDAL_IP = 0%(No action in Accelerator pedal Position) to achieve DISPLAY_SPEED[0x120] ~= 0 kmph
+4.Perform Open circuit Engine_Temperature_Sensor_IP to achieve COOLANT_TEMPERATURE(0x350) = 0xFF[Signal invalid]
+ 4.1 EMS should publish ENGINE_RPM(0x150) = within 1350 to 1500 RPM
+ 4.2 EMS should publish ENGINE_STATUS(0x151) = 0x0 (Running)
+ 4.3 EMS should publish HANDLE_GRIP_OPEN_PERCENTAGE_1 (0X150)= 0
+ 4.4 EMS should publish HANDLE_GRIP_OPEN_PERCENTAGE_2 (0X175)= 0
+ 4.5 Cluster should display Neutral gear, Speed 0 kmph and within 1350 to 1500 RPM","1. Turn Ignition OFF.[Ignition_SW_IP=0]. 
+2.Set Battery Voltage to V
+"
+,VHIL_N600_VehFunc_IdleCtrtlr_ClutchPressed_GearOtherthanNeutral,To Monitor whether engine speed is coming to idle controller when clutch is pressed with vehicle running in gear other than neutral,"1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[Ignition_SW_IP= 1]
+3. Crank the vehicle[ES_SW_IP=1]
+4. No CAN failure & Idle Controller related failure should not be present
+","1.Simulate Gear_Position_Sensor_IP = 4th [GEAR_POSITION[0x150] =  0x8]
+2.Simulate ACC_PEDAL_IP = 40%(No action in Accelerator pedal Position) to acheive [ENGINE_RPM[0x150] ~= 6400 RPM]
+3.Simulate ACC_PEDAL_IP = 40%(No action in Accelerator pedal Position) to achieve DISPLAY_SPEED[0x120] ~= 70 kmph
+4.Simulate [Engine_Temperature_Sensor_IP];COOLANT_TEMPERATURE(0x350) = 100 deg C
+5.Simulate Clutch_SW_IP = 1 [Clutch pressed = pressed]
+ 5.1 EMS should publish ENGINE_RPM(0x150) = within 1350 to 1500 RPM
+ 5.2 EMS should publish ENGINE_STATUS(0x151) = 0x0 (Running)
+ 5.3 EMS should publish HANDLE_GRIP_OPEN_PERCENTAGE_1 (0X150)= 40
+ 5.4 EMS should publish HANDLE_GRIP_OPEN_PERCENTAGE_2 (0X175)= 40
+ 5.5 EMS should publish CLUTCH_STATUS(0x150) =  0x1 (Clutch pressed)
+ 5.6 Cluster should display 4th gear, Speed will be decresed slowly 70 kmph to 60kmph  and within 1350 to 1500 RPM","1. Turn Ignition OFF.[Ignition_SW_IP=0]. 
+2.Set Battery Voltage to V
+"
+,VHIL_N600_VehFunc_IdleCtrtlr_IgnCycles_transitions,To observe the Idle Controller functionality with ignition cycle transitions,"1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[Ignition_SW_IP= 1]
+3. Crank the vehicle[ES_SW_IP=1]
+4. No CAN failure & Idle Controller related failure should not be present
+5. Simulate Gear_Position_Sensor_IP = Neutral [GEAR_POSITION[0x150] =  0x2]
+6. Simulate ACC_PEDAL_IP = 0% to achieve DISPLAY_SPEED[0x120] = 0kmph","1.Simulate Gear_Position_Sensor_IP = Neutral [GEAR_POSITION[0x150] =  0x2]
+2.Simulate ACC_PEDAL_IP = 0%(No action in Accelerator pedal Position) to acheive [ENGINE_RPM[0x150] >= 1350 RPM]
+3.Simulate ACC_PEDAL_IP = 0%(No action in Accelerator pedal Position) to achieve DISPLAY_SPEED[0x120] ~= 0 kmph
+4.Simulate [Engine_Temperature_Sensor_IP];COOLANT_TEMPERATURE(0x350) = 0 deg C
+ 4.1 EMS should publish ENGINE_RPM(0x150) = within 1350 to 1500 RPM
+ 4.2 EMS should publish ENGINE_STATUS(0x151) = 0x0 (Running)
+ 4.3 EMS should publish HANDLE_GRIP_OPEN_PERCENTAGE_1 (0X150)= 0
+ 4.4 EMS should publish HANDLE_GRIP_OPEN_PERCENTAGE_2 (0X175)= 0
+ 4.5 Cluster should display Neutral gear, Speed 0 kmph and within 1350 to 1500 RPM
+5. Turn Ignition OFF.[Ignition_SW_IP= 0]
+ 5.1 EMS and cluster system will go OFF
+6. Turn Ignition ON.[Ignition_SW_IP= 1]
+ 6.1 EMS should publish ENGINE_RPM(0x150) = 0 RPM
+ 6.2 EMS should publish ENGINE_STATUS(0x151) =  0x2 (Stalled)
+ 6.3 EMS should publish HANDLE_GRIP_OPEN_PERCENTAGE_1 (0X150)= 0
+ 6.4 EMS should publish HANDLE_GRIP_OPEN_PERCENTAGE_2 (0X175)= 0
+ 6.5 Cluster should display Neutral gear, Speed 0 kmph and 0 RPM","1. Turn Ignition OFF.[Ignition_SW_IP=0]. 
+2.Set Battery Voltage to V
+"
+,VHIL_N600_VehFunc_IdleCtrtlr_IgnCycles_transitions_MultiCycles,To observe the Idle Controller functionality with ignition cycle transitions with multiple times,"1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[Ignition_SW_IP= 1]
+3. Crank the vehicle[ES_SW_IP=1]
+4. No CAN failure & Idle Controller related failure should not be present
+","1.Simulate Gear_Position_Sensor_IP = Neutral [GEAR_POSITION[0x150] =  0x2]
+2.Simulate ACC_PEDAL_IP = 0%(No action in Accelerator pedal Position) to acheive [ENGINE_RPM[0x150] >= 1350 RPM]
+3.Simulate ACC_PEDAL_IP = 0%(No action in Accelerator pedal Position) to achieve DISPLAY_SPEED[0x120] ~= 0 kmph
+4.Simulate [Engine_Temperature_Sensor_IP];COOLANT_TEMPERATURE(0x350) = 0 deg C
+ 4.1 EMS should publish ENGINE_RPM(0x150) = within 1350 to 1500 RPM
+ 4.2 EMS should publish ENGINE_STATUS(0x151) = 0x0 (Running)
+ 4.3 EMS should publish HANDLE_GRIP_OPEN_PERCENTAGE_1 (0X150)= 0
+ 4.4 EMS should publish HANDLE_GRIP_OPEN_PERCENTAGE_2 (0X175)= 0
+ 4.5 Cluster should display Neutral gear, Speed 0 kmph and within 1350 to 1500 RPM
+5. Turn Ignition OFF.[Ignition_SW_IP= 0]
+ 5.1 EMS and cluster system will go OFF
+6. Turn Ignition ON.[Ignition_SW_IP= 1]
+ 6.1 EMS should publish ENGINE_RPM(0x150) = 0 RPM
+ 6.2 EMS should publish ENGINE_STATUS(0x151) =  0x2 (Stalled)
+ 6.3 EMS should publish HANDLE_GRIP_OPEN_PERCENTAGE_1 (0X150)= 0
+ 6.4 EMS should publish HANDLE_GRIP_OPEN_PERCENTAGE_2 (0X175)= 0
+ 6.5 Cluster should display Neutral gear, Speed 0 kmph and 0 RPM
+7. Turn Ignition OFF.[Ignition_SW_IP= 0]
+ 7.1 EMS and cluster system will go OFF
+8. Turn Ignition ON.[Ignition_SW_IP= 1]
+ 8.1 EMS should publish ENGINE_RPM(0x150) = 0 RPM
+ 8.2 EMS should publish ENGINE_STATUS(0x151) =  0x2 (Stalled)
+ 8.3 EMS should publish HANDLE_GRIP_OPEN_PERCENTAGE_1 (0X150)= 0
+ 8.4 EMS should publish HANDLE_GRIP_OPEN_PERCENTAGE_2 (0X175)= 0
+ 8.5 Cluster should display Neutral gear, Speed 0 kmph and 0 RPM
+9. Turn Ignition OFF.[Ignition_SW_IP= 0]
+ 9.1 EMS and cluster system will go OFF
+10. Turn Ignition ON.[Ignition_SW_IP= 1]
+ 10.1 EMS should publish ENGINE_RPM(0x150) = 0 RPM
+ 10.2 EMS should publish ENGINE_STATUS(0x151) =  0x2 (Stalled)
+ 10.3 EMS should publish HANDLE_GRIP_OPEN_PERCENTAGE_1 (0X150)= 0
+ 10.4 EMS should publish HANDLE_GRIP_OPEN_PERCENTAGE_2 (0X175)= 0
+ 10.5 Cluster should display Neutral gear, Speed 0 kmph and 0 RPM","1. Turn Ignition OFF.[Ignition_SW_IP=0]. 
+2.Set Battery Voltage to V
+"

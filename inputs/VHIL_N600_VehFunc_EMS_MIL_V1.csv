@@ -1,0 +1,367 @@
+﻿ID,Test Case Title,Test Case Description,Pre-Action,Test Steps.Action,Post Condition
+1,VHIL_N600_VehFuncTests_EMS_MIL_TT_UrbanMode_Day_VehicleMoving_Functionality_01,Checking EMS MIL TT functionality in Urban Mode(Day Mode) while vehicle is moving,"1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[Ignition_SW_IP= 1]
+3. Crank the vehicle[ES_SW_IP=1]
+4. No CAN failure & MIL failure should not be present
+5.Simulate Gear_Position_Sensor_IP = Neutral [GEAR_POSITION[0x150] =  0x2]
+6.Simulate ACC_PEDAL_IP = 0% to achieve DISPLAY_SPEED[0x120] = 0kmph","1. Navigate to Menu -> Display Setup -> Light and Dark Mode and Select Light mode
+1a. Display is set to Light mode
+2. Navigate to Menu -> Ride Mode and Select Urban mode
+2a. Ride Mode is set to Urban mode
+3.Simulate Gear_Position_Sensor_IP = 3 and ACC_PEDAL_IP  30 %  to  achieve DISPLAY_SPEED[0x120] = 50kmph 
+3a. Vehicle shall be moving at 50 kmph in 3rd gear:
+ENGINE_DATA_1.GEAR_POSITION[0x150] =    7 
+ABS_DATA_3(0x450): WHEEL_SPEED_FRONT = 50 
+ABS_DATA_3(0x450: WHEEL_SPEED_REAR = 50
+4. Set conditions such that no EMS malfunction exists using below CAN signal 
+ENGINE_DATA_2 (0X350).MIL_STATUS = 0
+4a. EMS MIL Telltale shall be OFF
+5. Simulate EMS malfuntion through below CAN Signal
+ENGINE_DATA_2 (0X350).MIL_STATUS = 1
+5a. EMS MIL Telltale shall be ON(Glowing in Amber color)
+6. Stop the EMS Malfuntion through below CAN Signal
+ENGINE_DATA_2 (0X350).MIL_STATUS = 0
+6a. EMS MIL Telltale shall be OFF","1. Click on Menu->Trip details->Select ""Reset""-> select ""Yes""
+2. Turn Ignition ON.[Ignition_SW_IP= 1]
+3. Set Battery Voltage to 13.5V"
+2,VHIL_N600_VehFuncTests_EMS_MIL_TT_RainMode_Day_VehicleMoving_Functionality_02,Checking EMS MIL TT functionality in Rain Mode(Day Mode) while vehicle is moving,"1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[Ignition_SW_IP= 1]
+3. Crank the vehicle[ES_SW_IP=1]
+4. No CAN failure & MIL failure should not be present
+5.Simulate Gear_Position_Sensor_IP = Neutral [GEAR_POSITION[0x150] =  0x2]
+6.Simulate ACC_PEDAL_IP = 0% to achieve DISPLAY_SPEED[0x120] = 0kmph","1. Navigate to Menu -> Display Setup -> Light and Dark Mode and Select Light mode
+1a. Display is set to Light mode
+2. Navigate to Menu -> Ride Mode and Select Rain mode
+2a. Ride Mode is set to Rain mode
+3.Simulate ACC_PEDAL_IP  30 %  to  achieve DISPLAY_SPEED[0x120] = 50kmph
+and Simulate Gear_Position_Sensor_IP = 3rd Gear [GEAR_POSITION[0x150] =  0x7]
+3a.  Vehicle shall be moving at 50 kmph in 3rd gear:
+ENGINE_DATA_1.GEAR_POSITION[0x150] =    7 
+ABS_DATA_3(0x450): WHEEL_SPEED_FRONT = 50 
+ABS_DATA_3(0x450: WHEEL_SPEED_REAR = 50
+4. Set conditions such that no EMS malfunction exists using below CAN signal 
+ENGINE_DATA_2 (0X350).MIL_STATUS = 0
+4a. EMS MIL Telltale shall be OFF
+5. Simulate EMS malfuntion through below CAN Signal
+ENGINE_DATA_2 (0X350).MIL_STATUS = 1 
+5a. EMS MIL Telltale shall be ON(Glowing in Amber color) 
+6. Stop the EMS Malfuntion through below CAN Signal
+ENGINE_DATA_2 (0X350).MIL_STATUS = 0
+6a. EMS MIL Telltale shall be OFF","1. Click on Menu->Trip details->Select ""Reset""-> select ""Yes""
+2. Turn Ignition ON.[Ignition_SW_IP= 1]
+3. Set Battery Voltage to 13.5V"
+3,VHIL_N600_VehFuncTests_EMS_MIL_TT_TourMode_Day_VehicleMoving_Functionality_03,Checking EMS MIL TT functionality in Tour Mode(Day Mode) while vehicle is moving,"1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[Ignition_SW_IP= 1]
+3. Crank the vehicle[ES_SW_IP=1]
+4. No CAN failure & MIL failure should not be present
+5.Simulate Gear_Position_Sensor_IP = Neutral [GEAR_POSITION[0x150] =  0x2]
+6.Simulate ACC_PEDAL_IP = 0% to achieve DISPLAY_SPEED[0x120] = 0kmph","1. Navigate to Menu -> Display Setup -> Light and Dark Mode and Select Light mode
+1a. Display is set to Light mode
+2. Navigate to Menu -> Ride Mode and Select Tour mode
+2a. Ride Mode is set to Tour mode
+3. Simulate Gear_Position_Sensor_IP = 3rd Gear [GEAR_POSITION[0x150] =  0x7] and Simulate ACC_PEDAL_IP  30 %  to  achieve DISPLAY_SPEED[0x120] = 50kmph
+3a.  Vehicle shall be moving at 50 kmph in 3rd gear:
+ENGINE_DATA_1.GEAR_POSITION[0x150] =    7 
+ABS_DATA_3(0x450): WHEEL_SPEED_FRONT = 50 
+ABS_DATA_3(0x450: WHEEL_SPEED_REAR = 50
+4. Set conditions such that no EMS malfunction exists using below CAN signal
+ENGINE_DATA_2 (0X350).MIL_STATUS = 0
+4a. EMS MIL Telltale shall be OFF
+5. Simulate EMS malfuntion through below CAN Signal
+ENGINE_DATA_2 (0X350).MIL_STATUS = 1
+5a. EMS MIL Telltale shall be ON(Glowing in Amber color) 
+6. Stop the EMS Malfuntion through below CAN Signal
+ENGINE_DATA_2 (0X350).MIL_STATUS = 0
+6a. EMS MIL Telltale shall be OFF","1. Click on Menu->Trip details->Select ""Reset""-> select ""Yes""
+2. Turn Ignition ON.[Ignition_SW_IP= 1]
+3. Set Battery Voltage to 13.5V"
+4,VHIL_N600_VehFuncTests_EMS_MIL_TT_EnduroMode_Day_VehicleMoving_Functionality_04,Checking EMS MIL TT functionality in Enduro Mode(Day Mode) while vehicle is moving,"1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[Ignition_SW_IP= 1]
+3. Crank the vehicle[ES_SW_IP=1]
+4. No CAN failure & MIL failure should not be present
+5.Simulate Gear_Position_Sensor_IP = Neutral [GEAR_POSITION[0x150] =  0x2]
+6.Simulate ACC_PEDAL_IP = 0% to achieve DISPLAY_SPEED[0x120] = 0kmph","1. Navigate to Menu -> Display Setup -> Light and Dark Mode and Select Light mode
+1a. Display is set to Light mode
+2. Navigate to Menu -> Ride Mode and Select Enduro mode
+2a. Ride Mode is set to Enduro mode
+3.Simulate ACC_PEDAL_IP  30 %  to  achieve DISPLAY_SPEED[0x120] = 50kmph
+and Simulate Gear_Position_Sensor_IP = 3rd Gear [GEAR_POSITION[0x150] =  0x7]
+3a.  Vehicle shall be moving at 50 kmph in 3rd gear:
+ENGINE_DATA_1.GEAR_POSITION[0x150] =    7 
+ABS_DATA_3(0x450): WHEEL_SPEED_FRONT = 50 
+ABS_DATA_3(0x450: WHEEL_SPEED_REAR = 50
+4. Set conditions such that no EMS malfunction exists using below CAN signal 
+ENGINE_DATA_2 (0X350).MIL_STATUS = 0
+4a. EMS MIL Telltale shall be OFF
+5. Simulate EMS malfuntion through below CAN Signal
+ENGINE_DATA_2 (0X350).MIL_STATUS = 1
+5a. EMS MIL Telltale shall be ON(Glowing in Amber color) 
+6. Stop the EMS Malfuntion through below CAN Signal
+ENGINE_DATA_2 (0X350).MIL_STATUS = 0
+6a. EMS MIL Telltale shall be OFF","1. Click on Menu->Trip details->Select ""Reset""-> select ""Yes""
+2. Turn Ignition ON.[Ignition_SW_IP= 1]
+3. Set Battery Voltage to 13.5V"
+5,VHIL_N600_VehFuncTests_EMS_MIL_TT_UrbanMode_Dark_VehicleMoving_Functionality_05,Checking EMS MIL TT functionality in Urban Mode(Dark Mode) while vehicle is moving,"1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[Ignition_SW_IP= 1]
+3. Crank the vehicle[ES_SW_IP=1]
+4. No CAN failure & MIL failure should not be present
+5.Simulate Gear_Position_Sensor_IP = Neutral [GEAR_POSITION[0x150] =  0x2]
+6.Simulate ACC_PEDAL_IP = 0% to achieve DISPLAY_SPEED[0x120] = 0kmph","1. Navigate to Menu -> Display Setup -> Light and Dark Mode and Select Dark mode
+1a. Display is set to Dark mode
+2. Navigate to Menu -> Ride Mode and Select Urban mode
+2a. Ride Mode is set to Urban mode
+3.Simulate ACC_PEDAL_IP  30 %  to  achieve DISPLAY_SPEED[0x120] = 50kmph
+and Simulate Gear_Position_Sensor_IP = 3rd Gear [GEAR_POSITION[0x150] =  0x7]
+3a.  Vehicle shall be moving at 50 kmph in 3rd gear:
+ENGINE_DATA_1.GEAR_POSITION[0x150] =    7 
+ABS_DATA_3(0x450): WHEEL_SPEED_FRONT = 50 
+ABS_DATA_3(0x450: WHEEL_SPEED_REAR = 50
+4. Set conditions such that no EMS malfunction exists using below CAN signal 
+ENGINE_DATA_2 (0X350).MIL_STATUS = 0
+4a. EMS MIL Telltale shall be OFF
+5. Simulate EMS malfuntion through below CAN Signal
+ENGINE_DATA_2 (0X350).MIL_STATUS = 1
+5a. EMS MIL Telltale shall be ON(Glowing in Amber color) 
+6. Stop the EMS Malfuntion through below CAN Signal
+ENGINE_DATA_2 (0X350).MIL_STATUS = 0
+6a. EMS MIL Telltale shall be OFF","1. Click on Menu->Trip details->Select ""Reset""-> select ""Yes""
+2. Turn Ignition ON.[Ignition_SW_IP= 1]
+3. Set Battery Voltage to 13.5V"
+6,VHIL_N600_VehFuncTests_EMS_MIL_TT_RainMode_Dark_VehicleMoving_Functionality_06,Checking EMS MIL TT functionality in Rain Mode(Dark Mode) while vehicle is moving,"1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[Ignition_SW_IP= 1]
+3. Crank the vehicle[ES_SW_IP=1]
+4. No CAN failure & MIL failure should not be present
+5.Simulate Gear_Position_Sensor_IP = Neutral [GEAR_POSITION[0x150] =  0x2]
+6.Simulate ACC_PEDAL_IP = 0% to achieve DISPLAY_SPEED[0x120] = 0kmph","1. Navigate to Menu -> Display Setup -> Light and Dark Mode and Select Dark mode
+1a. Display is set to Dark mode
+2. Navigate to Menu -> Ride Mode and Select Rain mode
+2a. Ride Mode is set to Rain mode
+3.Simulate ACC_PEDAL_IP  30%  to  achieve DISPLAY_SPEED[0x120] = 50kmph
+and Simulate Gear_Position_Sensor_IP = 3rd Gear [GEAR_POSITION[0x150] =  0x7]
+3a.  Vehicle shall be moving at 50 kmph in 3rd gear:
+ENGINE_DATA_1.GEAR_POSITION[0x150] =    7 
+ABS_DATA_3(0x450): WHEEL_SPEED_FRONT = 50 
+ABS_DATA_3(0x450: WHEEL_SPEED_REAR = 50
+4. Set conditions such that no EMS malfunction exists using below CAN signal 
+ENGINE_DATA_2 (0X350).MIL_STATUS = 0
+4a. EMS MIL Telltale shall be OFF
+5. Simulate EMS malfuntion through below CAN Signal
+ENGINE_DATA_2 (0X350).MIL_STATUS = 1
+5a. EMS MIL Telltale shall be ON(Glowing in Amber color) 
+6. Stop the EMS Malfuntion through below CAN Signal
+ENGINE_DATA_2 (0X350).MIL_STATUS = 0
+6a. EMS MIL Telltale shall be OFF","1. Click on Menu->Trip details->Select ""Reset""-> select ""Yes""
+2. Turn Ignition ON.[Ignition_SW_IP= 1]
+3. Set Battery Voltage to 13.5V"
+7,VHIL_N600_VehFuncTests_EMS_MIL_TT_TourMode_Dark_VehicleMoving_Functionality_07,Checking EMS MIL TT functionality in Tour Mode(Dark Mode) while vehicle is moving,"1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[Ignition_SW_IP= 1]
+3. Crank the vehicle[ES_SW_IP=1]
+4. No CAN failure & MIL failure should not be present
+5.Simulate Gear_Position_Sensor_IP = Neutral [GEAR_POSITION[0x150] =  0x2]
+6.Simulate ACC_PEDAL_IP = 0% to achieve DISPLAY_SPEED[0x120] = 0kmph","1. Navigate to Menu -> Display Setup -> Light and Dark Mode and Select Dark mode
+1a. Display is set to Dark mode
+2. Navigate to Menu -> Ride Mode and Select Tour mode
+2a. Ride Mode is set to Tour mode
+3. Simulate Gear_Position_Sensor_IP = 3rd Gear [GEAR_POSITION[0x150] =  0x7] and Simulate ACC_PEDAL_IP  30 %  to  achieve DISPLAY_SPEED[0x120] = 50kmph
+3a. Vehicle shall be moving at 50 kmph in 3rd gear:
+ENGINE_DATA_1.GEAR_POSITION[0x150] =    7 
+ABS_DATA_3(0x450): WHEEL_SPEED_FRONT = 50 
+ABS_DATA_3(0x450: WHEEL_SPEED_REAR = 50
+4. Set conditions such that no EMS malfunction exists using below CAN signal 
+ENGINE_DATA_2 (0X350).MIL_STATUS = 0
+4a. EMS MIL Telltale shall be OFF
+5. Simulate EMS malfuntion through below CAN Signal
+ENGINE_DATA_2 (0X350).MIL_STATUS = 1
+5a. EMS MIL Telltale shall be ON(Glowing in Amber color) 
+6. Stop the EMS Malfuntion through below CAN Signal
+ENGINE_DATA_2 (0X350).MIL_STATUS = 0
+6a. EMS MIL Telltale shall be OFF","1. Click on Menu->Trip details->Select ""Reset""-> select ""Yes""
+2. Turn Ignition ON.[Ignition_SW_IP= 1]
+3. Set Battery Voltage to 13.5V"
+8,VHIL_N600_VehFuncTests_EMS_MIL_TT_EnduroMode_Dark_VehicleMoving_Functionality_08,Checking EMS MIL TT functionality in Enduro Mode(Dark Mode) while vehicle is moving,"1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[Ignition_SW_IP= 1]
+3. Crank the vehicle[ES_SW_IP=1]
+4. No CAN failure & MIL failure should not be present
+5.Simulate Gear_Position_Sensor_IP = Neutral [GEAR_POSITION[0x150] =  0x2]
+6.Simulate ACC_PEDAL_IP = 0% to achieve DISPLAY_SPEED[0x120] = 0kmph","1. Navigate to Menu -> Display Setup -> Light and Dark Mode and Select Dark mode
+1a. Display is set to Dark mode
+2. Navigate to Menu -> Ride Mode and Select Enduro mode
+2a. Ride Mode is set to Enduro mode
+3.Simulate ACC_PEDAL_IP  x%  to  achieve DISPLAY_SPEED[0x120] = 50kmph
+and Simulate Gear_Position_Sensor_IP = 3rd Gear [GEAR_POSITION[0x150] =  0x7]
+3a.  Vehicle shall be moving at 50 kmph in 3rd gear:
+ENGINE_DATA_1.GEAR_POSITION[0x150] =    7 
+ABS_DATA_3(0x450): WHEEL_SPEED_FRONT = 50 
+ABS_DATA_3(0x450: WHEEL_SPEED_REAR = 50
+4. Set conditions such that no EMS malfunction exists using below CAN signal 
+ENGINE_DATA_2 (0X350).MIL_STATUS = 0
+4a. EMS MIL Telltale shall be OFF
+5. Simulate EMS malfuntion through below CAN Signal
+ENGINE_DATA_2 (0X350).MIL_STATUS = 1
+5a. EMS MIL Telltale shall be ON(Glowing in Amber color) 
+6. Stop the EMS Malfuntion through below CAN Signal
+ENGINE_DATA_2 (0X350).MIL_STATUS = 0
+6a. EMS MIL Telltale shall be OFF","1. Click on Menu->Trip details->Select ""Reset""-> select ""Yes""
+2. Turn Ignition ON.[Ignition_SW_IP= 1]
+3. Set Battery Voltage to 13.5V"
+9,VHIL_N600_VehFuncTests_EMS_MIL_TT_UrbanMode_EMS_Malfunction_Impact_09,Checking the impact of EMS Malfunction in system under Urban Mode,"1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[Ignition_SW_IP= 1]
+3. Crank the vehicle[ES_SW_IP=1]
+4. No CAN failure & MIL failure should not be present
+5.Simulate Gear_Position_Sensor_IP = Neutral [GEAR_POSITION[0x150] =  0x2]
+6.Simulate ACC_PEDAL_IP = 0% to achieve DISPLAY_SPEED[0x120] = 0kmph","1. Navigate to Menu -> Ride Mode and Select Urban mode
+1a. Ride Mode is set to Urban mode
+2. Simulate EMS malfuntion through below CAN Signal
+ENGINE_DATA_2 (0X350).MIL_STATUS = 1 
+2a. EMS MIL Telltale shall be ON(Glowing in Amber color) 
+3. Try to change the ride mode to Rain, Tour & Enduro mode
+3a. You shall not be able to change the ride mode
+4. Stop the EMS Malfuntion through below CAN Signal
+ENGINE_DATA_2 (0X350).MIL_STATUS = 0
+4a. EMS MIL Telltale shall be OFF
+5. Try again to change the ride mode to Rain, Tour & Enduro mode
+5a. You shall be able to change to any ride mode with message on cluster- ""Ride Mode Change Not Possible""","Click on Menu->Trip details->Select ""Reset""-> select ""Yes"""
+10,VHIL_N600_VehFuncTests_EMS_MIL_TT_RainMode_EMS_Malfunction_Impact_10,Checking the impact of EMS Malfunction in system under Rain Mode,"1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[Ignition_SW_IP= 1]
+3. Crank the vehicle[ES_SW_IP=1]
+4. No CAN failure & MIL failure should not be present
+5.Simulate Gear_Position_Sensor_IP = Neutral [GEAR_POSITION[0x150] =  0x2]
+6.Simulate ACC_PEDAL_IP = 0% to achieve DISPLAY_SPEED[0x120] = 0kmph","1. Navigate to Menu -> Ride Mode and Select Rain mode
+1a. Ride Mode is set to Rain mode
+2. Simulate EMS malfuntion through below CAN Signal
+ENGINE_DATA_2 (0X350).MIL_STATUS = 1 
+2a. EMS MIL Telltale shall be ON(Glowing in Amber color) 
+3. Try to change the ride mode to Urban, Tour & Enduro mode
+3a. You shall not be able to change the ride mode
+4. Stop the EMS Malfuntion through below CAN Signal
+ENGINE_DATA_2 (0X350).MIL_STATUS = 0
+4a. EMS MIL Telltale shall be OFF
+5. Try again to change the ride mode to Urban, Tour & Enduro mode
+5a. You shall be able to change to any ride mode with message on cluster- ""Ride Mode Change Not Possible""","Click on Menu->Trip details->Select ""Reset""-> select ""Yes"""
+11,VHIL_N600_VehFuncTests_EMS_MIL_TT_TourMode_EMS_Malfunction_Impact_11,Checking the impact of EMS Malfunction in system under Tour Mode,"1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[Ignition_SW_IP= 1]
+3. Crank the vehicle[ES_SW_IP=1]
+4. No CAN failure & MIL failure should not be present
+5.Simulate Gear_Position_Sensor_IP = Neutral [GEAR_POSITION[0x150] =  0x2]
+6.Simulate ACC_PEDAL_IP = 0% to achieve DISPLAY_SPEED[0x120] = 0kmph","1. Navigate to Menu -> Ride Mode and Select Tour mode
+1a. Ride Mode is set to Tour mode
+2. Simulate EMS malfuntion through below CAN Signal
+ENGINE_DATA_2 (0X350).MIL_STATUS = 1
+2a. EMS MIL Telltale shall be ON(Glowing in Amber color) 
+3. Try to change the ride mode to Urban, Rain & Enduro mode
+3a. You shall not be able to change the ride mode
+4. Stop the EMS Malfuntion through below CAN Signal
+ENGINE_DATA_2 (0X350).MIL_STATUS = 0
+4a. EMS MIL Telltale shall be OFF
+5. Try again to change the ride mode to Urban, Rain & Enduro mode
+5a. You shall be able to change to any ride mode","Click on Menu->Trip details->Select ""Reset""-> select ""Yes"""
+12,VHIL_N600_VehFuncTests_EMS_MIL_TT_EnduroMode_EMS_Malfunction_Impact_12,Checking the impact of EMS Malfunction in system under Enduro Mode,"1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[Ignition_SW_IP= 1]
+3. Crank the vehicle[ES_SW_IP=1]
+4. No CAN failure & MIL failure should not be present
+5.Simulate Gear_Position_Sensor_IP = Neutral [GEAR_POSITION[0x150] =  0x2]
+6.Simulate ACC_PEDAL_IP = 0% to achieve DISPLAY_SPEED[0x120] = 0kmph","1. Navigate to Menu -> Ride Mode and Select Enduro mode
+1a. Ride Mode is set to Enduro mode
+2. Simulate EMS malfuntion through below CAN Signal
+ENGINE_DATA_2 (0X350).MIL_STATUS = 1
+2a. EMS MIL Telltale shall be ON(Glowing in Amber color) 
+3. Try to change the ride mode to Urban, Rain & Tour mode
+3a. You shall not be able to change the ride mode
+4. Stop the EMS Malfuntion through below CAN Signal
+ENGINE_DATA_2 (0X350).MIL_STATUS = 0
+4a. EMS MIL Telltale shall be OFF
+5. Try again to change the ride mode to Urban, Rain & Tour mode
+5a. You shall be able to change to any ride mode","Click on Menu->Trip details->Select ""Reset""-> select ""Yes"""
+13,VHIL_N600_VehFuncTests_EMS_MIL_TT_IGN_OFF_Status_13,Checking the EMS MIL TT status in system with IGN OFF condition,1. Set voltage to 13.5V,"1. IGN is set to OFF using below control switch
+Ignition_SW_IP = 0 (OFF)
+1a. EMS MIL Telltale shall be OFF",
+14,VHIL_N600_VehFuncTests_EMS_MIL_TT_CAN_Fault_Status_14,Checking the EMS MIL TT status in system with CAN Fault Conditions,"1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[Ignition_SW_IP= 1]
+3. Crank the vehicle[ES_SW_IP=1]
+4. No CAN failure & MIL failure should not be present
+5.Simulate Gear_Position_Sensor_IP = Neutral [GEAR_POSITION[0x150] =  0x2]
+6.Simulate ACC_PEDAL_IP = 0% to achieve DISPLAY_SPEED[0x120] = 0kmph","Create CAN Bus OFF fault by shorting the CAN lines to Gnd CAN H and CAN L lines
+1.Create CAN Short
+1a. EMS MIL Telltale shall be ON(Glowing in Amber color)
+2. Remove fault.
+2a. EMS MIL Telltale shall be OFF
+",
+15,VHIL_N600_VehFuncTests_EMS_MIL_TT_CAN_Fault_Status_15,Checking the EMS MIL TT status in system with CAN Fault Conditions,"1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[Ignition_SW_IP= 1]
+3. Crank the vehicle[ES_SW_IP=1]
+4. No CAN failure & MIL failure should not be present
+5.Simulate Gear_Position_Sensor_IP = Neutral [GEAR_POSITION[0x150] =  0x2]
+6.Simulate ACC_PEDAL_IP = 0% to achieve DISPLAY_SPEED[0x120] = 0kmph","Create CAN Bus OFF fault by shorting the CAN lines to Gnd CAN H and CAN L lines
+1.Create Short to Gnd CANH
+1a. EMS MIL Telltale shall be ON(Glowing in Amber color)
+2.Remove fault.
+2a. EMS MIL Telltale shall be OFF
+3.Create Short to Gnd CANL
+3a. EMS MIL Telltale shall be ON(Glowing in Amber color)
+4.Remove fault.
+4a. EMS MIL Telltale shall be OFF",
+16,VHIL_N600_VehFuncTests_EMS_MIL_TT_CAN_Fault_Status_16,Checking the EMS MIL TT status in system with CAN Fault Conditions,"1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[Ignition_SW_IP= 1]
+3. Crank the vehicle[ES_SW_IP=1]
+4. No CAN failure & MIL failure should not be present
+5.Simulate Gear_Position_Sensor_IP = Neutral [GEAR_POSITION[0x150] =  0x2]
+6.Simulate ACC_PEDAL_IP = 0% to achieve DISPLAY_SPEED[0x120] = 0kmph","Create CAN Bus OFF fault by shorting the CAN lines to Gnd CAN H and CAN L lines
+1.Create open Ckt at CANH
+1a. EMS MIL Telltale shall be ON(Glowing in Amber color)
+2.Remove fault
+2a. EMS MIL Telltale shall be OFF.
+3.Create open Ckt at CANH
+3a. EMS MIL Telltale shall be ON(Glowing in Amber color)
+4.Remove fault.
+4a. EMS MIL Telltale shall be OFF",
+17,VHIL_N600_VehFuncTests_EMS_MIL_TT_UnderVoltage_LVSD_Impact_17,Checking the impact of under voltage(LVSD) condition on EMS MIL TT in system,"1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[Ignition_SW_IP= 1]
+3. Crank the vehicle[ES_SW_IP=1]
+4. No CAN failure & MIL failure should not be present
+5.Simulate Gear_Position_Sensor_IP = Neutral [GEAR_POSITION[0x150] =  0x2]
+6.Simulate ACC_PEDAL_IP = 0% to achieve DISPLAY_SPEED[0x120] = 0kmph","1. Simulate EMS malfuntion through below CAN Signal 
+ENGINE_DATA_2 (0X350).MIL_STATUS = 1
+1a. EMS MIL Telltale shall be ON(Glowing in Amber color)
+2. Set the battery voltage to 7.9 V and wait 2 seconds
+2a. Cluster will shutdown & EMS MIL Telltale shall be OFF
+3. Set the battery voltage to 13.5V and wait 2 seconds
+3a. Cluster will turn ON & once the self check completes, EMS MIL Telltale shall be ON(Glowing in Amber color)",
+18,VHIL_N600_VehFuncTests_EMS_MIL_TT_OverVoltage_HVSD2_Impact_18,Checking the impact of over voltage(HVSD2) condition on EMS MIL TT in system,"1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[Ignition_SW_IP= 1]
+3. Crank the vehicle[ES_SW_IP=1]
+4. No CAN failure & MIL failure should not be present
+5.Simulate Gear_Position_Sensor_IP = Neutral [GEAR_POSITION[0x150] =  0x2]
+6.Simulate ACC_PEDAL_IP = 0% to achieve DISPLAY_SPEED[0x120] = 0kmph","1. Simulate EMS malfuntion through below CAN Signal 
+ENGINE_DATA_2 (0X350).MIL_STATUS = 1
+1a. EMS MIL Telltale shall be ON(Glowing in Amber color)
+2. Set the battery voltage to 18.1V and wait 2 seconds
+2a. Cluster will shutdown & EMS MIL Telltale shall be OFF
+3. Set the battery voltage to 13.5V and wait 2 seconds
+3a. Cluster will turn ON & once the self check completes, EMS MIL Telltale shall be ON(Glowing in Amber color)",
+19,VHIL_N600_VehFuncTests_EMS_MIL_TT_CAN_Update_During_IGN_CycleTransition_19,Checking the status EMS MIL TT update through change of values on CAN input during IGN cycle transition,"1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[Ignition_SW_IP= 1]
+3. Crank the vehicle[ES_SW_IP=1]
+4. No CAN failure & MIL failure should not be present
+5.Simulate Gear_Position_Sensor_IP = Neutral [GEAR_POSITION[0x150] =  0x2]
+6.Simulate ACC_PEDAL_IP = 0% to achieve DISPLAY_SPEED[0x120] = 0kmph","1. Set conditions such that no EMS malfunction exists using below CAN signal 
+ENGINE_DATA_2 (0X350).MIL_STATUS = 0
+1a. EMS MIL Telltale shall be OFF
+2. IGN is set to OFF using below control switch
+Ignition_SW_IP = 0
+2a. Cluster will shutdown
+3. Simulate EMS malfuntion through below CAN Signal 
+ENGINE_DATA_2 (0X350).MIL_STATUS = 1
+4. Turn Ignition ON.[4gnition_SW_IP= 1]
+4a. Cluster will turn ON & once the self check completes, EMS MIL Telltale shall be ON(Glowing in Amber color)",
+20,VHIL_N600_VehFuncTests_EMS_MIL_TT_Battery_Disconnect_Reconnect_Functionality_20,Checking the EMS MIL TT functionality status in system with battery disconnection & reconnection conditions,"1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[Ignition_SW_IP= 1]
+3. Crank the vehicle[ES_SW_IP=1]
+4. No CAN failure & MIL failure should not be present
+5.Simulate Gear_Position_Sensor_IP = Neutral [GEAR_POSITION[0x150] =  0x2]
+6.Simulate ACC_PEDAL_IP = 0% to achieve DISPLAY_SPEED[0x120] = 0kmph","1. Simulate EMS malfuntion through below CAN Signal 
+ENGINE_DATA_2 (0X350).MIL_STATUS = 1
+1a. EMS MIL Telltale shall be ON(Glowing in Amber color)
+2. Disconnect the battery from cluster
+2a. EMS MIL Telltale shall be ON(Glowing in Amber color)
+3. Reconnect the battery to cluster
+3a. Cluster will turn ON & once the self check completes, EMS MIL Telltale shall be ON(Glowing in Amber color)",

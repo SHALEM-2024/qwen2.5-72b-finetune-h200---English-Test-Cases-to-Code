@@ -1,0 +1,650 @@
+﻿ID,Name,Test Case Description,Pre-Action,Test Steps.Action,Post-Action
+1,VHIL_H100_VehFunc_BrakeLamp_FrontSwitchDebounce_Neutral,Observe the behaviour of brake lamp ON based on front brake switch press time is greater than debounce time at neutral condition,"1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+3. Crank the vehicle[HIL_Mdl_Engine_Start_SW=1]
+4.Simulate HIL_Mdl_GPS = Neutral [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x2]
+5.Simulate HIL_Mdl_Cons_APS= 0% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Simulate HIL_Mdl_Cons_Front_Brake = 1; Pressed (switch press timing less than debounce time)
+2.Simulate HIL_Mdl_Cons_Rear_Brake = 1; Pressed (switch press timing less than debounce time)
+ 2.1.Cluster should display BUS_CLUSTER_QS_CC_TC_SETTING_0x120_FRONT_VEHICLE_BRAKE_STATUS = 0x2 (Brake not actuated)
+ 2.2. .Cluster should display BUS_CLUSTER_QS_CC_TC_SETTING_0x120_REAR_BRAKE_SWITCH_STATUS = 0x2 (Brake not actuated)
+ 2.3.Check in cluster: Neutral gear and speed 0kmph
+ 2.4.Brake lamp should be OFF
+3.Simulate HIL_Mdl_Cons_Front_Brake = 1; Pressed (switch press timing greater than debounce time)
+ 3.1. Cluster should display BUS_CLUSTER_QS_CC_TC_SETTING_0x120_FRONT_VEHICLE_BRAKE_STATUS = 0x1 (Brake actuated)
+ 3.2. Check in cluster:Neutral gear and speed 0kmph
+ 3.3. Brake lamp should ON","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP= 0]
+2. Set Battery Voltage to 0V"
+2,VHIL_H100_VehFunc_BrakeLamp_FrontSwitchDebounce_Driving,Observe the behaviour of brake lamp ON based on front brake switch press time is greater than debounce time at vehicle driving condition,"1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+3. Crank the vehicle[HIL_Mdl_Engine_Start_SW=1]
+4.Simulate HIL_Mdl_GPS = Neutral [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x2]
+5.Simulate HIL_Mdl_Cons_APS= 0% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Simulate  HIL_Mdl_GPS = 1 and HIL_Mdl_Cons_APS= 7%  to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 10 kmph
+2.Simulate HIL_Mdl_Cons_Front_Brake = 1; Pressed (switch press timing less than debounce time)
+3.Simulate HIL_Mdl_Cons_Rear_Brake = 1; Pressed (switch press timing less than debounce time)
+ 3.1. Check if  BUS_CLUSTER_QS_CC_TC_SETTING_0x120_FRONT_VEHICLE_BRAKE_STATUS = 0x2 (Brake not actuated)
+ 3.2. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_REAR_BRAKE_SWITCH_STATUS = 0x2 (Brake not actuated)
+ 3.3. Check in cluster: 1st gear and 10 kmph
+ 3.4. Brake lamp should be OFF
+4.Simulate HIL_Mdl_Cons_Front_Brake = 1; Pressed (switch press timing greater than debounce time)
+ 4.1. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_FRONT_VEHICLE_BRAKE_STATUS = 0x1 (Brake actuated)
+ 4.2. Check in cluster: 1st gear
+ 4.3. Brake lamp should ON","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP= 0]
+2. Set Battery Voltage to 0V"
+3,VHIL_H100_VehFunc_BrakeLamp_RearSwitchDebounce_Neutral,Observe the behaviour of brake lamp ON based on rear brake switch press time is greater than debounce time at neutral condition,"1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+3. Crank the vehicle[HIL_Mdl_Engine_Start_SW=1]
+4.Simulate HIL_Mdl_GPS = Neutral [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x2]
+5.Simulate HIL_Mdl_Cons_APS= 0% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Simulate  HIL_Mdl_Cons_Front_Brake = 1; Pressed (switch press timing less than debounce time)
+2.Simulate HIL_Mdl_Cons_Rear_Brake = 1; Pressed (switch press timing less than debounce time)
+ 2.1. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_FRONT_VEHICLE_BRAKE_STATUS = 0x2 (Brake not actuated)
+ 2.2. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_REAR_BRAKE_SWITCH_STATUS = 0x2 (Brake not actuated)
+ 2.3. Cluster should show : Neutral gear and speed 0kmph
+ 2.4.Brake lamp should be OFF
+3.Simulate HIL_Mdl_Cons_Rear_Brake = 1; Pressed (switch press timing greater than debounce time)
+ 3.1. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_REAR_BRAKE_SWITCH_STATUS = 0x1 (Brake actuated)
+ 3.2. Check in cluster if Neutral gear and speed 0kmph
+ 3.3. Brake lamp should be ON","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP= 0]
+2. Set Battery Voltage to 0V"
+4,VHIL_H100_VehFunc_BrakeLamp_RearSwitchDebounce_Driving,Observe the behaviour of brake lamp ON based on rear brake switch press time is greater than debounce time at vehicle driving condition,"1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+3. Crank the vehicle[HIL_Mdl_Engine_Start_SW=1]
+4.Simulate HIL_Mdl_GPS = Neutral [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x2]
+5.Simulate HIL_Mdl_Cons_APS= 0% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Simulate HIL_Mdl_GPS = 2nd gear [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x4] 
+1.1. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_FRONT_VEHICLE_BRAKE_STATUS = 0x2 (Brake not actuated)
+1.2. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_REAR_BRAKE_SWITCH_STATUS = 0x2 (Brake not actuated)
+1.3. Cluster should display 2nd gear 
+1.4. Brake lamp should be OFF
+2.Simulate HIL_Mdl_Cons_APS= 20% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 30kmph
+3.Simulate HIL_Mdl_Cons_Front_Brake = 1; Pressed (switch press timing less than debounce time)
+4.Simulate HIL_Mdl_Cons_Rear_Brake = 1; Pressed (switch press timing more than debounce time)
+ 4.1. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_REAR_BRAKE_SWITCH_STATUS = 0x1 (Brake actuated)
+ 4.2. Cluster should display: 2nd gear and speed 30kmph
+ 4.3. Brake lamp should ON","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP= 0]
+2. Set Battery Voltage to 0V"
+5,VHIL_H100_VehFunc_BrakeLamp_SC_GND_FrontRearPressed_Driving,Observe the behaviour when short circuit to ground  front brake and rear brake pressed state at vehicle driving condition,"1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+3. Crank the vehicle[HIL_Mdl_Engine_Start_SW=1]
+4.Simulate HIL_Mdl_GPS = Neutral [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x2]
+5.Simulate HIL_Mdl_Cons_APS= 0% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Simulate HIL_Mdl_GPS = 3rd gear [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x7]
+2.Simulate HIL_Mdl_Cons_APS= 20% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 40kmph
+3.Perform short circuit to ground [HIL_Mdl_Cons_Front_Brake]
+4.Simulate HIL_Mdl_Cons_Rear_Brake = 1; Pressed
+ 4.1. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_FRONT_VEHICLE_BRAKE_STATUS = 0x3 (Signal invalid)
+ 4.2. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_REAR_BRAKE_SWITCH_STATUS = 0x1 (Brake actuated)
+ 4.3. Cluster should display: 3rd gear and 40kmph
+ 4.4.Brake lamp should be ON","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP= 0]
+2. Set Battery Voltage to 0V"
+6,VHIL_H100_VehFunc_BrakeLamp_SC_BAT_FrontRearNotPressed,Observe the behaviour when short circuit to battery front brake and rear brake not pressed state ,"1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+3. Crank the vehicle[HIL_Mdl_Engine_Start_SW=1]
+4.Simulate HIL_Mdl_GPS = Neutral [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x2]
+5.Simulate HIL_Mdl_Cons_APS= 0% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Perform short circuit to battery of HIL_Mdl_Cons_Front_Brake
+2.Simulate HIL_Mdl_Cons_Rear_Brake = 0; Not Pressed
+2.Cluster should display 
+ 2.1. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_FRONT_VEHICLE_BRAKE_STATUS = 0x3 (Signal invalid)
+ 2.2. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_REAR_BRAKE_SWITCH_STATUS = 0x2 (Brake not actuated)
+ 2.3. Check if Neutral gear and 0kmph
+ 2.4. Brake lamp should be OFF","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP= 0]
+2. Set Battery Voltage to 0V"
+7,VHIL_H100_VehFunc_BrakeLamp_OC_FrontPressed_RearPressed_Driving,Observe the behaviour when open circuit front brake and rear brake pressed state at vehicle driving condition,"1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+3. Crank the vehicle[HIL_Mdl_Engine_Start_SW=1]
+4.Simulate HIL_Mdl_GPS = Neutral [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x2]
+5.Simulate HIL_Mdl_Cons_APS= 0% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Simulate HIL_Mdl_GPS = 1st gear [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x1]
+2.Simulate HIL_Mdl_Cons_APS= 6% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 10kmph
+3.Perform open circuit [HIL_Mdl_Cons_Front_Brake]
+4.Simulate HIL_Mdl_Cons_Rear_Brake = 1; Pressed
+ 4.1. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_FRONT_VEHICLE_BRAKE_STATUS = 0x3 (Signal invalid)
+ 4.2. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_REAR_BRAKE_SWITCH_STATUS = 0x1 (Brake actuated)
+ 4.3. Cluster should display 1st gear and 10kmph and speed will reduce in sometime
+ 4.4. Brake lamp should be ON","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP= 0]
+2. Set Battery Voltage to 0V"
+8,VHIL_H100_VehFunc_BrakeLamp_OC_FrontPressed_RearPressed,Observe the behaviour when Open circuit front brake and rear brake pressed state ,"1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+3. Crank the vehicle[HIL_Mdl_Engine_Start_SW=1]
+4.Simulate HIL_Mdl_GPS = Neutral [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x2]
+5.Simulate HIL_Mdl_Cons_APS= 0% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Perform open circuit [HIL_Mdl_Cons_Front_Brake]
+2.Simulate HIL_Mdl_Cons_Rear_Brake = 0; Not Pressed
+ 2.1. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_FRONT_VEHICLE_BRAKE_STATUS = 0x3 (Signal invalid)
+ 2.2. BUS_CLUSTER_QS_CC_TC_SETTING_0x120_REAR_BRAKE_SWITCH_STATUS = 0x2 (Brake not actuated)
+ 2.3.Check in cluster: Neutral gear and 0kmph
+ 2.4. Brake lamp should be OFF","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP= 0]
+2. Set Battery Voltage to 0V"
+9,VHIL_H100_VehFunc_BrakeLamp_SC_GND_RearPressed_FrontPressed_Driving,Observe the behaviour when short circuit to ground rear brake and front brake pressed state at vehicle driving condition,"1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+3. Crank the vehicle[HIL_Mdl_Engine_Start_SW=1]
+4.Simulate HIL_Mdl_GPS = Neutral [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x2]
+5.Simulate HIL_Mdl_Cons_APS= 0% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Simulate HIL_Mdl_GPS = 2nd gear [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x4]
+2.Simulate HIL_Mdl_Cons_APS= 20% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 30kmph
+3.Simulate HIL_Mdl_Cons_Front_Brake = 1; Pressed
+4.Perform short circuit to ground [HIL_Mdl_Cons_Rear_Brake]
+ 4.1. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_FRONT_VEHICLE_BRAKE_STATUS = 0x1(Brake actuated)
+ 4.2. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_REAR_BRAKE_SWITCH_STATUS = 0x3 (Signal invalid)
+ 4.3. Cluster should display: 2nd gear and 30kmph
+ 4.4. Brake lamp should be ON","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP= 0]
+2. Set Battery Voltage to 0V"
+10,VHIL_H100_VehFunc_BrakeLamp_SC_BAT_RearPressed_FrontNotPressed_Driving,Observe the behaviour when short circuit to battery rear brake and front brake not pressed state at vehicle driving condition,"1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+3. Crank the vehicle[HIL_Mdl_Engine_Start_SW=1]
+4.Simulate HIL_Mdl_GPS = Neutral [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x2]
+5.Simulate HIL_Mdl_Cons_APS= 0% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Simulate HIL_Mdl_GPS = 1st gear [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x1]
+2.Simulate HIL_Mdl_Cons_APS= 6%  to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 10kmph
+3.Simulate HIL_Mdl_Cons_Front_Brake = 0; Not Pressed
+4.Perform short circuit to battery [HIL_Mdl_Cons_Rear_Brake]
+ 4.1.Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_FRONT_VEHICLE_BRAKE_STATUS = 0x2(Brake not actuated)
+ 4.2. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_REAR_BRAKE_SWITCH_STATUS = 0x3 (Signal invalid)
+ 4.3. Cluster should display 1st gear and 10kmph
+ 4.4. Brake lamp should be OFF","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP= 0]
+2. Set Battery Voltage to 0V"
+11,VHIL_H100_VehFunc_BrakeLamp_OC_RearPressed_FrontPressed,Observe the behaviour when open circuit rear brake and front brake pressed state ,"1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+3. Crank the vehicle[HIL_Mdl_Engine_Start_SW=1]
+4.Simulate HIL_Mdl_GPS = Neutral [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x2]
+5.Simulate HIL_Mdl_Cons_APS= 0% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Simulate HIL_Mdl_Cons_Front_Brake = 1; Pressed
+2.Perform open circuit [HIL_Mdl_Cons_Rear_Brake]
+ 2.1. Check if )BUS_CLUSTER_QS_CC_TC_SETTING_0x120_FRONT_VEHICLE_BRAKE_STATUS = 0x1(Brake actuated)
+ 2.2. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_REAR_BRAKE_SWITCH_STATUS = 0x3 (Signal invalid)
+ 2.3. Cluster should display: Neutral gear and 0kmph
+ 2.4. Brake lamp should be ON","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP= 0]
+2. Set Battery Voltage to 0V"
+12,VHIL_H100_VehFunc_BrakeLamp_OC_RearPressed_FrontNotPressed_Driving,Observe the behaviour when open circuit rear brake and front brake not pressed state at vehicle driving condition,"1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+3. Crank the vehicle[HIL_Mdl_Engine_Start_SW=1]
+4.Simulate HIL_Mdl_GPS = Neutral [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x2]
+5.Simulate HIL_Mdl_Cons_APS= 0% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Simulate HIL_Mdl_GPS = 3rd gear [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x7]
+2.Simulate HIL_Mdl_Cons_APS= 20% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 40kmph
+3.Simulate HIL_Mdl_Cons_Front_Brake = 0; Not Pressed
+4.Perform open circuit [HIL_Mdl_Cons_Rear_Brake]
+ 4.1. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_FRONT_VEHICLE_BRAKE_STATUS = 0x2(Brake not actuated)
+ 4.2. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_REAR_BRAKE_SWITCH_STATUS = 0x3 (Signal invalid)
+ 4.3. Cluster should display: 3rd gear and 40kmph
+ 4.4. Brake lamp should be OFF","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP= 0]
+2. Set Battery Voltage to 0V"
+13,VHIL_H100_VehFunc_BrakeLamp_SC_BAT_FrontRearPressed_Driving,Observe the behaviour when SCB front brake and rear brake is pressed state at vehicle driving condition,"1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+3. Crank the vehicle[HIL_Mdl_Engine_Start_SW=1]
+4.Simulate HIL_Mdl_GPS = Neutral [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x2]
+5.Simulate HIL_Mdl_Cons_APS= 0% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Simulate HIL_Mdl_GPS = 1st gear [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x1]
+2.Simulate HIL_Mdl_Cons_APS= 10% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 6kmph
+3.Simulate HIL_Mdl_Cons_Rear_Brake = 1; Pressed
+4.Perform Short circuit to Battery [HIL_Mdl_Cons_Front_Brake]
+ 4.1. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_REAR_BRAKE_SWITCH_STATUS = 0x1(Brake actuated)
+ 4.2. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_FRONT_VEHICLE_BRAKE_STATUS = 0x3 (Signal invalid)
+ 4.3. Cluster should display: 1st gear and 6 kmph
+ 4.4. Brake lamp should be ON","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP= 0]
+2. Set Battery Voltage to 0V"
+14,VHIL_H100_VehFunc_BrakeLamp_SC_BAT_FrontRearNotPressed_Driving,Observe the behaviour when SCB front brake and rear brake is not pressed state at vehicle driving condition,"1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+3. Crank the vehicle[HIL_Mdl_Engine_Start_SW=1]
+4.Simulate HIL_Mdl_GPS = Neutral [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x2]
+5.Simulate HIL_Mdl_Cons_APS= 0% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Simulate HIL_Mdl_GPS = 1stgear [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x1]
+2.Simulate HIL_Mdl_Cons_APS= 10% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 6kmph
+3.Simulate HIL_Mdl_Cons_Rear_Brake = 0; Not Pressed
+4.Perform Short circuit to GND [HIL_Mdl_Cons_Front_Brake]
+ 4.1. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_REAR_BRAKE_SWITCH_STATUS = 0x2(Brake not actuated)
+ 4.2. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_FRONT_VEHICLE_BRAKE_STATUS = 0x3 (Signal invalid)
+ 4.3. Cluster should display: 1st gear and 6kmph
+ 4.4. Brake lamp should be OFF","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP= 0]
+2. Set Battery Voltage to 0V"
+15,VHIL_H100_VehFunc_BrakeLamp_SC_BAT_RearFrontPressed_Condition,Observe the behaviour when SCG front brake and rear brake is not pressed state at vehicle Driving condition,"1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+3. Crank the vehicle[HIL_Mdl_Engine_Start_SW=1]
+4.Simulate HIL_Mdl_GPS = Neutral [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x2]
+5.Simulate HIL_Mdl_Cons_APS= 0% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Simulate HIL_Mdl_GPS = 1st  [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x1]
+2.Simulate HIL_Mdl_Cons_APS= 0% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph
+3.Simulate HIL_Mdl_Cons_Rear_Brake = 0; Not Pressed
+4.Perform Short circuit to GND [HIL_Mdl_Cons_Rear_Brake]
+ 4.1. Check if FRONT_BRAKE_SWITCH_STATUS(0x120) = 0x1 (Brake actuated)
+ 4.2. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_REAR_BRAKE_SWITCH_STATUS = 0x3 (Signal invalid)
+ 4.3. Cluster should display: neutral gear and 0kmph
+ 4.4. Brake lamp should be OFF","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP= 0]
+2. Set Battery Voltage to 0V"
+16,VHIL_H100_VehFunc_BrakeLamp_SC_BAT_FrontRearNotPressed_Condition,Observe the behaviour when SCB rear brake and front brake is pressed state at vehicle riding  condition,"1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+3. Crank the vehicle[HIL_Mdl_Engine_Start_SW=1]
+4.Simulate HIL_Mdl_GPS = Neutral [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x2]
+5.Simulate HIL_Mdl_Cons_APS= 0% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Simulate HIL_Mdl_GPS = 1 [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x1]
+2.Simulate HIL_Mdl_Cons_APS= 10% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 6kmph
+3.Simulate HIL_Mdl_Cons_Front_Brake = 1;  Pressed
+4.Perform Short circuit to Battery [HIL_Mdl_Cons_Rear_Brake]
+ 4.1. Check if FRONT_BRAKE_SWITCH_STATUS(0x120) = 0x1(Brake actuated)
+ 4.2. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_REAR_BRAKE_SWITCH_STATUS = 0x3 (Signal invalid)
+ 4.3. Cluster should display: 1st gear and 6 kmph
+ 4.4. Brake lamp should be ON","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP= 0]
+2. Set Battery Voltage to 0V"
+17,VHIL_H100_VehFunc_BrakeLamp_OC_FrontRearNotPressed_Driving,Observe the behaviour when OC fault is injected in Front Brake  and the Rear Brake  is not pressed at vehicle Stationary condition,"1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+3. Crank the vehicle[HIL_Mdl_Engine_Start_SW=1]
+4.Simulate HIL_Mdl_GPS = Neutral [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x2]
+5.Simulate HIL_Mdl_Cons_APS= 0% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Simulate HIL_Mdl_GPS = 1st  [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x1]
+2.Simulate HIL_Mdl_Cons_APS= 10% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 6kmph
+3.Simulate HIL_Mdl_Cons_Rear_Brake = 0; Not Pressed
+4.Perform Open Circuit [HIL_Mdl_Cons_Front_Brake]
+ 4.1. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_REAR_BRAKE_SWITCH_STATUS = 0x2 (Brake not actuated)
+ 4.2. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_FRONT_VEHICLE_BRAKE_STATUS = 0x3 (Signal invalid)
+ 4.3. Cluster should display: 1st gear and 6 kmph
+ 4.4. Brake lamp should be OFF","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP= 0]
+2. Set Battery Voltage to 0V"
+18,VHIL_H100_VehFunc_BrakeLamp_SC_GND_RearFrontNotPressed_Driving,Observe the behaviour when SCG rear brake and front brake is not pressed state at vehicle Riding condition,"1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+3. Crank the vehicle[HIL_Mdl_Engine_Start_SW=1]
+4.Simulate HIL_Mdl_GPS = Neutral [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x2]
+5.Simulate HIL_Mdl_Cons_APS= 0% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Simulate HIL_Mdl_GPS = 1st [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x1]
+2.Simulate HIL_Mdl_Cons_APS= 10% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 6kmph
+3.Simulate HIL_Mdl_Cons_Front_Brake = 0; Not Pressed
+4.Perform Short circuit to GND [HIL_Mdl_Cons_Rear_Brake]
+ 4.1. Check if FRONT_BRAKE_SWITCH_STATUS(0x120) = 0x2 (Brake not actuated)
+ 4.2. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_REAR_BRAKE_SWITCH_STATUS = 0x3 (Signal invalid)
+ 4.3. Cluster should display:1st gear and 6 kmph
+ 4.4. Brake lamp should be OFF","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP= 0]
+2. Set Battery Voltage to 0V"
+19,VHIL_H100_VehFunc_BrakeLamp_OC_RearFrontPressed_Driving,Observe the behaviour when OC rear brake and front brake is pressed state at vehicle Riding condition,"1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+3. Crank the vehicle[HIL_Mdl_Engine_Start_SW=1]
+4.Simulate HIL_Mdl_GPS = Neutral [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x2]
+5.Simulate HIL_Mdl_Cons_APS= 0% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Simulate HIL_Mdl_GPS = 1st [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x1]
+2.Simulate HIL_Mdl_Cons_APS= 10% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 6 kmph
+3.Simulate HIL_Mdl_Cons_Front_Brake = 1;  Pressed
+4.Perform Open Circuit Fault [HIL_Mdl_Cons_Rear_Brake]
+ 4.1. Check if FRONT_BRAKE_SWITCH_STATUS(0x120) = 0x1 (Brake  actuated)
+ 4.2. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_REAR_BRAKE_SWITCH_STATUS = 0x3 (Signal invalid)
+ 4.3. Cluster should display:1st gear and 6 kmph and speed will reduce in sometime
+ 4.4. Brake lamp should be OFF","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP= 0]
+2. Set Battery Voltage to 0V"
+20,VHIL_H100_VehFunc_BrakeLamp_SC_BAT_FrontRearPressed_Driving,Observe the behaviour when SCB front brake and rear brake is at pressed state at vehicle Riding condition,"1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+3. Crank the vehicle[HIL_Mdl_Engine_Start_SW=1]
+4.Simulate HIL_Mdl_GPS = Neutral [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x2]
+5.Simulate HIL_Mdl_Cons_APS= 0% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Simulate HIL_Mdl_GPS =1st [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x1]
+2.Simulate HIL_Mdl_Cons_APS= 10% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 6 kmph
+3.Simulate HIL_Mdl_Cons_Rear_Brake = 1; Pressed
+4.Perform Short circuit to Battery [HIL_Mdl_Cons_Front_Brake]
+ 4.1. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_REAR_BRAKE_SWITCH_STATUS = 0x1 (Brake actuated)
+ 4.2. Check if FRONT_BRAKE_SWITCH_STATUS(0x120) = 0x3 (Signal invalid)
+ 4.3. Cluster should display:1stgear and 6 kmph and speed will reduce in sometime
+ 4.4. Brake lamp should be ON","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP= 0]
+2. Set Battery Voltage to 0V"
+21,VHIL_H100_VehFunc_BrakeLamp_FrontPressed_SC_GND_Driving,Observe the behaviour when front brake pressed state and short circuit to Ground front brake at vehicle driving condition,"1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+3. Crank the vehicle[HIL_Mdl_Engine_Start_SW=1]
+4.Simulate HIL_Mdl_GPS = Neutral [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x2]
+5.Simulate HIL_Mdl_Cons_APS= 0% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Simulate HIL_Mdl_GPS = 2nd gear [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x4]
+2.Simulate HIL_Mdl_Cons_APS= 20% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 30kmph
+3.Simulate HIL_Mdl_Cons_Front_Brake = 1; Pressed
+ 3.1. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_FRONT_VEHICLE_BRAKE_STATUS = 0x1 (Brake actuated)
+ 3.2. Cluster should display: 2nd gear and 30kmph
+ 3.3. Brake lamp should ON
+4.Perform short circuit to ground [HIL_Mdl_Cons_Front_Brake]
+ 4.1. .Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_FRONT_VEHICLE_BRAKE_STATUS = 0x3 (Signal invalid)
+ 4.2. Cluster should display: 2nd gear and 30kmph
+ 4.3. .Brake lamp should be ON
+","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP= 0]
+2. Set Battery Voltage to 0V"
+22,VHIL_H100_VehFunc_BrakeLamp_RearPressed_SC_GND_Driving,Observe the behaviour when rear brake pressed state and short circuit to Ground rear brake at vehicle driving condition,"1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+3. Crank the vehicle[HIL_Mdl_Engine_Start_SW=1]
+4.Simulate HIL_Mdl_GPS = Neutral [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x2]
+5.Simulate HIL_Mdl_Cons_APS= 0% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Simulate HIL_Mdl_GPS = 2nd gear [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x4]
+2.Simulate HIL_Mdl_Cons_APS= 20% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 30kmph
+3.Simulate HIL_Mdl_Cons_Rear_Brake = 1; Pressed
+ 3.1. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_FRONT_VEHICLE_BRAKE_STATUS = 0x1 (Brake actuated)
+ 3.2. Cluster should display: 2nd gear and 30kmph
+ 3.3. Brake lamp should ON
+4.Perform short circuit to ground [HIL_Mdl_Cons_Rear_Brake]
+ 4.1. .Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_FRONT_VEHICLE_BRAKE_STATUS = 0x3 (Signal invalid)
+ 4.2. Cluster should display: 2nd gear and 30kmph
+ 4.3. .Brake lamp should be ON
+","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP= 0]
+2. Set Battery Voltage to 0V"
+23,VHIL_H100_VehFunc_BrakeLamp_FrontPressed_SC_BAT_Condition,Observe the behaviour when front brake pressed state and short circuit to Battery front brake at riding condition,"1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+3. Crank the vehicle[HIL_Mdl_Engine_Start_SW=1]
+4.Simulate HIL_Mdl_GPS = Neutral [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x2]
+5.Simulate HIL_Mdl_Cons_APS= 0% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Simulate HIL_Mdl_GPS = 1st [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x1]
+2.Simulate HIL_Mdl_Cons_APS= 10% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 6kmph
+3.Simulate HIL_Mdl_Cons_Front_Brake = 1; Pressed
+ 3.1. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_FRONT_VEHICLE_BRAKE_STATUS = 0x1 (Brake actuated)
+ 3.2. Cluster should display: 1st and 6kmph
+ 3.3. Brake lamp should ON
+4.Perform short circuit to battery[HIL_Mdl_Cons_Front_Brake]
+ 4.1. .Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_FRONT_VEHICLE_BRAKE_STATUS  = 0x3 (Signal invalid)
+ 4.2. Cluster should display: neutral gear and 0kmph
+ 4.3. .Brake lamp should be ON
+","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP= 0]
+2. Set Battery Voltage to 0V"
+24,VHIL_H100_VehFunc_BrakeLamp_RearPressed_SC_BAT_Condition,Observe the behaviour when rear brake pressed state and short circuit to Battery  rear brake at stationary condition,"1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+3. Crank the vehicle[HIL_Mdl_Engine_Start_SW=1]
+4.Simulate HIL_Mdl_GPS = Neutral [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x2]
+5.Simulate HIL_Mdl_Cons_APS= 0% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Simulate HIL_Mdl_GPS = 1st gear [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x1]
+2.Simulate HIL_Mdl_Cons_APS= 10% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 6 kmph
+3.Simulate HIL_Mdl_Cons_Rear_Brake = 1; Pressed
+ 3.1. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_FRONT_VEHICLE_BRAKE_STATUS  = 0x2(Brake not actuated)
+ 3.2. Cluster should display: neutral gear and 0kmph
+ 3.3. Brake lamp should ON
+4.Perform short circuit to ground [HIL_Mdl_Cons_Rear_Brake]
+ 4.1. .Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_REAR_BRAKE_SWITCH_STATUS = 0x3 (Signal invalid)
+ 4.2. Cluster should display: neutal gear and 0kmph
+ 4.3. .Brake lamp should be ON
+","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP= 0]
+2. Set Battery Voltage to 0V"
+25,VHIL_H100_VehFunc_BrakeLamp_FrontPressed_OC_Driving,Observe the behaviour when front brake pressed state and open circuit front brake at vehicle driving condition,"1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+3. Crank the vehicle[HIL_Mdl_Engine_Start_SW=1]
+4.Simulate HIL_Mdl_GPS = Neutral [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x2]
+5.Simulate HIL_Mdl_Cons_APS= 0% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Simulate HIL_Mdl_GPS = 1st gear [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x1]
+1.1. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_FRONT_VEHICLE_BRAKE_STATUS = 0x1 (Brake actuated)
+1.2. Cluster should display: 1st gear and 10kmph
+1.3. Brake lamp should ON
+2.Simulate HIL_Mdl_Cons_APS= 6% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 10kmph
+3.Simulate HIL_Mdl_Cons_Front_Brake = 1; Pressed
+4.Perform open circuit [HIL_Mdl_Cons_Front_Brake]
+ 4.1. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_FRONT_VEHICLE_BRAKE_STATUS = 0x3 (Signal invalid)
+ 4.2. Check if 1st gear and 10kmph
+ 4.3. Check if Brake lamp should be ON","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP= 0]
+2. Set Battery Voltage to 0V"
+26,VHIL_H100_VehFunc_BrakeLamp_RearPressed_OC_Driving,Observe the behaviour when rear brake pressed state and open circuit rear brake at vehicle driving condition,"1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+3. Crank the vehicle[HIL_Mdl_Engine_Start_SW=1]
+4.Simulate HIL_Mdl_GPS = Neutral [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x2]
+5.Simulate HIL_Mdl_Cons_APS= 0% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Simulate HIL_Mdl_GPS = 1st gear [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x1]
+1.1. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_REAR_VEHICLE_BRAKE_STATUS = 0x1 (Brake actuated)
+1.2. Cluster should display: 1st gear and 10kmph
+1.3. Brake lamp should ON
+2.Simulate HIL_Mdl_Cons_APS= 6% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 10kmph
+3.Simulate HIL_Mdl_Cons_Rear_Brake = 1; Pressed
+4.Perform open circuit [HIL_Mdl_Cons_Rear_Brake]
+ 4.1. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_REAR_VEHICLE_BRAKE_STATUS = 0x3 (Signal invalid)
+ 4.2. Check if 1st gear and 10kmph
+ 4.3. Check if Brake lamp should be ON","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP= 0]
+2. Set Battery Voltage to 0V"
+27,VHIL_H100_VehFunc_BrakeLamp_RearPressed_SC_GND_Running,Observe the behaviour when rear brake pressed state and short circuit to ground rear brake vehicle running,"1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+3. Crank the vehicle[HIL_Mdl_Engine_Start_SW=1]
+4.Simulate HIL_Mdl_GPS = Neutral [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x2]
+5.Simulate HIL_Mdl_Cons_APS= 0% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Simulate HIL_Mdl_Cons_Rear_Brake = 1; Pressed, HIL_Mdl_GPS = 1 [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x1] and HIL_Mdl_Cons_APS= 6% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 10kmph
+1.1. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_REAR_BRAKE_SWITCH_STATUS = 0x1 (Brake actuated)
+1.2. Cluster should display: check if 1st gear and 10kmph
+1.3. Brake lamp should ON
+2.Perform short circuit to Ground [HIL_Mdl_Cons_Rear_Brake]
+ 2.1. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_REAR_BRAKE_SWITCH_STATUS = 0x3 (Signal invalid)
+ 2.2. Cluster should display: 1st gear and 10kmph
+ 2.3. Brake lamp should be ON
+","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP= 0]
+2. Set Battery Voltage to 0V"
+28,VHIL_H100_VehFunc_BrakeLamp_SC_GND_Rear_FrontTest,Observe the behaviour when Rear is short circuited to ground and rear brake is changed with faults,"1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+3. Crank the vehicle[HIL_Mdl_Engine_Start_SW=1]
+4.Simulate HIL_Mdl_GPS = Neutral [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x2]
+5.Simulate HIL_Mdl_Cons_APS= 0% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Press Brake [HIL_Mdl_Cons_Rear_Brake]
+1.1. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_REAR_BRAKE_SWITCH_STATUS = 0x1 (Brake actuated)
+1.2. Cluster should display: check if 1st gear and 10kmph
+1.3. Brake lamp should ON
+2.simulate short circuit to Ground [HIL_Mdl_Cons_Rear_Brake]
+ 2.1. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_REAR_BRAKE_SWITCH_STATUS = 0x3 (Signal invalid)
+ 2.2. Cluster should display: 1st gear and 10kmph
+ 2.3. Hazard lamps should be ON with Hazard TellTale ON
+3.Perform Open Circuit Fault [HIL_Mdl_Cons_Rear_Brake]
+ 3.1. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_REAR_BRAKE_SWITCH_STATUS = 0x3 (Signal invalid)
+ 3.2. Cluster should display: 1st gear and 10kmph
+ 3.3. Hazard lamps should be ON with Hazard TellTale ON","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP= 0]
+2. Set Battery Voltage to 0V"
+29,VHIL_H100_VehFunc_BrakeLamp_SC_BAT_Rear_FrontTest,Observe the behaviour when Rear is short circuited to Bat and rear brake is changed with faults,"1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+3. Crank the vehicle[HIL_Mdl_Engine_Start_SW=1]
+4.Simulate HIL_Mdl_GPS = Neutral [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x2]
+5.Simulate HIL_Mdl_Cons_APS= 0% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Press Brake [HIL_Mdl_Cons_Rear_Brake]
+1.1. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_REAR_BRAKE_SWITCH_STATUS = 0x1 (Brake actuated)
+1.2. Cluster should display: check if 1st gear and 10kmph
+1.3. Brake lamp should ON
+2.simulate short circuit to Battery [HIL_Mdl_Cons_Rear_Brake]
+ 2.1. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_REAR_BRAKE_SWITCH_STATUS = 0x3 (Signal invalid)
+ 2.2. Cluster should display: 1st gear and 10kmph
+ 2.3. Hazard lamps should be ON with Hazard TellTale ON
+3.Perform Open Circuit Fault [HIL_Mdl_Cons_Rear_Brake]
+ 3.1. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_REAR_BRAKE_SWITCH_STATUS = 0x3 (Signal invalid)
+ 3.2. Cluster should display: 1st gear and 10kmph
+ 3.3. Hazard lamps should be ON with Hazard TellTale ON","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP= 0]
+2. Set Battery Voltage to 0V"
+30,VHIL_H100_VehFunc_BrakeLamp_OC_Rear_FrontTest,Observe the behaviour when Rear is Open Circuited and rear brake is changed with faults,"1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+3. Crank the vehicle[HIL_Mdl_Engine_Start_SW=1]
+4.Simulate HIL_Mdl_GPS = Neutral [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x2]
+5.Simulate HIL_Mdl_Cons_APS= 0% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Press Brake [ [HIL_Mdl_Cons_Rear_Brake]
+1.1. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_REAR_BRAKE_SWITCH_STATUS = 0x1 (Brake actuated)
+1.2. Cluster should display: check if 1st gear and 10kmph
+1.3. Brake lamp should ON
+2.Simulate  open circuit fault
+ 2.1. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_REAR_BRAKE_SWITCH_STATUS = 0x3 (Signal invalid)
+ 2.2. Cluster should display: 1st gear and 10kmph
+ 2.3. Hazard lamps should be ON with Hazard TellTale ON
+3.Perform short circuit to Battery [HIL_Mdl_Cons_Rear_Brake]
+ 2.1. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_REAR_BRAKE_SWITCH_STATUS = 0x3 (Signal invalid)
+ 2.2. Cluster should display: 1st gear and 10kmph
+ 2.3. Hazard lamps should be ON with Hazard TellTale ON
+3.Perform Open Circuit Fault [HIL_Mdl_Cons_Rear_Brake]
+ 2.1. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_REAR_BRAKE_SWITCH_STATUS = 0x3 (Signal invalid)
+ 2.2. Cluster should display: 1st gear and 10kmph
+ 2.3. Hazard lamps should be ON with Hazard TellTale ON","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP= 0]
+2. Set Battery Voltage to 0V"
+31,VHIL_H100_VehFunc_BrakeLamp_FrontPressed_SC_GND_Running,Observe the behaviour when front brake pressed state and short circuit to ground front brake ,"1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+3. Crank the vehicle[HIL_Mdl_Engine_Start_SW=1]
+4.Simulate HIL_Mdl_GPS = Neutral [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x2]
+5.Simulate HIL_Mdl_Cons_APS= 0% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Simulate HIL_Mdl_Cons_Front_Brake = 1; Pressed, HIL_Mdl_GPS = 1 [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x1] and HIL_Mdl_Cons_APS= 6% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 10kmph
+1.1. Check if FRONT_BRAKE_SWITCH_STATUS(0x120) = 0x1 (Brake actuated)
+1.2. Cluster should display: heck if Neutral gear and 0kmph
+1.3. Brake lamp should ON
+2. Perform short circuit to Ground [HIL_Mdl_Cons_Front_Brake]
+ 2.1. Check if FRONT_BRAKE_SWITCH_STATUS(0x120) = 0x3 (Signal invalid)
+ 2.2. Cluster should display: Neutral gear and 0kmph
+ 2.3. Brake lamp should be ON","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP= 0]
+2. Set Battery Voltage to 0V"
+32,VHIL_H100_VehFunc_BrakeHazardESS_OFF_AllNotPressed_IgnitionOFF,"Observe the behaviour of brake lamp, hazard lamp OFF and ESS signal is OFF when front brake, rear brake and hazard not pressed at ignition OFF state","1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+3. Crank the vehicle[HIL_Mdl_Engine_Start_SW=1]
+4.Simulate HIL_Mdl_GPS = Neutral [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x2]
+5.Simulate HIL_Mdl_Cons_APS= 0% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Simulate HIL_Mdl_Cons_Front_Brake = 0; Not Pressed
+2.Simulate HIL_Mdl_Cons_Rear_Brake = 0; Not Pressed
+3.Simulate HIL_Mdl_Hazard_SW = 0; Not Pressed
+4.Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP= 0]
+ 4.1. Cluster and ABS system will go OFF
+ 4.2. Brake lamp & Hazard lamp should be OFF","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP= 0]
+2. Set Battery Voltage to 0V"
+33,VHIL_H100_VehFunc_BrakeHazard_Comb_RearPressed_HazardPressed_FrontNotPressed,"Behaviour of  ESS signal is OFF when front brake not pressed state, rear brake pressed state and hazard pressed state","1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+3. Crank the vehicle[HIL_Mdl_Engine_Start_SW=1]
+4.Simulate HIL_Mdl_GPS = Neutral [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x2]
+5.Simulate HIL_Mdl_Cons_APS= 0% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Simulate HIL_Mdl_Cons_Front_Brake = 0; Not Pressed
+1.1. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_FRONT_VEHICLE_BRAKE_STATUS = 0x2 (Brake not actuated)
+1.2. Cluster should display :Neutral gear and 0kmph
+1.3. Brake lamp should be OFF
+1.4. ABS should publish BUS_ABS_DATA_1_0x450_EMERGENCY_STOP_SIGNAL_ST = 0x0(ESS OFF)
+2.Simulate HIL_Mdl_Cons_Rear_Brake = 1; Pressed
+3.Simulate HIL_Mdl_Hazard_SW = 1; Pressed
+ 3.1. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_FRONT_VEHICLE_BRAKE_STATUS = 0x2 (Brake not actuated)
+ 3.2. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_REAR_BRAKE_SWITCH_STATUS  = 0x1 (Brake actuated)
+ 3.3. Clsuster should display: Neutral gear and 0kmph
+ 3.4. Brake lamp & Hazard lamp should ON
+ 3.5. ABS should publish BUS_ABS_DATA_1_0x450_EMERGENCY_STOP_SIGNAL_ST = 0x0(ESS OFF)
+4.Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP= 0]
+ 4.1. Cluster and ABS system will go OFF
+ 4.2. .Brake lamp should be OFF and Hazard lamp should ON for duration untill vehicle stops","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP= 0]
+2. Set Battery Voltage to 0V"
+34,VHIL_H100_VehFunc_BrakeHazard_Comb_RearNotPressed_HazardPressed_IgnCycle,"combinational behaviour of brake lamp and hazard lamp when front brake not pressed state, rear brake not pressed state and hazard pressed state to not pressed state with ignition cycle","1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+3. Crank the vehicle[HIL_Mdl_Engine_Start_SW=1]
+4.Simulate HIL_Mdl_GPS = Neutral [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x2]
+5.Simulate HIL_Mdl_Cons_APS= 0% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Simulate HIL_Mdl_Cons_Front_Brake = 0; Not Pressed
+2.Simulate HIL_Mdl_Cons_Rear_Brake = 0; Not Pressed
+3.Simulate HIL_Mdl_Hazard_SW = 1; Pressed
+ 3.1. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_FRONT_VEHICLE_BRAKE_STATUS = 0x2 (Brake not actuated)
+ 3.2. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_REAR_BRAKE_SWITCH_STATUS  = 0x2 (Brake not actuated)
+ 3.3. Cluster should display: Neutral gear and 0kmph
+ 3.4. Brake lamp should be OFF and Hazard lamp should ON
+4.Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP= 0]
+ 4.1. Cluster system will go OFF
+ 4.2. Brake lamp  and Hazard lamp should be OFF
+5.Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+ 5.1. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_FRONT_VEHICLE_BRAKE_STATUS = 0x2 (Brake not actuated)
+ 5.2. BUS_CLUSTER_QS_CC_TC_SETTING_0x120_REAR_BRAKE_SWITCH_STATUS  = 0x2 (Brake not actuated)
+ 5.3. Neutral gear and 0kmph
+ 5.4. Brake lamp should be OFF and Hazard lamp should ON
+6.Simulate HIL_Mdl_Hazard_SW = 0; Not Pressed 
+ 6.1. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_FRONT_VEHICLE_BRAKE_STATUS = 0x2 (Brake not actuated)
+ 6.2. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_REAR_BRAKE_SWITCH_STATUS = 0x2 (Brake not actuated)
+ 6.3. Cluster should display: Neutral gear and 0kmph
+ 6.4. Brake lamp  and Hazard lamp should be OFF","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP= 0]
+2. Set Battery Voltage to 0V"
+35,VHIL_H100_VehFunc_BrakeHazardESS_Comb_AllPressed_Running,"combinational behaviour of brake lamp, hazard lamp and ESS signal is OFF when front brake pressed state, rear brake pressed state and hazard pressed state at vehicle running condition","1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+3. Crank the vehicle[HIL_Mdl_Engine_Start_SW=1]
+4.Simulate HIL_Mdl_GPS = Neutral [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x2]
+5.Simulate HIL_Mdl_Cons_APS= 0% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Simulate HIL_Mdl_GPS = 1st gear [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x1]
+2.Simulate HIL_Mdl_Cons_APS=1%  to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 6kmph
+3.Simulate HIL_Mdl_Cons_Front_Brake = 1; Pressed
+4.Simulate HIL_Mdl_Cons_Rear_Brake = 1; Pressed
+5.Simulate HIL_Mdl_Hazard_SW = 1; Pressed
+ 5.1. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_FRONT_VEHICLE_BRAKE_STATUS = 0x1 (Brake actuated)
+ 5.2. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_REAR_BRAKE_SWITCH_STATUS  = 0x1 (Brake actuated)
+ 5.3. Cluster should display: 1st gear and 6kmph
+ 5.4. Brake lamp Hazard lamp should ON
+ 5.5. ABS should publish: BUS_ABS_DATA_1_0x450_EMERGENCY_STOP_SIGNAL_ST = 0x0(ESS OFF)
+6.Simulate HIL_Mdl_Cons_APS= 14% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 16kmph
+ 6.1. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_FRONT_VEHICLE_BRAKE_STATUS = 0x1 (Brake actuated)
+ 6.2. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_REAR_BRAKE_SWITCH_STATUS  = 0x1 (Brake actuated)
+ 6.3. Cluster should display: 1st gear and 16kmph and then reducing in sometime
+ 6.4. Brake lamp should ON and Hazard lamp should be OFF
+ 6.5. ABS should publish: BUS_ABS_DATA_1_0x450_EMERGENCY_STOP_SIGNAL_ST = 0x0(ESS OFF)","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP= 0]
+2. Set Battery Voltage to 0V"
+36,VHIL_H100_VehFunc_BrakeHazardESS_Comb_AllPressed_ESS_ON_Running,"To verify Hazard lamp and Brake lamp behaviour, when Hazard is pressed below 10kmph speed","1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+3. Crank the vehicle[HIL_Mdl_Engine_Start_SW=1]
+4.Simulate HIL_Mdl_GPS = Neutral [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x2]
+5.Simulate HIL_Mdl_Cons_APS= 0% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1. Simulate HIL_Mdl_GPS = 2nd gear [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x4]
+2.Simulate HIL_Mdl_Cons_APS= 1% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 6kmph
+3.Simulate HIL_Mdl_Cons_Front_Brake = 0; Not Pressed
+4.Simulate HIL_Mdl_Cons_Rear_Brake = 0; Not Pressed
+5.Simulate HIL_Mdl_Hazard_SW = 1; Pressed
+ 5.1. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_FRONT_VEHICLE_BRAKE_STATUS = 0x2 (Brake not actuated)
+ 5.2. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_REAR_BRAKE_SWITCH_STATUS  = 0x2 (Brake not actuated)
+ 5.3. Cluster should display: 2nd gear and 6kmph
+ 5.4. Brake lamp should be OFF and Hazard lamp should ON
+6.Simulate HIL_Mdl_Cons_APS=3%  to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 8kmph
+ 6.1. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_FRONT_VEHICLE_BRAKE_STATUS = 0x2 (Brake not actuated)
+ 6.2. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_REAR_BRAKE_SWITCH_STATUS  = 0x2 (Brake not actuated)
+ 6.3. Cluster should display: 2nd gear and 8kmph 
+ 6.4. Brake lamp should be OFF and Hazard lamp should ON
+7.Simulate HIL_Mdl_Hazard_SW = 0; Not Pressed
+8.Simulate HIL_Mdl_Cons_APS= 8% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 16kmph
+ 8.1. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_FRONT_VEHICLE_BRAKE_STATUS = 0x2 (Brake not actuated)
+ 8.2. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_REAR_BRAKE_SWITCH_STATUS  = 0x2 (Brake not actuated)
+ 8.3. Cluster should display: 2nd gear and 16kmph
+ 8.4. Brake lamp and Hazard lamp  should be OFF ","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP= 0]
+2. Set Battery Voltage to 0V"
+37,VHIL_H100_VehFunc_BrakeHazardESS_BrakeNotPressed_HazardPressed_ESS_ON_Running,"To verfiy, Brake lamp operation when panic braking executed ,ESS signal is ON & front and rear Brake pressed condition","1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+3. Crank the vehicle[HIL_Mdl_Engine_Start_SW=1]
+4.Simulate HIL_Mdl_GPS = Neutral [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x2]
+5.Simulate HIL_Mdl_Cons_APS= 0% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Simulate HIL_Mdl_GPS = 4th gear [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x8]
+2.Simulate HIL_Mdl_Cons_APS= 65% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 80kmph
+3.Perform hard braking = 80% for front wheel [MATLAB variable has to be created]
+4.Simulate HIL_Mdl_Cons_Front_Brake = 1; Pressed
+5.Simulate HIL_Mdl_Cons_Rear_Brake = 1; Pressed
+ 5.1. BUS_ABS_DATA_1_0x450_EMERGENCY_STOP_SIGNAL_ST = 0x1(ESS ON)
+ 5.2. .Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_FRONT_VEHICLE_BRAKE_STATUS  = 0x1 (Brake actuated)
+ 5.3. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_REAR_BRAKE_SWITCH_STATUS  = 0x1 (Brake actuated)
+ 5.4. Cluster should display: 4th gear and 80kmph and then reducing in sometime
+ 5.5, Brake lamp should blink 4+/-1 hz with 50% duty cycle","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP= 0]
+2. Set Battery Voltage to 0V"
+38,VHIL_H100_VehFunc_BrakeLamp_SuddenDecel_HazardSwitch,"To verfiy, Brake lamp operation when panic braking executed ,ESS signal is ON  when front hard braking is done","1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+3. Crank the vehicle[HIL_Mdl_Engine_Start_SW=1]
+4.Simulate HIL_Mdl_GPS = Neutral [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x2]
+5.Simulate HIL_Mdl_Cons_APS= 0% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Simulate HIL_Mdl_GPS = 4th gear [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x8]
+2.Simulate HIL_Mdl_Cons_APS= 65% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 80kmph
+3. Perform hard braking = 80% for front wheel [MATLAB variable has to be created]
+ 3.1. ABS should publish BUS_ABS_DATA_1_0x450_EMERGENCY_STOP_SIGNAL_ST = 0x1(ESS ON)
+ 3.2. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_FRONT_VEHICLE_BRAKE_STATUS  = 0x1 (Brake not actuated)
+ 3.3. Cluster should display: 4th gear and 80kmph
+ 3.4. Brake lamp should blink 4+/-1 hz with 50% duty cycle","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP= 0]
+2. Set Battery Voltage to 0V"
+39,VHIL_H100_VehFunc_BrakeLamp_SuddenDeceleration,"combinational behaviour of brake lamp, hazard lamp and ESS signal is ON when front brake pressed state, rear brake pressed state and hazard pressed state at vehicle running condition","1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+3. Crank the vehicle[HIL_Mdl_Engine_Start_SW=1]
+4.Simulate HIL_Mdl_GPS = Neutral [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x2]
+5.Simulate HIL_Mdl_Cons_APS= 0% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Simulate HIL_Mdl_GPS = 1st gear [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x1]
+2.Simulate HIL_Mdl_Cons_APS=1%  to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 6kmph
+3.Perform hard braking = 80% for rear wheel [MATLAB variable has to be created]
+4.Simulate HIL_Mdl_Cons_Front_Brake = 1; Pressed
+5.Simulate HIL_Mdl_Cons_Rear_Brake = 1; Pressed
+6.Simulate HIL_Mdl_Hazard_SW = 1; Pressed
+ 6.1. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_FRONT_VEHICLE_BRAKE_STATUS = 0x1 (Brake actuated)
+ 6.2. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_REAR_BRAKE_SWITCH_STATUS  = 0x1 (Brake actuated)
+ 6.3. Cluster should display: 1st gear and 6kmph
+ 6.4. Brake lamp should blink 4+/-1 hz with 50% duty cycle and Hazard lamp should ON
+ 6.5. ABS should publish: BUS_ABS_DATA_1_0x450_EMERGENCY_STOP_SIGNAL_ST = 0x1(ESS ON)
+7.Simulate HIL_Mdl_Cons_APS= 14% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 16kmph
+ 7.1. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_FRONT_VEHICLE_BRAKE_STATUS = 0x1 (Brake actuated)
+ 7.2. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_REAR_BRAKE_SWITCH_STATUS  = 0x1 (Brake actuated)
+ 7.3. Cluster should display: 1st gear and 16kmph
+ 7.4. Brake lamp should blink 4+/-1 hz with 50% duty cycle  and Hazard lamp should be OFF","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP= 0]
+2. Set Battery Voltage to 0V"
+40,VHIL_H100_VehFunc_HazardBrake_SpeedBelow10kmph,"combinational behaviour of brake lamp, hazard lamp and ESS signal is ON with rear brakeand hazard pressed state at vehicle running condition","1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+3. Crank the vehicle[HIL_Mdl_Engine_Start_SW=1]
+4.Simulate HIL_Mdl_GPS = Neutral [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x2]
+5.Simulate HIL_Mdl_Cons_APS= 0% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Simulate HIL_Mdl_GPS = 1st gear [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x1]
+2.Simulate HIL_Mdl_Cons_APS=1%  to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 6kmph
+3.Perform hard braking = 80% for rear wheel [MATLAB variable has to be created]
+4.Simulate HIL_Mdl_Cons_Rear_Brake = 1;  Pressed
+5.Simulate HIL_Mdl_Hazard_SW = 1; Pressed
+ 5.1. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_FRONT_VEHICLE_BRAKE_STATUS  = 0x2 (Brake not actuated)
+ 5.2. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_REAR_BRAKE_SWITCH_STATUS  = 0x1 (Brake actuated)
+ 5.3. Cluster should display: 1st gear and 6kmph
+ 5.4. Brake lamp should blink 4+/-1 hz with 50% duty cycle and Hazard lamp should ON
+ 6.5. ABS should publish
+a)BUS_ABS_DATA_1_0x450_EMERGENCY_STOP_SIGNAL_ST = 0x1(ESS ON)
+7.Simulate HIL_Mdl_Cons_APS= 14% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 16kmph
+ 7.1. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_FRONT_VEHICLE_BRAKE_STATUS  = 0x2 (Brake not actuated)
+ 7.2. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_REAR_BRAKE_SWITCH_STATUS  = 0x1 (Brake actuated)
+ 7.3. 1st gear and 16kmph
+ 7.4. Brake lamp should blink 4+/-1 hz with 50% duty cycle  and Hazard lamp should be OFF","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP= 0]
+2. Set Battery Voltage to 0V"
+41,VHIL_H100_VehFunc_PanicBraking_ESS_ON_BrakesPressed,Observe the Brakelight when sudden deaccelration is given with HAZARD switch.,"1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+3. Crank the vehicle[HIL_Mdl_Engine_Start_SW=1]
+4.Simulate HIL_Mdl_GPS = Neutral [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x2]
+5.Simulate HIL_Mdl_Cons_APS= 0% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Simulate HIL_Mdl_GPS = 1st gear [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x1]
+2.Simulate HIL_Mdl_Cons_APS=1%  to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 6kmph
+3.Perform hard braking = 80% for rear wheel [MATLAB variable has to be created]
+4.Simulate HIL_Mdl_Hazard_SW = 1; Pressed
+ 4.1. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_FRONT_VEHICLE_BRAKE_STATUS  = 0x2 (Brake not actuated)
+ 4.2. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_REAR_BRAKE_SWITCH_STATUS  = 0x1 (Brake  actuated)
+ 4.3. Cluster should display: 1st gear and 6kmph
+ 4.4. Brake lamp should blink 4+/-1 hz with 50% duty cycle and Hazard lamp should ON
+ 4.5. ABS should publish: BUS_ABS_DATA_1_0x450_EMERGENCY_STOP_SIGNAL_ST = 0x1(ESS ON)
+5.Simulate HIL_Mdl_Cons_APS= 14% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 16kmph
+ 5.1. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_FRONT_VEHICLE_BRAKE_STATUS  = 0x2 (Brake not actuated)
+ 5.2. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_REAR_BRAKE_SWITCH_STATUS  = 0x1 (Brake actuated)
+ 5.3. Cluster should display: 1st gear and 16kmph
+ 5.4. Brake lamp should blink 4+/-1 hz with 50% duty cycle  and Hazard lamp should be OFF","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP= 0]
+2. Set Battery Voltage to 0V"
+42,VHIL_H100_VehFunc_PanicBraking_ESS_ON_BrakesNotPressed,Observe the Brakelight when sudden deaccelration is given.,"1. Set Battery Voltage to 13.5V
+2. Turn Ignition ON.[HIL_Mdl_Ignition_SW_IP= 1]
+3. Crank the vehicle[HIL_Mdl_Engine_Start_SW=1]
+4.Simulate HIL_Mdl_GPS = Neutral [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x2]
+5.Simulate HIL_Mdl_Cons_APS= 0% to achieve BUS_CLUSTER_QS_CC_TC_SETTING_0x120_DISPLAY_SPEED = 0kmph","1.Simulate HIL_Mdl_GPS = 4th gear [BUS_ENGINE_DATA_1_0x150_GEAR_POSITION =  0x1]
+2.Simulate HIL_Mdl_Cons_APS=80%
+4.Simulate HIL_Mdl_Cons_Front_Brake = 0; Not Pressed
+5.Simulate HIL_Mdl_Cons_Rear_Brake = 0; Not Pressed
+ 5.1. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_FRONT_VEHICLE_BRAKE_STATUS = 0x2 (Brake not actuated)
+ 5.2. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_REAR_BRAKE_SWITCH_STATUS  = 0x2 (Brake not actuated)
+ 5.3. Brake lamp should be OFF
+ 5.4. ABS should publish
+6.Simulate HIL_Mdl_Cons_APS=10%
+actuated)
+ 6.2. Check if BUS_CLUSTER_QS_CC_TC_SETTING_0x120_REAR_BRAKE_SWITCH_STATUS  = 0x2 (Brake not actuated)
+ 6.3. Cluster should display 4th gear
+ 6.4. Brake lamp should ON and Hazard lamp should be OFF","1. Turn Ignition OFF.[HIL_Mdl_Ignition_SW_IP= 0]
+2. Set Battery Voltage to 0V"

@@ -1,0 +1,910 @@
+﻿ID,Test Case Title,Test Case Description,Pre-Action,Test Steps.Action,Post-Action,,,,,
+1,VHIL_N600_VehFunc_TSL_LeftTSL_Blinking_Urban_DayCondition,To check Left TSL blinking with and without fault condition in Urban  Mode and Day condition.,"1. Set voltage to 13.5V.
+2.Simulate SIDE_STAND_STATUS[0x350] = 0x1 [Side stand retracted]
+3. Turn Ignition ON.[Ignition_SW_IP= 1]","1.Go to->Menu->Display Setup->Light and Dark mode-> Select ""Light""(Via Control switches 1 to 4
+ 1.1 Cluster HMI shall be working in Light mode (White colour background)
+2. Go to Menu-> Select Ride mode-> Select ""URBAN""(Via Control switches 1to 4)
+ 2.1 ""URBAN"" mode shall be displayed in HMI home screen.
+3. Set Left_Indicator_SW_IP=1.(Left Indicator Switch ON)
+ 3.1 TSL lamps-Left_RR_Indicator_OP shall start blinking(@80+/-2 CPM).
+ 3.2 Left indicator Tell tale shall blink at a frequency of 80+/-2 CPM.
+ 3.3 Cluster shall send turn indicator left status to smart phone app when BT App is connected
+4. Disconnect Left_RR_Indicator_OP(Rear Left TSL) wiring and connect after observing the output
+ 4.1 Left_FR_Indicator_OP(front Left TSL) shall start blinking(@120+/-2 CPM).
+ 4.2 Left indicator Tell tale shall blink at a frequency of 120+/-2 CPM.
+ 4.3 Cluster shall send turn indicator left status to smart phone app when BT App is connected
+ 4.4 TSL should work Normaly ones fault is removed
+5. Disconnect Left_FR_Indicator_OP(front Left TSL) wiring and connect after observing the output. 
+ 5.1 Left_RR_Indicator_OP(Rear Left TSL) shall start blinking(@120+/-2 CPM).
+ 5.2 Left indicator Tell tale shall blink at a frequency of 120+/-2 CPM.
+ 5.3 Cluster shall send turn indicator left status to smart phone app when BT App is connected
+ 5.4 TSL should work Normaly ones fault is removed","1. Simulate SIDE_STAND_STATUS[0x350] = 0x0
+2. Turn Ignition OFF.[Ignition_SW_IP= 0]
+3. Set voltage to 0V.",,,,,
+2,VHIL_N600_VehFunc_TSL_RightTSL_Blinking_Urban_DayCondition,To check Right TSL blinking with and without fault condition in Urban Mode and Day condition.,"
+1. Set voltage to 13.5V.
+2.Simulate SIDE_STAND_STATUS[0x350] = 0x1 [Side stand retracted]
+3. Turn Ignition ON.[Ignition_SW_IP= 1].","1.Go to->Menu->Display Setup->Light and Dark mode-> Select ""Light""(Via Control switches 1 to 4
+ 1.1 Cluster HMI shall be working in Light mode (White colour background)
+2. Go to Menu-> Select Ride mode-> Select ""URBAN""(Via Control switches 1to 4)
+ 2.1 ""URBAN"" mode shall be displayed in HMI home screen.
+3. Set Right_Indicator_SW_IP=1.(Right Indicator Switch ON)
+ 3.1 TSL lamps-Right_RR_Indicator_OP shall start blinking(@80+/-2 CPM).
+ 3.2 Right indicator Tell tale shall blink at a frequency of 80+/-2 CPM.
+ 3.3 Cluster shall send turn indicator Right status to smart phone app when BT App is connected
+4. Disconnect Right_RR_Indicator_OP(Rear Right TSL) wiring and connect after observing the output
+ 4.1 Right_FR_Indicator_OP(front Right TSL) shall start blinking(@120+/-2 CPM).
+ 4.2 Right indicator Tell tale shall blink at a frequency of 120+/-2 CPM.
+ 4.3 Cluster shall send turn indicator Right status to smart phone app when BT App is connected
+ 4.4 TSL should work Normaly ones fault is removed
+5. Disconnect Right_FR_Indicator_OP(front Right TSL) wiring and connect after observing the output 
+ 5.1 Right_RR_Indicator_OP(Rear Right TSL) shall start blinking(@120+/-2 CPM).
+ 5.2 Right indicator Tell tale shall blink at a frequency of 120+/-2 CPM.
+ 5.3 Cluster shall send turn indicator Right status to smart phone app when BT App is connected
+ 5.4 Do IGN ON --> OFF --> ON
+ 5.5 TSL should work Normaly ones fault is removed","1. Simulate SIDE_STAND_STATUS[0x350] = 0x0
+2. Turn Ignition OFF.[Ignition_SW_IP= 0]
+3. Set voltage to 0V.",,,,,
+3,VHIL_N600_VehFunc_TSL_HAZARD_SW_Check_in_Urban_Day Condition,TSL status with reference to Hazard switch check in urban mode and Day condition.,"
+1. Set voltage to 13.5V.
+2.Simulate SIDE_STAND_STATUS[0x350] = 0x1 [Side stand retracted]
+3. Turn Ignition ON.[Ignition_SW_IP= 1]","1. Go to->Menu->Display Setup->Light and Dark mode-> Select ""Light""(Via Control switches 1 to 4)
+ 1.1 Cluster HMI shall be working in Light mode (white Colour background)
+2. Go to Menu-> Select Ride mode-> Select ""URBAN""(Via Control switches 1to 4).
+ 2.1 ""URBAN"" mode shall be displayed in HMI home screen.
+3. Set Hazard_SW_IP=1(ON)
+ 3.1 Right_RR_Indicator_OP & Right_FR_Indicator_OP(Right TSL) & Left_RR_Indicator_OP&Left_FR_Indicator_OP(LEFT TSL) shall
+start blinking (@80+/-2 CPM).
+ 3.2 Right and Left Tell Tales shall blink in cluster at a frequency of 80+/-2 CPM.
+ 3.3 Cluster shall send hazard switch status to smart phone app when BT App is connected.","1. Simulate SIDE_STAND_STATUS[0x350] = 0x0
+2. Turn Ignition OFF.[Ignition_SW_IP= 0]
+3. Set voltage to 0V.",,,,,
+4,VHIL_N600_VehFunc_TSL_LeftToHazardSW_Urban_DayCondition,left Indicator to Hazard switch interface in Urban mode and Day condition.,"
+1. Set voltage to 13.5V.
+2.Simulate SIDE_STAND_STATUS[0x350] = 0x1 [Side stand retracted]
+3. Turn Ignition ON.[Ignition_SW_IP= 1].","1.Go to->Menu->Display Setup->Light and Dark mode-> Select ""Light""(Via Control switches 1 to 4)
+ 1.1 Cluster HMI shall be working in Light mode (white Colour background)
+2. Go to Menu-> Select Ride mode-> Select ""URBAN""(Via Control switches 1to 4).
+ 2.1 ""URBAN"" mode shall be displayed in HMI home screen.
+3. Set Left_Indicator_SW_IP=1  (Left Indicator Switch ON).
+ 3.1 TSL lamps -  Left_RR_Indicator_OP & Left_FR_Indicator_OP(Left TSL's) shall start blinking(@80+/-2 CPM).
+ 3.2 Left indicator Tell tale shall blink at a frequency of 80+/-2 CPM.
+ 3.3 Cluster shall send turn indicator Left status to smart phone app when BT App is connected.
+4. Set Hazard_SW_IP=0.(ON)
+ 4.1 Left_RR_Indicator_OP & Left_FR_Indicator_OP(Left TSL) & Right_RR_Indicator_OP & Right_FR_Indicator_OP(LEFT TSL) shall start blinking(Flash @80+/-2 CPM).
+ 4.2 Left and Left  Tell Tales shall blink at a frequency of 80+/-2 CPM.
+ 4.3 Cluster shall send hazard switch status to smart phone app when BT App is connected.
+5. Set Hazard_SW_IP=1.(OFF).
+ 5.1 Left_RR_Indicator_OP & Left_FR_Indicator_OP(Left TSL's) shall start blinking(@80+/-2 CPM).
+ 5.2 Left indicator Tell tale shall blink at a frequency of 80+/-2 CPM.
+ 5.3 Cluster shall send turn indicator Left status to smart phone app when BT App is connected.","1. Simulate SIDE_STAND_STATUS[0x350] = 0x0
+2. Turn Ignition OFF.[Ignition_SW_IP= 0]
+3. Set voltage to 0V.",,,,,
+5,VHIL_N600_VehFunc_TSL_RightToHazardSW_Urban_DayCondition,Right Indicator to Hazard switch interface in Urban mode and Day condition.,"
+1. Set voltage to 13.5V.
+2.Simulate SIDE_STAND_STATUS[0x350] = 0x1 [Side stand retracted]
+3. Turn Ignition ON.[Ignition_SW_IP= 1].","1.Go to->Menu->Display Setup->Light and Dark mode-> Select ""Light""(Via Control switches 1 to 4)
+ 1.1 Cluster HMI shall be working in Light mode (white Colour background)
+2. Go to Menu-> Select Ride mode-> Select ""URBAN""(Via Control switches 1to 4).
+ 2.1 ""URBAN"" mode shall be displayed in HMI home screen.
+3. Set Right_Indicator_SW_IP=1  (Right Indicator Switch ON).
+ 3.1 TSL lamps -  Right_RR_Indicator_OP & Right_FR_Indicator_OP(RIGHT TSL's) shall start blinking(@80+/-2 CPM).
+ 3.2 Right indicator Tell tale shall blink at a frequency of 80+/-2 CPM.
+ 3.3 Cluster shall send turn indicator Right status to smart phone app when BT App is connected.
+4. Set Hazard_SW_IP=0.(ON)
+ 4.1 Right_RR_Indicator_OP & Right_FR_Indicator_OP(RIGHT TSL) & Left_RR_Indicator_OP & Left_FR_Indicator_OP(LEFT TSL) shall start blinking(Flash @80+/-2 CPM).
+ 4.2 Right and Left  Tell Tales shall blink at a frequency of 80+/-2 CPM.
+ 4.3 Cluster shall send hazard switch status to smart phone app when BT App is connected.
+5. Set Hazard_SW_IP=1.(OFF).
+ 5.1 Right_RR_Indicator_OP&Right_FR_Indicator_OP(RIGHT TSL's) shall start blinking(@80+/-2 CPM).
+ 5.2 Right indicator Tell tale shall blink at a frequency of 80+/-2 CPM.
+ 5.3 Cluster shall send turn indicator Right status to smart phone app when BT App is connected.","1. Simulate SIDE_STAND_STATUS[0x350] = 0x0
+2. Turn Ignition OFF.[Ignition_SW_IP= 0]
+3. Set voltage to 0V.",,,,,
+6,VHIL_N600_VehFunc_TSL_LVSD_HVSD_Urban_DayCondition_LowVoltage,LVSD and HVSD Test combinations in Urban mode and Day condition_LowVoltage,"1. Set voltage to 13.5V.
+2.Simulate SIDE_STAND_STATUS[0x350] = 0x1 [Side stand retracted]
+3. Turn Ignition ON.[Ignition_SW_IP= 1].","1.Go to->Menu->Display Setup->Light and Dark mode-> Select ""Light""(Via Control switches 1 to 4)
+ 1.1 Cluster HMI shall be working in Light  mode (white Colour background)
+2. Go to Menu-> Select Ride mode-> Select ""URBAN""(Via Control switches 1to 4).
+ 2.1 ""URBAN"" mode shall be displayed in HMI home screen.
+1. Gradually decrease the battery voltage until it reaches 7.2V.
+ 1.1 LVSD flag is set.
+2. Set  Left_Indicator_SW_IP=1(Left Indicator Switch ON).
+ 2.1 Left_RR_Indicator_OP&Left_FR_Indicator_OP(LEFT TSL)=OFF(NOT BLINKING because the cluster is in shut down mode).
+ 2.2 Left indicator Tell tale shall not blink.
+ 2.3 Cluster shall send turn indicator left status to smart phone app when BT App is connected
+3. Set the Voltage to 13.5V.
+ 3.1 TSL lamps-Left_RR_Indicator_OP&Left_FR_Indicator_OP(LEFT TSL) shall start blinking(@80+/-2 CPM).
+ 3.2 Left indicator Tell tale shall blink at a frequency of 80+/-2 CPM.
+ 3.3 Cluster shall send turn indicator left status to smart phone app when BT App is connected
+4. Set Right_Indicator_SW_IP=1(Right Indicator Switch ON).
+ 4.1 TSL lamps-Right_RR_Indicator_OP&Right_FR_Indicator_OP(Right TSL) shall start blinking(@80+/-2 CPM).
+ 4.2 Right indicator Tell tale shall blink at a frequency of 80+/-2 CPM.
+ 4.3 Cluster shall send turn indicator Right status to smart phone app when BT App is connected","1. Simulate SIDE_STAND_STATUS[0x350] = 0x0
+2. Turn Ignition OFF.[Ignition_SW_IP= 0]
+3. Set voltage to 0V.",,,,,
+7,VHIL_N600_VehFunc_TSL_LVSD_HVSD_Urban_DayCondition_HighVoltage,LVSD and HVSD Test combinations in Urban mode and Day condition_gradually increase to High Voltage,"1. Set voltage to 13.5V.
+2.Simulate SIDE_STAND_STATUS[0x350] = 0x1 [Side stand retracted]
+3. Turn Ignition ON.[Ignition_SW_IP= 1].","1.Go to->Menu->Display Setup->Light and Dark mode-> Select ""Light""(Via Control switches 1 to 4)
+ 1.1 Cluster HMI shall be working in Light  mode (white Colour background)
+2. Go to Menu-> Select Ride mode-> Select ""URBAN""(Via Control switches 1to 4).
+ 2.1 ""URBAN"" mode shall be displayed in HMI home screen.
+1. Gradually increase the battery voltage until it reaches 18.6V and wait for 2sec.
+ 1.1 HVSD flag is set.
+2. Set  Left_Indicator_SW_IP=1(Left Indicator Switch ON).
+ 2.1 Left_RR_Indicator_OP&Left_FR_Indicator_OP(LEFT TSL)=OFF(NOT BLINKING because the cluster is in shut down mode).
+ 2.2 Left indicator Tell tale shall not blink.
+ 2.3 Cluster shall send turn indicator left status to smart phone app when BT App is connected
+3. Set the Voltage 13.5V
+ 3.1 TSL lamps-Left_RR_Indicator_OP&Left_FR_Indicator_OP(LEFT TSL) shall start blinking(@80+/-2 CPM).
+ 3.2 Left indicator Tell tale shall blink at a frequency of 80+/-2 CPM.
+ 3.3 Cluster shall send turn indicator left status to smart phone app when BT App is connected.
+4. Set Right_Indicator_SW_IP=1(Right Indicator Switch ON).
+ 4.1 TSL lamps-Right_RR_Indicator_OP&Right_FR_Indicator_OP(Right TSL) shall start blinking(@80+/-2 CPM).
+ 4.2 Right indicator Tell tale shall blink at a frequency of 80+/-2 CPM.
+ 4.3 Cluster shall send turn indicator Right status to smart phone app when BT App is connected","1. Simulate SIDE_STAND_STATUS[0x350] = 0x0
+2. Turn Ignition OFF.[Ignition_SW_IP= 0]
+3. Set voltage to 0V.",,,,,
+8,VHIL_N600_VehFunc_TSL_Behaviour_duringIGNtransitions_Urban_DayCondition,Behavior check of TSL during IGN transitions in Urban mode and Day condition.,"1. Set voltage to 13.5V.
+2.Simulate SIDE_STAND_STATUS[0x350] = 0x1 [Side stand retracted]
+3. Turn Ignition ON.[Ignition_SW_IP= 1].","1.Go to->Menu->Display Setup->Light and Dark mode-> Select ""Light""(Via Control switches 1 to 4)
+ 1.1 Cluster HMI shall be working in Light  mode (white Colour background)
+2. Go to Menu-> Select Ride mode-> Select ""URBAN""(Via Control switches 1to 4).
+ 2.1 ""URBAN"" mode shall be displayed in HMI home screen.
+3. Set Hazard_SW_IP=1(ON).
+ 3.1 Right_RR_Indicator_OP & Right_FR_Indicator_OP (RIGHT TSL) & Left_RR_Indicator_OP & Left_FR_Indicator_OP(LEFT TSL) shall start blinking(Flash@80+/-2 CPM).
+ 3.2 Left & Right indicator Tell tale's(TT's) shall blink at a frequency of 80+/-2 CPM.
+ 3.3 Cluster shall send turn indicators status to smart phone app when BT App is connected
+4. Set the IGN to OFF with Ignition_SW_IP = 0 (OFF).
+ 4.1 Right_RR_Indicator_OP & Right_FR_Indicator_OP(RIGHT TSL) & Left_RR_Indicator_OP & Left_FR_Indicator_OP(LEFT TSL) shall be blinking(Flash@80+/-2 CPM).
+ 4.2 Left & Right  indicator Tell tale's(TT's) shall not blink(OFF) in cluster
+ 4.3 Cluster shall send turn indicators status to smart phone app when BT App is connected
+5.Set the IGN to ON with Ignition_SW_IP = 1 (ON)&Set Hazard_SW_IP=0(OFF).
+ 5.1 Right_RR_Indicator_OP & Right_FR_Indicator_OP & Left_RR_Indicator_OP & Left_FR_Indicator_OP shall not blink(OFF).
+ 5.2 Left & Right  indicator Tell tale's(TT's) shall not blink(OFF).
+ 5.3 Cluster shall send turn indicators status to smart phone app when BT App is connected","1. Simulate SIDE_STAND_STATUS[0x350] = 0x0
+2. Turn Ignition OFF.[Ignition_SW_IP= 0]
+3. Set voltage to 0V.",,,,,
+9,VHIL_N600_VehFunc_TSL_RightFrontRearTSL_FaultyCondn_Check_Urban_DayCondition,Right Front and Rear TSL faulty condition checks in Urban  mode and Day condition.,"1. Set voltage to 13.5V.
+2.Simulate SIDE_STAND_STATUS[0x350] = 0x1 [Side stand retracted]
+3. Turn Ignition ON.[Ignition_SW_IP= 1].","1.Go to->Menu->Display Setup->Light and Dark mode-> Select ""Light""(Via Control switches 1 to 4)
+ 1.1 Cluster HMI shall be working in Light  mode (white Colour background)
+2. Go to Menu-> Select Ride mode-> Select ""URBAN""(Via Control switches 1to 4).
+ 2.1 ""URBAN"" mode shall be displayed in HMI home screen.
+3.Set  Right_Indicator_SW_IP=0(ON). and Disconnect Right_RR_Indicator_OP(Rear Right TSL) wiring and connect after observing the output.
+ 3.1 Right_FR_Indicator_OP(Front Right TSL) shall blink @120+/-2 CPM.
+ 3.2 Right Tell Tale shall blink @ 120+/-2 CPM.
+ 3.3 Cluster shall send turn right indicator status to smart phone app when BT App is connected
+4.Set Hazard_SW_IP=1(ON).
+ 4.1 Right_RR_Indicator_OP & Right_FR_Indicator_OP(RIGHT TSL) & Left_RR_Indicator_OP & Left_FR_Indicator_OP(LEFT TSL) shall start blinking(@80+/-2 CPM).
+ 4.2 Right and Left  Tell Tales shall blink at a frequency of 80+/-2 CPM.
+ 4.3 Cluster shall send hazard switch status to smart phone app when BT App is connected.
+5.Set Hazard_SW_IP=0(OFF).
+ 5.1 Right_RR_Indicator_OP(front Right TSL) shall blink @120+/-2 CPM.
+ 5.2 Right Tell Tale shall blink @ 120+/-2 CPM.
+ 5.3 Cluster shall send turn right indicator status to smart phone app when BT App is connected","1. Simulate SIDE_STAND_STATUS[0x350] = 0x0
+2. Turn Ignition OFF.[Ignition_SW_IP= 0]
+3. Set voltage to 0V.",,,,,
+10,VHIL_N600_VehFunc_TSL_LeftFrontRearTSL_FaultyCondn_Check_Urban_DayCondition,Left Front and Rear TSL faulty condition checks in Urban mode and Day condition.,"1. Set voltage to 13.5V.
+2.Simulate SIDE_STAND_STATUS[0x350] = 0x1 [Side stand retracted]
+3. Turn Ignition ON.[Ignition_SW_IP= 1].","1.Go to->Menu->Display Setup->Light and Dark mode-> Select ""Light""(Via Control switches 1 to 4)
+ 1.1 Cluster HMI shall be working in Light  mode (white Colour background)
+2. Go to Menu-> Select Ride mode-> Select ""URBAN""(Via Control switches 1to 4).
+ 2.1 ""URBAN"" mode shall be displayed in HMI home screen.
+3.Set  Left_Indicator_SW_IP=0(ON) and Disconnect Left_RR_Indicator_OP(Rear Left TSL) wiring and connect after observing the output.
+ 3.1 Left_FR_Indicator_OP(front Left TSL) shall blink @120+/-2 CPM.
+ 3.2 Left Tell Tale shall blink @ 120+/-2 CPM.
+ 3.3 Cluster shall send turn Left indicator status to smart phone app when BT App is connected
+4.Set Hazard_SW_IP=1(ON).
+ 4.1 Left_RR_Indicator_OP & Left_FR_Indicator_OP(Left TSL) & Right_RR_Indicator_OP & Right_FR_Indicator_OP(LEFT TSL) shall start blinking(@80+/-2 CPM).
+ 4.2 Left and Right Tell Tales shall blink at a frequency of 80+/-2 CPM.
+ 4.3 Cluster shall send hazard switch status to smart phone app when BT App is connected.
+5.Set Hazard_SW_IP=0(OFF).
+ 5.1 Left_RR_Indicator_OP(front Left TSL) shall blink @120+/-2 CPM.
+ 5.2 Left Tell Tale shall blink @ 120+/-2 CPM.
+ 5.3 Cluster shall send turn Left indicator status to smart phone app when BT App is connected","1. Simulate SIDE_STAND_STATUS[0x350] = 0x0
+2. Turn Ignition OFF.[Ignition_SW_IP= 0]
+3. Set voltage to 0V.",,,,,
+11,VHIL_N600_VehFunc_TSL_HAZARD_SW_Unapplicablity_duringIGNOFF_Urban_DayCondition,Hazard switch un applicability during IGN OFF condition.,"1. Set voltage to 13.5V.
+2.Simulate SIDE_STAND_STATUS[0x350] = 0x1 [Side stand retracted]
+3. Turn Ignition ON.[Ignition_SW_IP= 1]","1.Go to->Menu->Display Setup->Light and Dark mode-> Select ""Light""(Via Control switches 1 to 4)
+ 1.1 Cluster HMI shall be working in Light  mode (white Colour background)
+2. Go to Menu-> Select Ride mode-> Select ""URBAN""(Via Control switches 1to 4).
+ 2.1 ""URBAN"" mode shall be displayed in HMI home screen.
+3.Set Hazard_SW_IP=1(ON).
+ 3.1 Right_RR_Indicator_OP & Right_FR_Indicator_OP(RIGHT TSL) & Left_RR_Indicator_OP & Left_FR_Indicator_OP(LEFT TSL) shall start blinking
+@ 80+/-2 CPM.
+ 3.2 Right and Left TT's shall blink @ 80+/-2 CPM.
+ 3.3 Cluster shall send the hazard switch status to smart phone app when BT App is connected
+4.Set the IGN to OFF with Ignition_SW_IP = 0 (OFF).
+ 4.1 Right_RR_Indicator_OP & Right_FR_Indicator_OP(RIGHT TSL) & Left_RR_Indicator_OP & Left_FR_Indicator_OP(LEFT TSL) shall be blinking
+@ 80+/-2 CPM.
+ 4.2 Right and Left TT's shall not blink.
+ 4.3 Cluster shall send the hazard switch status to smart phone app when BT App is connected
+5. Set the IGN to ON with Ignition_SW_IP = 1 (ON) & Set Hazard_SW_IP=0(OFF).
+ 5.1 Right_RR_Indicator_OP & Right_FR_Indicator_OP(RIGHT TSL) & Left_RR_Indicator_OP & Left_FR_Indicator_OP(LEFT TSL) shall stop blinking .
+ 5.2 Right and Left TT's shall not blink.
+ 5.3 Cluster shall send the hazard switch status to smart phone app when BT App is connected","1. Simulate SIDE_STAND_STATUS[0x350] = 0x0
+2. Turn Ignition OFF.[Ignition_SW_IP= 0]
+3. Set voltage to 0V.",,,,,
+12,VHIL_N600_VehFunc_TSL_HAZARD_SW_ShortPress_Urban_DayCondition,Switch press of Short for Hazard switch in Urban mode and Day condition.,"1. Set voltage to 13.5V.
+2.Simulate SIDE_STAND_STATUS[0x350] = 0x1 [Side stand retracted]
+3. Turn Ignition ON.[Ignition_SW_IP= 1].","1.Go to->Menu->Display Setup->Light and Dark mode-> Select ""Light""(Via Control switches 1 to 4)
+ 1.1 Cluster HMI shall be working in Light  mode (white Colour background)
+2. Go to Menu-> Select Ride mode-> Select ""URBAN""(Via Control switches 1to 4).
+ 2.1 ""URBAN"" mode shall be displayed in HMI home screen.
+3. Short press(Greater than 50ms) hazard switch input(Hazard_SW_IP=0).
+ 3.1 Right_RR_Indicator_OP & Right_FR_Indicator_OP(Right TSL) & Left_RR_Indicator_OP & Left_FR_Indicator_OP(LEFT TSL) shall
+start blinking (@80+/-2 CPM).
+ 3.2 Right and Left  Tell Tales shall blink at a frequency of 80+/-2 CPM.
+ 3.3 Cluster shall send hazard switch status to smart phone app when BT App is connected.
+4. Short press(Greater than 50ms) hazard switch input(Hazard_SW_IP=1)
+ 4.1 Right_RR_Indicator_OP & Right_FR_Indicator_OP(Right TSL) & Left_RR_Indicator_OP & Left_FR_Indicator_OP(LEFT TSL)=OFF(no blinking)
+ 4.2 Right and Left  Tell Tales shall not blink.
+ 4.3 Cluster shall send hazard switch status to smart phone app when BT App is connected.","1. Simulate SIDE_STAND_STATUS[0x350] = 0x0
+2. Turn Ignition OFF.[Ignition_SW_IP= 0]
+3. Set voltage to 0V.",,,,,
+13,VHIL_N600_VehFunc_TSL_HAZARD_SW_lessthanShortPressTime_Urban_DayCondition,"checking the hazard Switch
+functionality with less than
+the time of short press in Urban mode and Day condition.","1. Set voltage to 13.5V.
+2.Simulate SIDE_STAND_STATUS[0x350] = 0x1 [Side stand retracted]
+3. Turn Ignition ON.[Ignition_SW_IP= 1].","1.Go to->Menu->Display Setup->Light and Dark mode-> Select ""Light""(Via Control switches 1 to 4)
+ 1.1 Cluster HMI shall be working in Light  mode (white Colour background)
+2. Go to Menu-> Select Ride mode-> Select ""URBAN""(Via Control switches 1to 4).
+ 2.1 ""URBAN"" mode shall be displayed in HMI home screen.
+3. Press(less than 50ms) hazard switch input(Hazard_SW_IP=0)
+ 3.1 Right_RR_Indicator_OP & Right_FR_Indicator_OP(Right TSL) & Left_RR_Indicator_OP & Left_FR_Indicator_OP(LEFT TSL)=OFF(no blinking)
+ 3.2 Right and Left  Tell Tales shall not blink.
+ 3.3 Cluster shall send hazard switch status to smart phone app when BT App is connected.","1. Simulate SIDE_STAND_STATUS[0x350] = 0x0
+2. Turn Ignition OFF.[Ignition_SW_IP= 0]
+3. Set voltage to 0V.",,,,,
+14,VHIL_N600_VehFunc_TSL_RightTSL_HAZARD_SW_ShortPressTime_Urban_DayCondition,Switch press of Short for Right TSL switch in Urban mode and Day condition.,"1. Set voltage to 13.5V.
+2.Simulate SIDE_STAND_STATUS[0x350] = 0x1 [Side stand retracted]
+3. Turn Ignition ON.[Ignition_SW_IP= 1].","1.Go to->Menu->Display Setup->Light and Dark mode-> Select ""Light""(Via Control switches 1 to 4)
+ 1.1 Cluster HMI shall be working in Light  mode (white Colour background)
+2. Go to Menu-> Select Ride mode-> Select ""URBAN""(Via Control switches 1to 4).
+ 2.1 ""URBAN"" mode shall be displayed in HMI home screen.
+3.Short Press(Greater than 50ms) Right TSL switch input(Right_Indicator_SW_IP=0).
+ 3.1 TSL lamps Right_RR_Indicator_OP & Right_FR_Indicator_OP(RIGHT TSL's) shall start blinking(@80+/-2 CPM).
+ 3.2 Right indicator Tell tale shall blink at a frequency of 80+/-2 CPM.
+ 3.3 Cluster shall send turn indicator Right status to smart phone app when BT App is connected
+4.Short Press(Greater than 50ms) Right TSL switch input(Right_Indicator_SW_IP=1).
+ 4.1 TSL lamps Right_RR_Indicator_OP & Right_FR_Indicator_OP(RIGHT TSL's)=OFF(NO BLINKING)
+ 4.2 Right indicator Tell tale shall not blink.
+ 4.3 Cluster shall send turn indicator Right status to smart phone app when BT App is connected","1. Simulate SIDE_STAND_STATUS[0x350] = 0x0
+2. Turn Ignition OFF.[Ignition_SW_IP= 0]
+3. Set voltage to 0V.",,,,,
+15,VHIL_N600_VehFunc_TSL_LeftTSL_HAZARD_SW_ShortPressTime_Urban_DayCondition,Switch press of Short for Left TSL switch in Urban mode and Day condition.,"1. Set voltage to 13.5V.
+2.Simulate SIDE_STAND_STATUS[0x350] = 0x1 [Side stand retracted]
+3. Turn Ignition ON.[Ignition_SW_IP= 1].","1.Go to->Menu->Display Setup->Light and Dark mode-> Select ""Light""(Via Control switches 1 to 4)
+ 1.1 Cluster HMI shall be working in Light  mode (white Colour background)
+2. Go to Menu-> Select Ride mode-> Select ""URBAN""(Via Control switches 1to 4).
+ 2.1 ""URBAN"" mode shall be displayed in HMI home screen.
+3.Short Press(Greater than 50ms) Left TSL switch input(Left_Indicator_SW_IP=0).
+ 3.1 TSL lamps Left_RR_Indicator_OP & Left_FR_Indicator_OP(Left TSL's) shall start blinking(@80+/-2 CPM).
+ 3.2 Left indicator Tell tale shall blink at a frequency of 80+/-2 CPM.
+ 3.3 Cluster shall send turn indicator Left status to smart phone app when BT App is connected
+4.Short Press(Greater than 50ms) Left TSL switch input(Left_Indicator_SW_IP=1).
+ 4.1 TSL lamps Left_RR_Indicator_OP & Left_FR_Indicator_OP(Left TSL's)=OFF(NO BLINKING)
+ 4.2 Left indicator Tell tale shall not blink.
+ 4.3 Cluster shall send turn indicator Left status to smart phone app when BT App is connected","1. Simulate SIDE_STAND_STATUS[0x350] = 0x0
+2. Turn Ignition OFF.[Ignition_SW_IP= 0]
+3. Set voltage to 0V.",,,,,
+16,VHIL_N600_VehFunc_TSL_RightTSL_HAZARD_SW_LessthanShortPressTime_Urban_DayCondition,"checking the Right TSL Switch
+functionality with less than
+the time of short press in Urban mode and Day condition.","1. Set voltage to 13.5V.
+2.Simulate SIDE_STAND_STATUS[0x350] = 0x1 [Side stand retracted]
+3. Turn Ignition ON.[Ignition_SW_IP= 1]","1.Go to->Menu->Display Setup->Light and Dark mode-> Select ""Light""(Via Control switches 1 to 4)
+ 1.1 Cluster HMI shall be working in Light  mode (white Colour background)
+2. Go to Menu-> Select Ride mode-> Select ""URBAN""(Via Control switches 1to 4).
+ 2.1 ""URBAN"" mode shall be displayed in HMI home screen.
+3.Press(less than 50ms) Right TSL switch input(Right_Indicator_SW_IP=0).
+ 3.1 Right_RR_Indicator_OP & Right_FR_Indicator_OP(Right TSL)=OFF(no blinking)
+ 3.2 Right Tell Tale shall not blink.
+ 3.3 Cluster shall send turn Right indicator status to smart phone app when BT App is connected.","1. Simulate SIDE_STAND_STATUS[0x350] = 0x0
+2. Turn Ignition OFF.[Ignition_SW_IP= 0]
+3. Set voltage to 0V.",,,,,
+17,VHIL_N600_VehFunc_TSL_LeftTSL_HAZARD_SW_LessthanShortPressTime_Urban_DayCondition,"checking the Left TSL Switch
+functionality with less than
+the time of short press in Urban mode and Day condition.","1. Set voltage to 13.5V.
+2.Simulate SIDE_STAND_STATUS[0x350] = 0x1 [Side stand retracted]
+3. Turn Ignition ON.[Ignition_SW_IP= 1]","1.Go to->Menu->Display Setup->Light and Dark mode-> Select ""Light""(Via Control switches 1 to 4)
+ 1.1 Cluster HMI shall be working in Light  mode (white Colour background)
+2. Go to Menu-> Select Ride mode-> Select ""URBAN""(Via Control switches 1to 4).
+ 2.1 ""URBAN"" mode shall be displayed in HMI home screen.
+3.Press(less than 50ms) Left TSL switch input(Left_Indicator_SW_IP=0).
+ 3.1 Left_RR_Indicator_OP & Left_FR_Indicator_OP(Left TSL)=OFF(no blinking)
+ 3.2 Left Tell Tale shall not blink.
+ 3.3 Cluster shall send turn Left indicator status to smart phone app when BT App is connected.","1. Simulate SIDE_STAND_STATUS[0x350] = 0x0
+2. Turn Ignition OFF.[Ignition_SW_IP= 0]
+3. Set voltage to 0V.",,,,,
+18,VHIL_N600_VehFunc_TSL_Cluster_behaviour_DuringBatteryOnOff_Urban_DayCondition,Cluster behaviour when the battery is ON and OFF.,"1. Set voltage to 13.5V.
+2.Simulate SIDE_STAND_STATUS[0x350] = 0x1 [Side stand retracted]
+3. Turn Ignition ON.[Ignition_SW_IP= 1]
+4. Battery is connected.","1.Go to->Menu->Display Setup->Light and Dark mode-> Select ""Light""(Via Control switches 1 to 4)
+ 1.1 Cluster HMI shall be working in Light  mode (white Colour background)
+2. Go to Menu-> Select Ride mode-> Select ""URBAN""(Via Control switches 1to 4).
+ 2.1 ""URBAN"" mode shall be displayed in HMI home screen.
+3.Set Left_Indicator_SW_IP=0(ON).
+ 3.1 TSL lamps Left_RR_Indicator_OP & Left_FR_Indicator_OP(LEFT TSL) shall start blinking(@80+/-2 CPM).
+ 3.2 Left indicator Tell tale shall blink at a frequency of 80+/-2 CPM.
+ 3.3 Cluster shall send turn indicator left status to smart phone app when BT App is connected.
+4.Perform Power/Battery OFF.
+ 4.1 In Cluster, TSL Indicators Shall be OFF.
+5. Perform Power/Battery ON and IGN On as well
+ 5.1 TSL lamps Left_RR_Indicator_OP & Left_FR_Indicator_OP(LEFT TSL) shall not start blinking(@80+/-2 CPM) since its virtual IGN Config
+ 5.2 Left indicator Tell tale shall blink at a frequency of 80+/-2 CPM.
+ 5.3 Cluster shall send turn indicator left status to smart phone app when BT App is connected
+6.Perform Power/Battery OFF.
+ 6.1 In Cluster, TSL Indicators Shall be OFF.
+7.Set  Right_Indicator_SW_IP=0(ON).
+ 7.1 Indicators will not blink(because the battery is disconnected).
+8. Perform Power/Battery ON and IGN On as well1. Cluster HMI shall be working in Light mode (white Colour background)
+ 8.1 TSL lamps Right_RR_Indicator_OP & Right_FR_Indicator_OP(Right TSL) shall start blinking(@80+/-2 CPM).
+ 8.2 Right indicator Tell tale shall blink at a frequency of 80+/-2 CPM.
+ 8.3 Cluster shall send turn indicator Right status to smart phone app when BT App is connected","1. Simulate SIDE_STAND_STATUS[0x350] = 0x0
+2. Turn Ignition OFF.[Ignition_SW_IP= 0]
+3. Set voltage to 0V.",,,,,NotFeasible
+19,VHIL_N600_VehFunc_TSL_Cluster_Indicators_wrtIGN_Urban_DayCondition,Cluster and indicators behaviour with respect to IGNITION Urban_DayCondition,"1. Set voltage to 13.5V.
+2.Simulate SIDE_STAND_STATUS[0x350] = 0x1 [Side stand retracted]
+3. Turn Ignition ON.[Ignition_SW_IP= 1]","1.Go to->Menu->Display Setup->Light and Dark mode-> Select ""Light""(Via Control switches 1 to 4)
+ 1.1 Cluster HMI shall be working in Light  mode (white Colour background)
+2. Go to Menu-> Select Ride mode-> Select ""URBAN""(Via Control switches 1to 4).
+ 2.1 ""URBAN"" mode shall be displayed in HMI home screen.
+3.Set  Left_Indicator_SW_IP=0(ON).
+ 3.1 TSL lamps Left_RR_Indicator_OP & Left_FR_Indicator_OP (LEFT TSL) shall start blinking(@80+/-2 CPM).
+ 3.2 Left indicator Tell tale shall blink at a frequency of 80+/-2 CPM.
+ 3.3 Cluster shall send turn indicator left status to smart phone app when BT App is connected.
+4. Set the IGN to OFF with Ignition_SW_IP = 0 (OFF).
+ 4.1 In Cluster, TSL Indicators Shall be OFF.
+5. Turn Ignition ON.[Ignition_SW_IP= 1]
+ 5.1 TSL lamps Left_RR_Indicator_OP & Left_FR_Indicator_OP(LEFT TSL) shall start blinking(@80+/-2 CPM).
+ 5.2 Left indicator Tell tale shall blink at a frequency of 80+/-2 CPM.
+ 5.3 Cluster shall send turn indicator left status to smart phone app when BT App is connected
+6. Set the IGN to OFF with Ignition_SW_IP = 0 (OFF).
+ 6.1 In Cluster, TSL Indicators Shall be OFF.
+7.Set  Right_Indicator_SW_IP=0(ON).
+ 7.1 Indicators will not blink(because the IGN is OFF).
+8. Turn Ignition ON.[Ignition_SW_IP= 1]
+ 8.1 TSL lamps Right_RR_Indicator_OP & Right_FR_Indicator_OP(Right TSL) shall start blinking(@80+/-2 CPM).
+ 8.2 Right indicator Tell tale shall blink at a frequency of 80+/-2 CPM.
+ 8.3 Cluster shall send turn indicator Right status to smart phone app when BT App is connected","1. Simulate SIDE_STAND_STATUS[0x350] = 0x0
+2. Turn Ignition OFF.[Ignition_SW_IP= 0]
+3. Set voltage to 0V.",,,,,
+20,VHIL_N600_VehFunc_TSL_Cluster_Telltale_TSL_AutoCancellation_byTimeout_Urban_DayCondition,Check the cluster TT and TSL for AUTO cancellation by timeout during Urban_DayCondition,"1. Set voltage to 13.5V.
+2.Simulate SIDE_STAND_STATUS[0x350] = 0x1 [Side stand retracted]
+3. Turn Ignition ON.[Ignition_SW_IP= 1]
+4. Battery is connected.","1.Go to->Menu->Display Setup->Light and Dark mode-> Select ""Light""(Via Control switches 1 to 4)
+ 1.1 Cluster HMI shall be working in Light  mode (white Colour background)
+2. Go to Menu-> Select Ride mode-> Select ""URBAN""(Via Control switches 1to 4).
+ 2.1 ""URBAN"" mode shall be displayed in HMI home screen.
+3.Set  Left_Indicator_SW_IP=0(ON).
+ 3.1 TSL lamps-Left_RR_Indicator_OP&Left_FR_Indicator_OP(LEFT TSL) shall start blinking(@80+/-2 CPM).
+ 3.2 Left indicator Tell tale shall blink at a frequency of 80+/-2 CPM.
+ 3.3 Cluster shall send turn indicator left status to smart phone app when BT App is connected.
+4.Simulate ACC_PEDAL_IP = 26% to acheive [ENGINE_RPM[0x150] = 5200 RPM]
+ 4.1 In Cluster, TSL Indicators Shall be OFF.
+5.Simulate Gear_Position_Sensor_IP = 2nd [GEAR_POSITION[0x150] =  0x4]
+ 5.1 TSL lamps-Left_RR_Indicator_OP&Left_FR_Indicator_OP(LEFT TSL) shall start blinking(@80+/-2 CPM).
+ 5.2 Left indicator Tell tale shall blink at a frequency of 80+/-2 CPM.
+ 5.3 Cluster shall send turn indicator left status to smart phone app when BT App is connected
+6.Set  Left_Indicator_SW_IP=1(ON).
+ 6.1 In Cluster, TSL Indicators Shall be ON.
+7.Set  Right_Indicator_SW_IP=1(ON).
+ 7.1 Indicators will not blink(because the battery is disconnected).
+8. Perform Power/Battery ON and Do IGN ON as well
+ 8.1 TSL lamps-Right_RR_Indicator_OP&Right_FR_Indicator_OP(Right TSL) shall not start blinking(@80+/-2 CPM) since its virtual IGN Config
+ 8.2 Right indicator Tell tale shall blink at a frequency of 80+/-2 CPM.
+ 8.3 Cluster shall send turn indicator Right status to smart phone app when BT App is connected
+9. wait untill for timeout
+ 9.1 TSL lamps - Right_RR_Indicator_OP&Right_FR_Indicator_OP(Right TSL) shall stop blinking.
+ 9.2 Cluster shall send turn indicator Right status to smart phone app when BT App is connected","1. Simulate SIDE_STAND_STATUS[0x350] = 0x0
+2. Turn Ignition OFF.[Ignition_SW_IP= 0]
+3. Set voltage to 0V.",,,,,
+21,VHIL_N600_VehFunc_TSL_Cluster_Telltale_TSL_AutoCancellation_byDistance200m_Urban_DayCondition,Check the cluster TT and TSL for AUTO cancellation during Urban_DayCondition,"1. Set voltage to 13.5V.
+2.Simulate SIDE_STAND_STATUS[0x350] = 0x1 [Side stand retracted]
+3. Turn Ignition ON.[Ignition_SW_IP= 1]
+4. Battery is connected.","1.Go to->Menu->Display Setup->Light and Dark mode-> Select ""Light""(Via Control switches 1 to 4)
+ 1.1 Cluster HMI shall be working in Light  mode (white Colour background)
+2. Go to Menu-> Select Ride mode-> Select ""URBAN""(Via Control switches 1to 4).
+ 2.1 ""URBAN"" mode shall be displayed in HMI home screen.
+3.Set  Left_Indicator_SW_IP=0(ON).
+ 3.1 TSL lamps-Left_RR_Indicator_OP&Left_FR_Indicator_OP(LEFT TSL) shall start blinking(@80+/-2 CPM).
+ 3.2 Left indicator Tell tale shall blink at a frequency of 80+/-2 CPM.
+ 3.3 Cluster shall send turn indicator left status to smart phone app when BT App is connected.
+4.Simulate ACC_PEDAL_IP = 26% to acheive [ENGINE_RPM[0x150] = 5200 RPM]
+ 4.1 In Cluster, Indicators shall OFF.
+5.Simulate Gear_Position_Sensor_IP = 2nd [GEAR_POSITION[0x150] =  0x4]
+ 5.1 TSL lamps-Left_RR_Indicator_OP&Left_FR_Indicator_OP(LEFT TSL) shall start blinking(@80+/-2 CPM).
+ 5.2 Left indicator Tell tale shall blink at a frequency of 80+/-2 CPM.
+ 5.3 Cluster shall send turn indicator left status to smart phone app when BT App is connected
+6.Set  Left_Indicator_SW_IP=1(ON).
+ 6.1 In Cluster, TSL Indicators Shall be ON.
+7.Set  Right_Indicator_SW_IP=1(ON).
+ 7.1 Indicators will not blink(because the battery is disconnected).
+8. Perform Power/Battery ON and Do IGN ON as well
+ 8.1 TSL lamps-Right_RR_Indicator_OP&Right_FR_Indicator_OP(Right TSL) shall not start blinking(@80+/-2 CPM) since its virtual IGN Config
+ 8.2 Right indicator Tell tale shall blink at a frequency of 80+/-2 CPM.
+ 8.3 Cluster shall send turn indicator Right status to smart phone app when BT App is connected
+9. wait and ride the vehicle to reach 200m
+ 9.1 TSL lamps - Right_RR_Indicator_OP&Right_FR_Indicator_OP(Right TSL) shall stop blinking.
+ 9.2 Cluster shall send turn indicator Right status to smart phone app when BT App is connected","1. Simulate SIDE_STAND_STATUS[0x350] = 0x0
+2. Turn Ignition OFF.[Ignition_SW_IP= 0]
+3. Set voltage to 0V.",,,,,
+22,VHIL_N600_VehFunc_TSL_LeftTSL_Blinking_Urban_NightCondition,To check Left TSL blinking with and without fault condition in Urban  Mode and Day condition.,"1. Set voltage to 13.5V.
+2.Simulate SIDE_STAND_STATUS[0x350] = 0x1 [Side stand retracted]
+3. Turn Ignition ON.[Ignition_SW_IP= 1]","1.Go to->Menu->Display Setup->Dark and Dark mode-> Select ""Dark""(Via Control switches 1 to 4
+ 1.1 Cluster HMI shall be working in Dark mode (White colour background)
+2. Go to Menu-> Select Ride mode-> Select ""URBAN""(Via Control switches 1to 4)
+ 2.1 ""URBAN"" mode shall be displayed in HMI home screen.
+3. Set Left_Indicator_SW_IP=1.(Left Indicator Switch ON)
+ 3.1 TSL lamps-Left_RR_Indicator_OP shall start blinking(@80+/-2 CPM).
+ 3.2 Left indicator Tell tale shall blink at a frequency of 80+/-2 CPM.
+ 3.3 Cluster shall send turn indicator left status to smart phone app when BT App is connected
+4. Disconnect Left_RR_Indicator_OP(Rear Left TSL) wiring and connect after observing the output
+ 4.1 Left_FR_Indicator_OP(front Left TSL) shall start blinking(@120+/-2 CPM).
+ 4.2 Left indicator Tell tale shall blink at a frequency of 120+/-2 CPM.
+ 4.3 Cluster shall send turn indicator left status to smart phone app when BT App is connected
+ 4.4 TSL should work Normaly ones fault is removed
+5. Disconnect Left_FR_Indicator_OP(front Left TSL) wiring and connect after observing the output. 
+ 5.1 Left_RR_Indicator_OP(Rear Left TSL) shall start blinking(@120+/-2 CPM).
+ 5.2 Left indicator Tell tale shall blink at a frequency of 120+/-2 CPM.
+ 5.3 Cluster shall send turn indicator left status to smart phone app when BT App is connected
+ 5.4 TSL should work Normaly ones fault is removed","1. Simulate SIDE_STAND_STATUS[0x350] = 0x0
+2. Turn Ignition OFF.[Ignition_SW_IP= 0]
+3. Set voltage to 0V.",,,,,
+23,VHIL_N600_VehFunc_TSL_RightTSL_Blinking_Urban_NightCondition,To check Right TSL blinking with and without fault condition in Urban Mode and Day condition.,"
+1. Set voltage to 13.5V.
+2.Simulate SIDE_STAND_STATUS[0x350] = 0x1 [Side stand retracted]
+3. Turn Ignition ON.[Ignition_SW_IP= 1].","1.Go to->Menu->Display Setup->Dark and Dark mode-> Select ""Dark""(Via Control switches 1 to 4
+ 1.1 Cluster HMI shall be working in Dark mode (White colour background)
+2. Go to Menu-> Select Ride mode-> Select ""URBAN""(Via Control switches 1to 4)
+ 2.1 ""URBAN"" mode shall be displayed in HMI home screen.
+3. Set Right_Indicator_SW_IP=1.(Right Indicator Switch ON)
+ 3.1 TSL lamps-Right_RR_Indicator_OP shall start blinking(@80+/-2 CPM).
+ 3.2 Right indicator Tell tale shall blink at a frequency of 80+/-2 CPM.
+ 3.3 Cluster shall send turn indicator Right status to smart phone app when BT App is connected
+4. Disconnect Right_RR_Indicator_OP(Rear Right TSL) wiring and connect after observing the output
+ 4.1 Right_FR_Indicator_OP(front Right TSL) shall start blinking(@120+/-2 CPM).
+ 4.2 Right indicator Tell tale shall blink at a frequency of 120+/-2 CPM.
+ 4.3 Cluster shall send turn indicator Right status to smart phone app when BT App is connected
+ 4.4 TSL should work Normaly ones fault is removed
+5. Disconnect Right_FR_Indicator_OP(front Right TSL) wiring and connect after observing the output. 
+ 5.1 Right_RR_Indicator_OP(Rear Right TSL) shall start blinking(@120+/-2 CPM).
+ 5.2 Right indicator Tell tale shall blink at a frequency of 120+/-2 CPM.
+ 5.3 Cluster shall send turn indicator Right status to smart phone app when BT App is connected
+ 5.4 TSL should work Normaly ones fault is removed","1. Simulate SIDE_STAND_STATUS[0x350] = 0x0
+2. Turn Ignition OFF.[Ignition_SW_IP= 0]
+3. Set voltage to 0V.",,,,,
+24,VHIL_N600_VehFunc_TSL_HAZARD_SW_Check_in_Urban_Night Condition,TSL status with reference to Hazard switch check in urban mode and Day condition.,"
+1. Set voltage to 13.5V.
+2.Simulate SIDE_STAND_STATUS[0x350] = 0x1 [Side stand retracted]
+3. Turn Ignition ON.[Ignition_SW_IP= 1]","1. Go to->Menu->Display Setup->Dark and Dark mode-> Select ""Dark""(Via Control switches 1 to 4)
+ 1.1 Cluster HMI shall be working in Dark mode (white Colour background)
+2. Go to Menu-> Select Ride mode-> Select ""URBAN""(Via Control switches 1to 4).
+ 2.1 ""URBAN"" mode shall be displayed in HMI home screen.
+3. Set Hazard_SW_IP=1(ON)
+ 3.1 Right_RR_Indicator_OP & Right_FR_Indicator_OP(Right TSL) & Left_RR_Indicator_OP&Left_FR_Indicator_OP(LEFT TSL) shall
+start blinking (@80+/-2 CPM).
+ 3.2 Right and Left Tell Tales shall blink in cluster at a frequency of 80+/-2 CPM.
+ 3.3 Cluster shall send hazard switch status to smart phone app when BT App is connected.","1. Simulate SIDE_STAND_STATUS[0x350] = 0x0
+2. Turn Ignition OFF.[Ignition_SW_IP= 0]
+3. Set voltage to 0V.",,,,,
+25,VHIL_N600_VehFunc_TSL_LeftToHazardSW_Urban_NightCondition,left Indicator to Hazard switch interface in Urban mode and Day condition.,"
+1. Set voltage to 13.5V.
+2.Simulate SIDE_STAND_STATUS[0x350] = 0x1 [Side stand retracted]
+3. Turn Ignition ON.[Ignition_SW_IP= 1].","1.Go to->Menu->Display Setup->Dark and Dark mode-> Select ""Dark""(Via Control switches 1 to 4)
+ 1.1 Cluster HMI shall be working in Dark mode (white Colour background)
+2. Go to Menu-> Select Ride mode-> Select ""URBAN""(Via Control switches 1to 4).
+ 2.1 ""URBAN"" mode shall be displayed in HMI home screen.
+3. Set Left_Indicator_SW_IP=1  (Left Indicator Switch ON).
+ 3.1 TSL lamps -  Left_RR_Indicator_OP & Left_FR_Indicator_OP(Left TSL's) shall start blinking(@80+/-2 CPM).
+ 3.2 Left indicator Tell tale shall blink at a frequency of 80+/-2 CPM.
+ 3.3 Cluster shall send turn indicator Left status to smart phone app when BT App is connected.
+4. Set Hazard_SW_IP=0.(ON)
+ 4.1 Left_RR_Indicator_OP & Left_FR_Indicator_OP(Left TSL) & Right_RR_Indicator_OP & Right_FR_Indicator_OP(LEFT TSL) shall start blinking(Flash @80+/-2 CPM).
+ 4.2 Left and Left  Tell Tales shall blink at a frequency of 80+/-2 CPM.
+ 4.3 Cluster shall send hazard switch status to smart phone app when BT App is connected.
+5. Set Hazard_SW_IP=1.(OFF).
+ 5.1 Left_RR_Indicator_OP & Left_FR_Indicator_OP(Left TSL's) shall start blinking(@80+/-2 CPM).
+ 5.2 Left indicator Tell tale shall blink at a frequency of 80+/-2 CPM.
+ 5.3 Cluster shall send turn indicator Left status to smart phone app when BT App is connected.","1. Simulate SIDE_STAND_STATUS[0x350] = 0x0
+2. Turn Ignition OFF.[Ignition_SW_IP= 0]
+3. Set voltage to 0V.",,,,,
+26,VHIL_N600_VehFunc_TSL_RightToHazardSW_Urban_NightCondition,Right Indicator to Hazard switch interface in Urban mode and Day condition.,"
+1. Set voltage to 13.5V.
+2.Simulate SIDE_STAND_STATUS[0x350] = 0x1 [Side stand retracted]
+3. Turn Ignition ON.[Ignition_SW_IP= 1].","1.Go to->Menu->Display Setup->Dark and Dark mode-> Select ""Dark""(Via Control switches 1 to 4)
+ 1.1 Cluster HMI shall be working in Dark mode (white Colour background)
+2. Go to Menu-> Select Ride mode-> Select ""URBAN""(Via Control switches 1to 4).
+ 2.1 ""URBAN"" mode shall be displayed in HMI home screen.
+3. Set Right_Indicator_SW_IP=1  (Right Indicator Switch ON).
+ 3.1 TSL lamps -  Right_RR_Indicator_OP & Right_FR_Indicator_OP(RIGHT TSL's) shall start blinking(@80+/-2 CPM).
+ 3.2 Right indicator Tell tale shall blink at a frequency of 80+/-2 CPM.
+ 3.3 Cluster shall send turn indicator Right status to smart phone app when BT App is connected.
+4. Set Hazard_SW_IP=0.(ON)
+ 4.1 Right_RR_Indicator_OP & Right_FR_Indicator_OP(RIGHT TSL) & Left_RR_Indicator_OP & Left_FR_Indicator_OP(LEFT TSL) shall start blinking(Flash @80+/-2 CPM).
+ 4.2 Right and Left  Tell Tales shall blink at a frequency of 80+/-2 CPM.
+ 4.3 Cluster shall send hazard switch status to smart phone app when BT App is connected.
+5. Set Hazard_SW_IP=1.(OFF).
+ 5.1 Right_RR_Indicator_OP&Right_FR_Indicator_OP(RIGHT TSL's) shall start blinking(@80+/-2 CPM).
+ 5.2 Right indicator Tell tale shall blink at a frequency of 80+/-2 CPM.
+ 5.3 Cluster shall send turn indicator Right status to smart phone app when BT App is connected.","1. Simulate SIDE_STAND_STATUS[0x350] = 0x0
+2. Turn Ignition OFF.[Ignition_SW_IP= 0]
+3. Set voltage to 0V.",,,,,
+27,VHIL_N600_VehFunc_TSL_LVSD_HVSD_Urban_NightCondition_LowVoltage,LVSD and HVSD Test combinations in Urban mode and Day condition_LowVoltage,"1. Set voltage to 13.5V.
+2.Simulate SIDE_STAND_STATUS[0x350] = 0x1 [Side stand retracted]
+3. Turn Ignition ON.[Ignition_SW_IP= 1].","1.Go to->Menu->Display Setup->Dark and Dark mode-> Select ""Dark""(Via Control switches 1 to 4)
+ 1.1 Cluster HMI shall be working in Dark  mode (white Colour background)
+2. Go to Menu-> Select Ride mode-> Select ""URBAN""(Via Control switches 1to 4).
+ 2.1 ""URBAN"" mode shall be displayed in HMI home screen.
+1. Gradually decrease the battery voltage until it reaches 7.2V.
+ 1.1 LVSD flag is set.
+2. Set  Left_Indicator_SW_IP=1(Left Indicator Switch ON).
+ 2.1 Left_RR_Indicator_OP&Left_FR_Indicator_OP(LEFT TSL)=OFF(NOT BLINKING because the cluster is in shut down mode).
+ 2.2 Left indicator Tell tale shall not blink.
+ 2.3 Cluster shall send turn indicator left status to smart phone app when BT App is connected
+3. Set the Voltage to 13.5V.
+ 3.1 TSL lamps-Left_RR_Indicator_OP&Left_FR_Indicator_OP(LEFT TSL) shall start blinking(@80+/-2 CPM).
+ 3.2 Left indicator Tell tale shall blink at a frequency of 80+/-2 CPM.
+ 3.3 Cluster shall send turn indicator left status to smart phone app when BT App is connected
+4. Set Right_Indicator_SW_IP=1(Right Indicator Switch ON).
+ 4.1 TSL lamps-Right_RR_Indicator_OP&Right_FR_Indicator_OP(Right TSL) shall start blinking(@80+/-2 CPM).
+ 4.2 Right indicator Tell tale shall blink at a frequency of 80+/-2 CPM.
+ 4.3 Cluster shall send turn indicator Right status to smart phone app when BT App is connected","1. Simulate SIDE_STAND_STATUS[0x350] = 0x0
+2. Turn Ignition OFF.[Ignition_SW_IP= 0]
+3. Set voltage to 0V.",,,,,
+28,VHIL_N600_VehFunc_TSL_LVSD_HVSD_Urban_NightCondition_HighVoltage,LVSD and HVSD Test combinations in Urban mode and Day condition_gradually increase to High Voltage,"1. Set voltage to 13.5V.
+2.Simulate SIDE_STAND_STATUS[0x350] = 0x1 [Side stand retracted]
+3. Turn Ignition ON.[Ignition_SW_IP= 1].","1.Go to->Menu->Display Setup->Dark and Dark mode-> Select ""Dark""(Via Control switches 1 to 4)
+ 1.1 Cluster HMI shall be working in Dark  mode (white Colour background)
+2. Go to Menu-> Select Ride mode-> Select ""URBAN""(Via Control switches 1to 4).
+ 2.1 ""URBAN"" mode shall be displayed in HMI home screen.
+1. Gradually increase the battery voltage until it reaches 18.6V and wait for 2sec.
+ 1.1 HVSD flag is set.
+2. Set  Left_Indicator_SW_IP=1(Left Indicator Switch ON).
+ 2.1 Left_RR_Indicator_OP&Left_FR_Indicator_OP(LEFT TSL)=OFF(NOT BLINKING because the cluster is in shut down mode).
+ 2.2 Left indicator Tell tale shall not blink.
+ 2.3 Cluster shall send turn indicator left status to smart phone app when BT App is connected
+3. Set the Voltage 13.5V
+ 3.1 TSL lamps-Left_RR_Indicator_OP&Left_FR_Indicator_OP(LEFT TSL) shall start blinking(@80+/-2 CPM).
+ 3.2 Left indicator Tell tale shall blink at a frequency of 80+/-2 CPM.
+ 3.3 Cluster shall send turn indicator left status to smart phone app when BT App is connected.
+4. Set Right_Indicator_SW_IP=1(Right Indicator Switch ON).
+ 4.1 TSL lamps-Right_RR_Indicator_OP&Right_FR_Indicator_OP(Right TSL) shall start blinking(@80+/-2 CPM).
+ 4.2 Right indicator Tell tale shall blink at a frequency of 80+/-2 CPM.
+ 4.3 Cluster shall send turn indicator Right status to smart phone app when BT App is connected","1. Simulate SIDE_STAND_STATUS[0x350] = 0x0
+2. Turn Ignition OFF.[Ignition_SW_IP= 0]
+3. Set voltage to 0V.",,,,,
+29,VHIL_N600_VehFunc_TSL_Behaviour_duringIGNtransitions_Urban_NightCondition,Behavior check of TSL during IGN transitions in Urban mode and Day condition.,"1. Set voltage to 13.5V.
+2.Simulate SIDE_STAND_STATUS[0x350] = 0x1 [Side stand retracted]
+3. Turn Ignition ON.[Ignition_SW_IP= 1].","1.Go to->Menu->Display Setup->Dark and Dark mode-> Select ""Dark""(Via Control switches 1 to 4)
+ 1.1 Cluster HMI shall be working in Dark  mode (white Colour background)
+2. Go to Menu-> Select Ride mode-> Select ""URBAN""(Via Control switches 1to 4).
+ 2.1 ""URBAN"" mode shall be displayed in HMI home screen.
+3. Set Hazard_SW_IP=1(ON).
+ 3.1 Right_RR_Indicator_OP & Right_FR_Indicator_OP (RIGHT TSL) & Left_RR_Indicator_OP & Left_FR_Indicator_OP(LEFT TSL) shall start blinking(Flash@80+/-2 CPM).
+ 3.2 Left & Right indicator Tell tale's(TT's) shall blink at a frequency of 80+/-2 CPM.
+ 3.3 Cluster shall send turn indicators status to smart phone app when BT App is connected
+4. Set the IGN to OFF with Ignition_SW_IP = 0 (OFF).
+ 4.1 Right_RR_Indicator_OP & Right_FR_Indicator_OP(RIGHT TSL) & Left_RR_Indicator_OP & Left_FR_Indicator_OP(LEFT TSL) shall be blinking(Flash@80+/-2 CPM).
+ 4.2 Left & Right  indicator Tell tale's(TT's) shall not blink(OFF) in cluster
+ 4.3 Cluster shall send turn indicators status to smart phone app when BT App is connected
+5.Set the IGN to ON with Ignition_SW_IP = 1 (ON)&Set Hazard_SW_IP=0(OFF).
+ 5.1 Right_RR_Indicator_OP & Right_FR_Indicator_OP & Left_RR_Indicator_OP & Left_FR_Indicator_OP shall not blink(OFF).
+ 5.2 Left & Right  indicator Tell tale's(TT's) shall not blink(OFF).
+ 5.3 Cluster shall send turn indicators status to smart phone app when BT App is connected","1. Simulate SIDE_STAND_STATUS[0x350] = 0x0
+2. Turn Ignition OFF.[Ignition_SW_IP= 0]
+3. Set voltage to 0V.",,,,,
+30,VHIL_N600_VehFunc_TSL_RightFrontRearTSL_FaultyCondn_Check_Urban_NightCondition,Right Front and Rear TSL faulty condition checks in Urban  mode and Day condition.,"1. Set voltage to 13.5V.
+2.Simulate SIDE_STAND_STATUS[0x350] = 0x1 [Side stand retracted]
+3. Turn Ignition ON.[Ignition_SW_IP= 1].","1.Go to->Menu->Display Setup->Dark and Dark mode-> Select ""Dark""(Via Control switches 1 to 4)
+ 1.1 Cluster HMI shall be working in Dark  mode (white Colour background)
+2. Go to Menu-> Select Ride mode-> Select ""URBAN""(Via Control switches 1to 4).
+ 2.1 ""URBAN"" mode shall be displayed in HMI home screen.
+3.Disconnect Right_FR_Indicator_OP(Rear Right TSL) wiring and connect after observing the output.
+ 3.1 Right_RR_Indicator_OP(front Right TSL) shall blink @120+/-2 CPM.
+ 3.2 Right Tell Tale shall blink @ 120+/-2 CPM.
+ 3.3 Cluster shall send turn right indicator status to smart phone app when BT App is connected
+4.Set Hazard_SW_IP=1(ON).
+ 4.1 Right_RR_Indicator_OP & Right_FR_Indicator_OP(RIGHT TSL) & Left_RR_Indicator_OP & Left_FR_Indicator_OP(LEFT TSL) shall start blinking(@80+/-2 CPM).
+ 4.2 Right and Left  Tell Tales shall blink at a frequency of 80+/-2 CPM.
+ 4.3 Cluster shall send hazard switch status to smart phone app when BT App is connected.
+5.Set Hazard_SW_IP=0(OFF).
+ 5.1 Right_RR_Indicator_OP(front Right TSL) shall blink @120+/-2 CPM.
+ 5.2 Right Tell Tale shall blink @ 120+/-2 CPM.
+ 5.3 Cluster shall send turn right indicator status to smart phone app when BT App is connected","1. Simulate SIDE_STAND_STATUS[0x350] = 0x0
+2. Turn Ignition OFF.[Ignition_SW_IP= 0]
+3. Set voltage to 0V.",,,,,
+31,VHIL_N600_VehFunc_TSL_LeftFrontRearTSL_FaultyCondn_Check_Urban_NightCondition,Left Front and Rear TSL faulty condition checks in Urban mode and Day condition.,"1. Set voltage to 13.5V.
+2.Simulate SIDE_STAND_STATUS[0x350] = 0x1 [Side stand retracted]
+3. Turn Ignition ON.[Ignition_SW_IP= 1].","1.Go to->Menu->Display Setup->Dark and Dark mode-> Select ""Dark""(Via Control switches 1 to 4)
+ 1.1 Cluster HMI shall be working in Dark  mode (white Colour background)
+2. Go to Menu-> Select Ride mode-> Select ""URBAN""(Via Control switches 1to 4).
+ 2.1 ""URBAN"" mode shall be displayed in HMI home screen.
+3.Disconnect Left_FR_Indicator_OP(Rear Left TSL) wiring and connect after observing the output.
+ 3.1 Left_RR_Indicator_OP(front Left TSL) shall blink @120+/-2 CPM.
+ 3.2 Left Tell Tale shall blink @ 120+/-2 CPM.
+ 3.3 Cluster shall send turn Left indicator status to smart phone app when BT App is connected
+4.Set Hazard_SW_IP=1(ON).
+ 4.1 Left_RR_Indicator_OP & Left_FR_Indicator_OP(Left TSL) & Right_RR_Indicator_OP & Right_FR_Indicator_OP(LEFT TSL) shall start blinking(@80+/-2 CPM).
+ 4.2 Left and Right Tell Tales shall blink at a frequency of 80+/-2 CPM.
+ 4.3 Cluster shall send hazard switch status to smart phone app when BT App is connected.
+5.Set Hazard_SW_IP=0(OFF).
+ 5.1 Left_RR_Indicator_OP(front Left TSL) shall blink @120+/-2 CPM.
+ 5.2 Left Tell Tale shall blink @ 120+/-2 CPM.
+ 5.3 Cluster shall send turn Left indicator status to smart phone app when BT App is connected","1. Simulate SIDE_STAND_STATUS[0x350] = 0x0
+2. Turn Ignition OFF.[Ignition_SW_IP= 0]
+3. Set voltage to 0V.",,,,,
+32,VHIL_N600_VehFunc_TSL_HAZARD_SW_Unapplicablity_duringIGNOFF_Urban_NightCondition,Hazard switch un applicability during IGN OFF condition.,"1. Set voltage to 13.5V.
+2.Simulate SIDE_STAND_STATUS[0x350] = 0x1 [Side stand retracted]
+3. Turn Ignition ON.[Ignition_SW_IP= 1]","1.Go to->Menu->Display Setup->Dark and Dark mode-> Select ""Dark""(Via Control switches 1 to 4)
+ 1.1 Cluster HMI shall be working in Dark  mode (white Colour background)
+2. Go to Menu-> Select Ride mode-> Select ""URBAN""(Via Control switches 1to 4).
+ 2.1 ""URBAN"" mode shall be displayed in HMI home screen.
+3.Set Hazard_SW_IP=1(ON).
+ 3.1 Right_RR_Indicator_OP & Right_FR_Indicator_OP(RIGHT TSL) & Left_RR_Indicator_OP & Left_FR_Indicator_OP(LEFT TSL) shall start blinking
+@ 80+/-2 CPM.
+ 3.2 Right and Left TT's shall blink @ 80+/-2 CPM.
+ 3.3 Cluster shall send the hazard switch status to smart phone app when BT App is connected
+4.Set the IGN to OFF with Ignition_SW_IP = 0 (OFF).
+ 4.1 Right_RR_Indicator_OP & Right_FR_Indicator_OP(RIGHT TSL) & Left_RR_Indicator_OP & Left_FR_Indicator_OP(LEFT TSL) shall be blinking
+@ 80+/-2 CPM.
+ 4.2 Right and Left TT's shall not blink.
+ 4.3 Cluster shall send the hazard switch status to smart phone app when BT App is connected
+5. Set the IGN to ON with Ignition_SW_IP = 1 (ON) & Set Hazard_SW_IP=0(OFF).
+ 5.1 Right_RR_Indicator_OP & Right_FR_Indicator_OP(RIGHT TSL) & Left_RR_Indicator_OP & Left_FR_Indicator_OP(LEFT TSL) shall stop blinking .
+ 5.2 Right and Left TT's shall not blink.
+ 5.3 Cluster shall send the hazard switch status to smart phone app when BT App is connected","1. Simulate SIDE_STAND_STATUS[0x350] = 0x0
+2. Turn Ignition OFF.[Ignition_SW_IP= 0]
+3. Set voltage to 0V.",,,,,
+33,VHIL_N600_VehFunc_TSL_HAZARD_SW_ShortPress_Urban_NightCondition,Switch press of Short for Hazard switch in Urban mode and Day condition.,"1. Set voltage to 13.5V.
+2.Simulate SIDE_STAND_STATUS[0x350] = 0x1 [Side stand retracted]
+3. Turn Ignition ON.[Ignition_SW_IP= 1].","1.Go to->Menu->Display Setup->Dark and Dark mode-> Select ""Dark""(Via Control switches 1 to 4)
+ 1.1 Cluster HMI shall be working in Dark  mode (white Colour background)
+2. Go to Menu-> Select Ride mode-> Select ""URBAN""(Via Control switches 1to 4).
+ 2.1 ""URBAN"" mode shall be displayed in HMI home screen.
+3. Short press(Greater than 50ms) hazard switch input(Hazard_SW_IP=0).
+ 3.1 Right_RR_Indicator_OP & Right_FR_Indicator_OP(Right TSL) & Left_RR_Indicator_OP & Left_FR_Indicator_OP(LEFT TSL) shall
+start blinking (@80+/-2 CPM).
+ 3.2 Right and Left  Tell Tales shall blink at a frequency of 80+/-2 CPM.
+ 3.3 Cluster shall send hazard switch status to smart phone app when BT App is connected.
+4. Short press(Greater than 50ms) hazard switch input(Hazard_SW_IP=1)
+ 4.1 Right_RR_Indicator_OP & Right_FR_Indicator_OP(Right TSL) & Left_RR_Indicator_OP & Left_FR_Indicator_OP(LEFT TSL)=OFF(no blinking)
+ 4.2 Right and Left  Tell Tales shall not blink.
+ 4.3 Cluster shall send hazard switch status to smart phone app when BT App is connected.","1. Simulate SIDE_STAND_STATUS[0x350] = 0x0
+2. Turn Ignition OFF.[Ignition_SW_IP= 0]
+3. Set voltage to 0V.",,,,,
+34,VHIL_N600_VehFunc_TSL_HAZARD_SW_lessthanShortPressTime_Urban_NightCondition,"checking the hazard Switch
+functionality with less than
+the time of short press in Urban mode and Day condition.","1. Set voltage to 13.5V.
+2.Simulate SIDE_STAND_STATUS[0x350] = 0x1 [Side stand retracted]
+3. Turn Ignition ON.[Ignition_SW_IP= 1].","1.Go to->Menu->Display Setup->Dark and Dark mode-> Select ""Dark""(Via Control switches 1 to 4)
+ 1.1 Cluster HMI shall be working in Dark  mode (white Colour background)
+2. Go to Menu-> Select Ride mode-> Select ""URBAN""(Via Control switches 1to 4).
+ 2.1 ""URBAN"" mode shall be displayed in HMI home screen.
+3. Press(less than 50ms) hazard switch input(Hazard_SW_IP=0)
+ 3.1 Right_RR_Indicator_OP & Right_FR_Indicator_OP(Right TSL) & Left_RR_Indicator_OP & Left_FR_Indicator_OP(LEFT TSL)=OFF(no blinking)
+ 3.2 Right and Left  Tell Tales shall not blink.
+ 3.3 Cluster shall send hazard switch status to smart phone app when BT App is connected.","1. Simulate SIDE_STAND_STATUS[0x350] = 0x0
+2. Turn Ignition OFF.[Ignition_SW_IP= 0]
+3. Set voltage to 0V.",,,,,
+35,VHIL_N600_VehFunc_TSL_RightTSL_HAZARD_SW_ShortPressTime_Urban_NightCondition,Switch press of Short for Right TSL switch in Urban mode and Day condition.,"1. Set voltage to 13.5V.
+2.Simulate SIDE_STAND_STATUS[0x350] = 0x1 [Side stand retracted]
+3. Turn Ignition ON.[Ignition_SW_IP= 1].","1.Go to->Menu->Display Setup->Dark and Dark mode-> Select ""Dark""(Via Control switches 1 to 4)
+ 1.1 Cluster HMI shall be working in Dark  mode (white Colour background)
+2. Go to Menu-> Select Ride mode-> Select ""URBAN""(Via Control switches 1to 4).
+ 2.1 ""URBAN"" mode shall be displayed in HMI home screen.
+3.Short Press(Greater than 50ms) Right TSL switch input(Right_Indicator_SW_IP=0).
+ 3.1 TSL lamps Right_RR_Indicator_OP & Right_FR_Indicator_OP(RIGHT TSL's) shall start blinking(@80+/-2 CPM).
+ 3.2 Right indicator Tell tale shall blink at a frequency of 80+/-2 CPM.
+ 3.3 Cluster shall send turn indicator Right status to smart phone app when BT App is connected
+4.Short Press(Greater than 50ms) Right TSL switch input(Right_Indicator_SW_IP=1).
+ 4.1 TSL lamps Right_RR_Indicator_OP & Right_FR_Indicator_OP(RIGHT TSL's)=OFF(NO BLINKING)
+ 4.2 Right indicator Tell tale shall not blink.
+ 4.3 Cluster shall send turn indicator Right status to smart phone app when BT App is connected","1. Simulate SIDE_STAND_STATUS[0x350] = 0x0
+2. Turn Ignition OFF.[Ignition_SW_IP= 0]
+3. Set voltage to 0V.",,,,,
+36,VHIL_N600_VehFunc_TSL_LeftTSL_HAZARD_SW_ShortPressTime_Urban_NightCondition,Switch press of Short for Left TSL switch in Urban mode and Day condition.,"1. Set voltage to 13.5V.
+2.Simulate SIDE_STAND_STATUS[0x350] = 0x1 [Side stand retracted]
+3. Turn Ignition ON.[Ignition_SW_IP= 1].","1.Go to->Menu->Display Setup->Dark and Dark mode-> Select ""Dark""(Via Control switches 1 to 4)
+ 1.1 Cluster HMI shall be working in Dark  mode (white Colour background)
+2. Go to Menu-> Select Ride mode-> Select ""URBAN""(Via Control switches 1to 4).
+ 2.1 ""URBAN"" mode shall be displayed in HMI home screen.
+3.Short Press(Greater than 50ms) Left TSL switch input(Left_Indicator_SW_IP=0).
+ 3.1 TSL lamps Left_RR_Indicator_OP & Left_FR_Indicator_OP(Left TSL's) shall start blinking(@80+/-2 CPM).
+ 3.2 Left indicator Tell tale shall blink at a frequency of 80+/-2 CPM.
+ 3.3 Cluster shall send turn indicator Left status to smart phone app when BT App is connected
+4.Short Press(Greater than 50ms) Left TSL switch input(Left_Indicator_SW_IP=1).
+ 4.1 TSL lamps Left_RR_Indicator_OP & Left_FR_Indicator_OP(Left TSL's)=OFF(NO BLINKING)
+ 4.2 Left indicator Tell tale shall not blink.
+ 4.3 Cluster shall send turn indicator Left status to smart phone app when BT App is connected","1. Simulate SIDE_STAND_STATUS[0x350] = 0x0
+2. Turn Ignition OFF.[Ignition_SW_IP= 0]
+3. Set voltage to 0V.",,,,,
+37,VHIL_N600_VehFunc_TSL_RightTSL_HAZARD_SW_LessthanShortPressTime_Urban_NightCondition,"checking the Right TSL Switch
+functionality with less than
+the time of short press in Urban mode and Day condition.","1. Set voltage to 13.5V.
+2.Simulate SIDE_STAND_STATUS[0x350] = 0x1 [Side stand retracted]
+3. Turn Ignition ON.[Ignition_SW_IP= 1]","1.Go to->Menu->Display Setup->Dark and Dark mode-> Select ""Dark""(Via Control switches 1 to 4)
+ 1.1 Cluster HMI shall be working in Dark  mode (white Colour background)
+2. Go to Menu-> Select Ride mode-> Select ""URBAN""(Via Control switches 1to 4).
+ 2.1 ""URBAN"" mode shall be displayed in HMI home screen.
+3.Press(less than 50ms) Right TSL switch input(Right_Indicator_SW_IP=0).
+ 3.1 Right_RR_Indicator_OP & Right_FR_Indicator_OP(Right TSL)=OFF(no blinking)
+ 3.2 Right Tell Tale shall not blink.
+ 3.3 Cluster shall send turn Right indicator status to smart phone app when BT App is connected.","1. Simulate SIDE_STAND_STATUS[0x350] = 0x0
+2. Turn Ignition OFF.[Ignition_SW_IP= 0]
+3. Set voltage to 0V.",,,,,
+38,VHIL_N600_VehFunc_TSL_LeftTSL_HAZARD_SW_LessthanShortPressTime_Urban_NightCondition,"checking the Left TSL Switch
+functionality with less than
+the time of short press in Urban mode and Day condition.","1. Set voltage to 13.5V.
+2.Simulate SIDE_STAND_STATUS[0x350] = 0x1 [Side stand retracted]
+3. Turn Ignition ON.[Ignition_SW_IP= 1]","1.Go to->Menu->Display Setup->Dark and Dark mode-> Select ""Dark""(Via Control switches 1 to 4)
+ 1.1 Cluster HMI shall be working in Dark  mode (white Colour background)
+2. Go to Menu-> Select Ride mode-> Select ""URBAN""(Via Control switches 1to 4).
+ 2.1 ""URBAN"" mode shall be displayed in HMI home screen.
+3.Press(less than 50ms) Left TSL switch input(Left_Indicator_SW_IP=0).
+ 3.1 Left_RR_Indicator_OP & Left_FR_Indicator_OP(Left TSL)=OFF(no blinking)
+ 3.2 Left Tell Tale shall not blink.
+ 3.3 Cluster shall send turn Left indicator status to smart phone app when BT App is connected.","1. Simulate SIDE_STAND_STATUS[0x350] = 0x0
+2. Turn Ignition OFF.[Ignition_SW_IP= 0]
+3. Set voltage to 0V.",,,,,
+39,VHIL_N600_VehFunc_TSL_Cluster_behaviour_DuringBatteryOnOff_Urban_NightCondition,Cluster behaviour when the battery is ON and OFF.,"1. Set voltage to 13.5V.
+2.Simulate SIDE_STAND_STATUS[0x350] = 0x1 [Side stand retracted]
+3. Turn Ignition ON.[Ignition_SW_IP= 1]
+4. Battery is connected.","1.Go to->Menu->Display Setup->Dark and Dark mode-> Select ""Dark""(Via Control switches 1 to 4)
+ 1.1 Cluster HMI shall be working in Dark  mode (white Colour background)
+2. Go to Menu-> Select Ride mode-> Select ""URBAN""(Via Control switches 1to 4).
+ 2.1 ""URBAN"" mode shall be displayed in HMI home screen.
+3.Set Left_Indicator_SW_IP=0(ON).
+ 3.1 TSL lamps Left_RR_Indicator_OP & Left_FR_Indicator_OP(LEFT TSL) shall start blinking(@80+/-2 CPM).
+ 3.2 Left indicator Tell tale shall blink at a frequency of 80+/-2 CPM.
+ 3.3 Cluster shall send turn indicator left status to smart phone app when BT App is connected.
+4.Perform Power/Battery OFF.
+ 4.1 In Cluster, TSL Indicators Shall be OFF.
+5. Perform Power/Battery ON and Do IGN ON as well
+ 5.1 TSL lamps Left_RR_Indicator_OP & Left_FR_Indicator_OP(LEFT TSL) shall not start blinking(@80+/-2 CPM) since its virtual IGN Config
+ 5.2 Left indicator Tell tale shall blink at a frequency of 80+/-2 CPM.
+ 5.3 Cluster shall send turn indicator left status to smart phone app when BT App is connected
+6.Perform Power/Battery OFF.
+ 6.1 In Cluster, TSL Indicators Shall be OFF.
+7.Set  Right_Indicator_SW_IP=0(ON).
+ 7.1 Indicators will not blink(because the battery is disconnected).
+8. Perform Power/Battery ON.
+1. Cluster HMI shall be working in Dark mode (white Colour background)
+ 8.1 TSL lamps Right_RR_Indicator_OP & Right_FR_Indicator_OP(Right TSL) shall start blinking(@80+/-2 CPM).
+ 8.2 Right indicator Tell tale shall blink at a frequency of 80+/-2 CPM.
+ 8.3 Cluster shall send turn indicator Right status to smart phone app when BT App is connected","1. Simulate SIDE_STAND_STATUS[0x350] = 0x0
+2. Turn Ignition OFF.[Ignition_SW_IP= 0]
+3. Set voltage to 0V.",,,Not Feasible,,
+40,VHIL_N600_VehFunc_TSL_Cluster_Indicators_wrtIGN_Urban_NightCondition,Cluster and indicators behaviour with respect to IGNITION Urban_DayCondition,"1. Set voltage to 13.5V.
+2.Simulate SIDE_STAND_STATUS[0x350] = 0x1 [Side stand retracted]
+3. Turn Ignition ON.[Ignition_SW_IP= 1]","1.Go to->Menu->Display Setup->Dark and Dark mode-> Select ""Dark""(Via Control switches 1 to 4)
+ 1.1 Cluster HMI shall be working in Dark  mode (white Colour background)
+2. Go to Menu-> Select Ride mode-> Select ""URBAN""(Via Control switches 1to 4).
+ 2.1 ""URBAN"" mode shall be displayed in HMI home screen.
+3.Set  Left_Indicator_SW_IP=0(ON).
+ 3.1 TSL lamps Left_RR_Indicator_OP & Left_FR_Indicator_OP (LEFT TSL) shall start blinking(@80+/-2 CPM).
+ 3.2 Left indicator Tell tale shall blink at a frequency of 80+/-2 CPM.
+ 3.3 Cluster shall send turn indicator left status to smart phone app when BT App is connected.
+4. Set the IGN to OFF with Ignition_SW_IP = 0 (OFF).
+ 4.1 In Cluster, TSL Indicators Shall be OFF.
+5. Turn Ignition ON.[Ignition_SW_IP= 1]
+ 5.1 TSL lamps Left_RR_Indicator_OP & Left_FR_Indicator_OP(LEFT TSL) shall start blinking(@80+/-2 CPM).
+ 5.2 Left indicator Tell tale shall blink at a frequency of 80+/-2 CPM.
+ 5.3 Cluster shall send turn indicator left status to smart phone app when BT App is connected
+6. Set the IGN to OFF with Ignition_SW_IP = 0 (OFF).
+ 6.1 In Cluster, TSL Indicators Shall be OFF.
+7.Set  Right_Indicator_SW_IP=0(ON).
+ 7.1 Indicators will not blink(because the IGN is OFF).
+8. Turn Ignition ON.[Ignition_SW_IP= 1]
+ 8.1 TSL lamps Right_RR_Indicator_OP & Right_FR_Indicator_OP(Right TSL) shall start blinking(@80+/-2 CPM).
+ 8.2 Right indicator Tell tale shall blink at a frequency of 80+/-2 CPM.
+ 8.3 Cluster shall send turn indicator Right status to smart phone app when BT App is connected","1. Simulate SIDE_STAND_STATUS[0x350] = 0x0
+2. Turn Ignition OFF.[Ignition_SW_IP= 0]
+3. Set voltage to 0V.",,,,,
+41,VHIL_N600_VehFunc_TSL_Cluster_Telltale_TSL_AutoCancellation_byTimeout_Urban_NightCondition,Check the cluster TT and TSL for AUTO cancellation by timeout during Urban_NightCondition,"1. Set voltage to 13.5V.
+2.Simulate SIDE_STAND_STATUS[0x350] = 0x1 [Side stand retracted]
+3. Turn Ignition ON.[Ignition_SW_IP= 1]
+4. Battery is connected.","1.Go to->Menu->Display Setup->Dark and Dark mode-> Select ""Dark""(Via Control switches 1 to 4)
+ 1.1 Cluster HMI shall be working in Dark  mode (white Colour background)
+2. Go to Menu-> Select Ride mode-> Select ""URBAN""(Via Control switches 1to 4).
+ 2.1 ""URBAN"" mode shall be displayed in HMI home screen.
+3.Set  Left_Indicator_SW_IP=0(ON).
+ 3.1 TSL lamps-Left_RR_Indicator_OP&Left_FR_Indicator_OP(LEFT TSL) shall start blinking(@80+/-2 CPM).
+ 3.2 Left indicator Tell tale shall blink at a frequency of 80+/-2 CPM.
+ 3.3 Cluster shall send turn indicator left status to smart phone app when BT App is connected.
+4.Simulate ACC_PEDAL_IP = 26% to acheive [ENGINE_RPM[0x150] = 5200 RPM]
+ 4.1 In Cluster, TSL Indicators Shall be OFF.
+5.Simulate Gear_Position_Sensor_IP = 2nd [GEAR_POSITION[0x150] =  0x4]
+ 5.1 TSL lamps-Left_RR_Indicator_OP&Left_FR_Indicator_OP(LEFT TSL) shall start blinking(@80+/-2 CPM).
+ 5.2 Left indicator Tell tale shall blink at a frequency of 80+/-2 CPM.
+ 5.3 Cluster shall send turn indicator left status to smart phone app when BT App is connected
+6.Set  Left_Indicator_SW_IP=0(ON).
+ 6.1 In Cluster, TSL Indicators Shall be OFF.
+7.Set  Right_Indicator_SW_IP=0(ON).
+ 7.1 Indicators will not blink(because the battery is disconnected).
+8. Perform Power/Battery ON and Do IGN ON as well
+ 8.1 TSL lamps-Right_RR_Indicator_OP&Right_FR_Indicator_OP(Right TSL) shall not start blinking(@80+/-2 CPM) since its virtual IGN Config
+ 8.2 Right indicator Tell tale shall blink at a frequency of 80+/-2 CPM.
+ 8.3 Cluster shall send turn indicator Right status to smart phone app when BT App is connected
+9. wait untill for timeout
+ 9.1 TSL lamps - Right_RR_Indicator_OP&Right_FR_Indicator_OP(Right TSL) shall stop blinking.
+ 9.2 Cluster shall send turn indicator Right status to smart phone app when BT App is connected","1. Simulate SIDE_STAND_STATUS[0x350] = 0x0
+2. Turn Ignition OFF.[Ignition_SW_IP= 0]
+3. Set voltage to 0V.",,,,,
+42,VHIL_N600_VehFunc_TSL_Cluster_Telltale_TSL_AutoCancellation_byDistance200m_Urban_NightCondition,Check the cluster TT and TSL for AUTO cancellation during Urban_NightCondition,"1. Set voltage to 13.5V.
+2.Simulate SIDE_STAND_STATUS[0x350] = 0x1 [Side stand retracted]
+3. Turn Ignition ON.[Ignition_SW_IP= 1]
+4. Battery is connected.","1.Go to->Menu->Display Setup->Dark and Dark mode-> Select ""Dark""(Via Control switches 1 to 4)
+ 1.1 Cluster HMI shall be working in Dark  mode (white Colour background)
+2. Go to Menu-> Select Ride mode-> Select ""URBAN""(Via Control switches 1to 4).
+ 2.1 ""URBAN"" mode shall be displayed in HMI home screen.
+3.Set  Left_Indicator_SW_IP=0(ON).
+ 3.1 TSL lamps-Left_RR_Indicator_OP&Left_FR_Indicator_OP(LEFT TSL) shall start blinking(@80+/-2 CPM).
+ 3.2 Left indicator Tell tale shall blink at a frequency of 80+/-2 CPM.
+ 3.3 Cluster shall send turn indicator left status to smart phone app when BT App is connected.
+4.Simulate ACC_PEDAL_IP = 26% to acheive [ENGINE_RPM[0x150] = 5200 RPM]
+ 4.1 In Cluster, TSL Indicators Shall be OFF.
+5.Simulate Gear_Position_Sensor_IP = 2nd [GEAR_POSITION[0x150] =  0x4]
+ 5.1 TSL lamps-Left_RR_Indicator_OP&Left_FR_Indicator_OP(LEFT TSL) shall start blinking(@80+/-2 CPM).
+ 5.2 Left indicator Tell tale shall blink at a frequency of 80+/-2 CPM.
+ 5.3 Cluster shall send turn indicator left status to smart phone app when BT App is connected
+4.Perform Power/Battery OFF.
+ 4.1 In Cluster, TSL Indicators Shall be OFF.
+5. Perform Power/Battery ON and IGN ON
+6.Set  Left_Indicator_SW_IP=0(ON).
+ 6.1 In Cluster, TSL Indicators Shall be OFF.
+7.Set  Right_Indicator_SW_IP=0(ON).
+ 7.1 Indicators will not blink(because the battery is disconnected).
+8. Perform Power/Battery ON and Do IGN ON as well
+ 8.1 TSL lamps-Right_RR_Indicator_OP&Right_FR_Indicator_OP(Right TSL) shall not start blinking(@80+/-2 CPM) since its virtual IGN Config
+ 8.2 Right indicator Tell tale shall blink at a frequency of 80+/-2 CPM.
+ 8.3 Cluster shall send turn indicator Right status to smart phone app when BT App is connected
+9. wait and ride the vehicle to reach 200m
+ 9.1 TSL lamps - Right_RR_Indicator_OP&Right_FR_Indicator_OP(Right TSL) shall stop blinking.
+ 9.2 Cluster shall send turn indicator Right status to smart phone app when BT App is connected","1. Simulate SIDE_STAND_STATUS[0x350] = 0x0
+2. Turn Ignition OFF.[Ignition_SW_IP= 0]
+3. Set voltage to 0V.",,,,,
+43,VHIL_N600_VehFunc_TSL_LeftTSL_Blinking_Urban_TellTale_ON/OFF_within30ms.,To check Left TSL blinking with and without fault condition in Urban  Mode and Day condition and make sure that Tell-tale shall be ON/OFF within 30ms. Based on the LIN input,"1. Set voltage to 13.5V.
+2.Simulate SIDE_STAND_STATUS[0x350] = 0x1 [Side stand retracted]
+3. Turn Ignition ON.[Ignition_SW_IP= 1]","1.Go to->Menu->Display Setup->Light and Dark mode-> Select ""Light""(Via Control switches 1 to 4
+ 1.1 Cluster HMI shall be working in Light mode (White colour background)
+2. Go to Menu-> Select Ride mode-> Select ""URBAN""(Via Control switches 1to 4)
+ 2.1 ""URBAN"" mode shall be displayed in HMI home screen.
+3. Set Left_Indicator_SW_IP=1.(Left Indicator Switch ON)
+ 3.1 TSL lamps-Left_RR_Indicator_OP shall start blinking(@80+/-2 CPM).
+ 3.2 Left indicator Tell tale shall blink at a frequency of 80+/-2 CPM within 30ms
+ 3.3 Cluster shall send turn indicator left status to smart phone app when BT App is connected
+4. Disconnect Left_RR_Indicator_OP(Rear Left TSL) wiring and connect after observing the output
+ 4.1 Left_FR_Indicator_OP(front Left TSL) shall start blinking(@120+/-2 CPM).
+ 4.2 Left indicator Tell tale shall blink at a frequency of 120+/-2 CPM within 30ms
+ 4.3 Cluster shall send turn indicator left status to smart phone app when BT App is connected
+5. Disconnect Left_FR_Indicator_OP(front Left TSL) wiring and connect after observing the output. 
+ 5.1 Left_RR_Indicator_OP(Rear Left TSL) shall start blinking(@120+/-2 CPM).
+ 5.2 Left indicator Tell tale shall blink at a frequency of 120+/-2 CPM  within 30ms
+ 5.3 Cluster shall send turn indicator left status to smart phone app when BT App is connected
+","1. Simulate SIDE_STAND_STATUS[0x350] = 0x0
+2. Turn Ignition OFF.[Ignition_SW_IP= 0]
+3. Set voltage to 0V.",,,,,
+44,VHIL_N600_VehFunc_TSL_RightTSL_Blinking_Urban_TellTale_ON/OFF_within30ms.,To check Right TSL blinking with and without fault condition in Urban Mode and Day condition.,"
+1. Set voltage to 13.5V.
+2.Simulate SIDE_STAND_STATUS[0x350] = 0x1 [Side stand retracted]
+3. Turn Ignition ON.[Ignition_SW_IP= 1].","1.Go to->Menu->Display Setup->Light and Dark mode-> Select ""Light""(Via Control switches 1 to 4
+ 1.1 Cluster HMI shall be working in Light mode (White colour background)
+2. Go to Menu-> Select Ride mode-> Select ""URBAN""(Via Control switches 1to 4)
+ 2.1 ""URBAN"" mode shall be displayed in HMI home screen.
+3. Set Right_Indicator_SW_IP=1.(Right Indicator Switch ON)
+ 3.1 TSL lamps-Right_RR_Indicator_OP shall start blinking(@80+/-2 CPM).
+ 3.2 Right indicator Tell tale shall blink at a frequency of 80+/-2 CPM within 30ms
+ 3.3 Cluster shall send turn indicator Right status to smart phone app when BT App is connected
+4. Disconnect Right_RR_Indicator_OP(Rear Right TSL) wiring and connect after observing the output
+ 4.1 Right_FR_Indicator_OP(front Right TSL) shall start blinking(@120+/-2 CPM).
+ 4.2 Right indicator Tell tale shall blink at a frequency of 120+/-2 CPM within 30ms
+ 4.3 Cluster shall send turn indicator Right status to smart phone app when BT App is connected
+5. Disconnect Right_FR_Indicator_OP(front Right TSL) wiring and connect after observing the output. 
+ 5.1 Right_RR_Indicator_OP(Rear Right TSL) shall start blinking(@120+/-2 CPM).
+ 5.2 Right indicator Tell tale shall blink at a frequency of 120+/-2 CPM. within 30ms
+ 5.3 Cluster shall send turn indicator Right status to smart phone app when BT App is connected","1. Simulate SIDE_STAND_STATUS[0x350] = 0x0
+2. Turn Ignition OFF.[Ignition_SW_IP= 0]
+3. Set voltage to 0V.",,,,,

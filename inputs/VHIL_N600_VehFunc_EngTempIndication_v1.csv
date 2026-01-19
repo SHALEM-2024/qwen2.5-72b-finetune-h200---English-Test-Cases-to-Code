@@ -1,0 +1,1929 @@
+﻿ID,Name,Test Case Description,Pre-Action,Test Steps.Action,Post-Action
+1,VHIL_N600_VehFunc_EngTemp_OverTempWarning_Urban_01,Verify high engine temperature warning when OVER_TEMPERATURE_INDICATION is active via CAN in Urban Mode,"1. Battery connected
+2. Set the Voltage 13.5V
+3. Turn Ignition ON.[Ignition_SW_IP = 1]
+4. Crank the vehicle [ES_SW_IP=1]
+5. No CAN Failure should not be present
+6. Set ride mode as URBAN","1. Simulate Engine_Coolant_Temperature = 110 deg C
+1.1  CAN message should have  ENGINE_DATA_2 (0x350): OVER_TEMPERATURE_INDICATION = 1 and ENGINE_DATA_2 (0x350): ENGINE_TEMPERATURE= 110
+1.2 Cluster should display ""HIGH COOLANT TEMPERATURE"" warning for 3 seconds.
+1.3. The colorbar in soft telltale should be in Red Colour and the hard telltale should glow
+
+
+
+","1. Turn Ignition OFF.[Ignition_SW_IP = 0]
+
+
+
+2. Set the Voltage 0V"
+2,VHIL_N600_VehFunc_TempIconColor_AmberBorder_Urban_02,Verify temperature indication icon color (Amber) at border values in Urban Mode,"1. Battery connected
+2. Set the Voltage 13.5V
+3. Turn Ignition ON.[Ignition_SW_IP = 1]
+4. Crank the vehicle [ES_SW_IP=1]
+5. No CAN Failure should not be present
+6. Set ride mode as URBAN","1. Simulate Engine_Coolant_Temperature = 61 deg C
+1.1  CAN message should have ENGINE_DATA_2 (0x350): OVER_TEMPERATURE_INDICATION = 0 and ENGINE_DATA_2 (0x350): ENGINE_TEMPERATURE= 61
+1.2. The temperature soft telltale colorbar should be  in Amber Colour 
+
+
+
+","1. Turn Ignition OFF.[Ignition_SW_IP = 0]
+
+
+
+2. Set the Voltage 0V"
+3,VHIL_N600_VehFunc_TempIconColor_BlueBorder_Urban_03,Verify temperature indication icon color (Blue) at border values in Urban Mode,"1. Battery connected
+2. Set the Voltage 13.5V
+3. Turn Ignition ON.[Ignition_SW_IP = 1]
+4. Crank the vehicle [ES_SW_IP=1]
+5. No CAN Failure should not be present
+6. Set ride mode as URBAN","1. Simulate Engine_Coolant_Temperature = 60 deg C
+
+1.1  CAN message should have  
+
+ENGINE_DATA_2 (0x350): OVER_TEMPERATURE_INDICATION = 0 and ENGINE_DATA_2 (0x350): ENGINE_TEMPERATURE= 60
+
+
+
+1.2. The temperature soft telltale colorbar should be  in Blue Colour 
+
+
+
+","1. Turn Ignition OFF.[Ignition_SW_IP = 0]
+
+
+
+2. Set the Voltage 0V"
+4,VHIL_N600_VehFunc_TempIconColor_Amber_Urban_04,Verify temperature indication icon color (Amber) at border values in Urban Mode,"1. Battery connected
+
+
+
+2. Set the Voltage 13.5V
+
+
+
+3. Turn Ignition ON.[Ignition_SW_IP = 1]
+
+
+
+4. Crank the vehicle [ES_SW_IP=1]
+
+
+
+5. No CAN Failure should not be present
+
+
+
+6. Set ride mode as URBAN","1. Simulate Engine_Coolant_Temperature = 105 deg C
+
+
+
+1.1  CAN message should have  
+
+
+
+ENGINE_DATA_2 (0x350): OVER_TEMPERATURE_INDICATION = 0 and ENGINE_DATA_2 (0x350): ENGINE_TEMPERATURE= 105
+
+
+
+1.2. The temperature soft telltale colorbar should be  in Amber Colour 
+
+
+
+","1. Turn Ignition OFF.[Ignition_SW_IP = 0]
+
+
+
+2. Set the Voltage 0V"
+5,VHIL_N600_VehFunc_TempIconColor_RedHigh_Urban_05,Verify temperature indication icon color (Red) and high temperature indication at border values in Urban Mode,"1. Battery connected
+2. Set the Voltage 13.5V
+3. Turn Ignition ON.[Ignition_SW_IP = 1]
+4. Crank the vehicle [ES_SW_IP=1]
+5. No CAN Failure should not be present
+6. Set ride mode as URBAN","1. Simulate Engine_Coolant_Temperature = 106 deg C
+
+
+
+1.1  CAN message should have  
+
+
+
+ENGINE_DATA_2 (0x350): OVER_TEMPERATURE_INDICATION = 1 and ENGINE_DATA_2 (0x350): ENGINE_TEMPERATURE= 106
+
+
+
+1.2 Cluster should display ""HIGH COOLANT TEMPERATURE"" warning for 3 seconds.
+
+
+
+1.3. The colorbar in soft telltale should be in Red Colour and the hard telltale should glow
+
+
+
+","1. Turn Ignition OFF.[Ignition_SW_IP = 0]
+
+
+
+2. Set the Voltage 0V"
+6,VHIL_N600_VehFunc_TempIconColor_Blue_0degC_Urban_06,Verify temperature indication icon color (blue) in Urban Mode at 0 deg C,"1. Battery connected
+
+
+
+2. Set the Voltage 13.5V
+
+
+
+3. Turn Ignition ON.[Ignition_SW_IP = 1]
+
+
+
+4. Crank the vehicle [ES_SW_IP=1]
+
+
+
+5. No CAN Failure should not be present
+
+
+
+6. Set ride mode as URBAN","1. Simulate Engine_Coolant_Temperature = 0 deg C
+
+
+
+1.1  CAN message should have  
+
+
+
+ENGINE_DATA_2 (0x350): OVER_TEMPERATURE_INDICATION = 0 and ENGINE_DATA_2 (0x350): ENGINE_TEMPERATURE= 0 deg C
+
+
+
+1.2. The temperature soft telltale colorbar should be  in BlueColour 
+
+
+
+","1. Turn Ignition OFF.[Ignition_SW_IP = 0]
+
+
+
+2. Set the Voltage 0V"
+7,VHIL_N600_VehFunc_TempIconColor_Blue_Minus10degC_Urban_07,Verify temperature indication icon color (blue) in Urban Mode at -10 deg C,"1. Battery connected
+
+
+
+2. Set the Voltage 13.5V
+
+
+
+3. Turn Ignition ON.[Ignition_SW_IP = 1]
+
+
+
+4. Crank the vehicle [ES_SW_IP=1]
+
+
+
+5. No CAN Failure should not be present
+
+
+
+6. Set ride mode as URBAN","1. Simulate Engine_Coolant_Temperature = -10 deg C
+
+
+
+1.1  CAN message should have  
+
+
+
+ENGINE_DATA_2 (0x350): OVER_TEMPERATURE_INDICATION = 0 and ENGINE_DATA_2 (0x350): ENGINE_TEMPERATURE= -10 deg C
+
+
+
+1.2. The temperature soft telltale colorbar should be  in BlueColour 
+
+
+
+","1. Turn Ignition OFF.[Ignition_SW_IP = 0]
+
+
+
+2. Set the Voltage 0V"
+8,VHIL_N600_VehFunc_TempIconColor_Blue_Minus25degC_Urban_08,Verify temperature indication icon color (blue) in Urban Mode at -25 deg C,"1. Battery connected
+
+
+
+2. Set the Voltage 13.5V
+
+
+
+3. Turn Ignition ON.[Ignition_SW_IP = 1]
+
+
+
+4. Crank the vehicle [ES_SW_IP=1]
+
+
+
+5. No CAN Failure should not be present
+
+
+
+6. Set ride mode as URBAN","1. Simulate Engine_Coolant_Temperature = -25 deg C
+
+
+
+1.1  CAN message should have  
+
+
+
+ENGINE_DATA_2 (0x350): OVER_TEMPERATURE_INDICATION = 0 and ENGINE_DATA_2 (0x350): ENGINE_TEMPERATURE= -25 deg C
+
+
+
+1.2. The temperature soft telltale colorbar should be  in BlueColour 
+
+
+
+","1. Turn Ignition OFF.[Ignition_SW_IP = 0]
+
+
+
+2. Set the Voltage 0V"
+9,VHIL_N600_VehFunc_TempIconColor_Blue_Minus35degC_Urban_09,Verify temperature indication icon color (blue) in Urban Mode at -35 deg C,"1. Battery connected
+
+
+
+2. Set the Voltage 13.5V
+
+
+
+3. Turn Ignition ON.[Ignition_SW_IP = 1]
+
+
+
+4. Crank the vehicle [ES_SW_IP=1]
+
+
+
+5. No CAN Failure should not be present
+
+
+
+6. Set ride mode as URBAN","1. Simulate Engine_Coolant_Temperature = -25 deg C
+
+
+
+1.1  CAN message should have  
+
+
+
+ENGINE_DATA_2 (0x350): OVER_TEMPERATURE_INDICATION = 0 and ENGINE_DATA_2 (0x350): ENGINE_TEMPERATURE= -25 deg C
+
+
+
+1.2. The temperature soft telltale colorbar should be  in BlueColour 
+
+
+
+","1. Turn Ignition OFF.[Ignition_SW_IP = 0]
+
+
+
+2. Set the Voltage 0V"
+10,VHIL_N600_VehFunc_WarningToggle3s_OtherWarning_Urban_10 (at 60 °C),Verify warning toggles 3s with other warning present in Urban Mode at 106 deg C,"1. Battery connected
+2. Set the Voltage 13.5V
+3. Turn Ignition ON.[Ignition_SW_IP = 1]
+4. Crank the vehicle [ES_SW_IP=1]
+5. No CAN Failure should not be present
+6. Set ride mode as URBAN","1. Simulate Engine_Coolant_Temperature =106 deg C
+
+
+
+2. Simulate Side stand as down
+
+
+
+2.1  CAN message should have  
+
+
+
+ENGINE_DATA_2 (0x350): OVER_TEMPERATURE_INDICATION = 1 and ENGINE_DATA_2 (0x350): SIDE_STAND_STATUS=0x2 and
+
+
+
+ENGINE_DATA_2 (0x350): ENGINE_TEMPERATURE= 106
+
+
+
+2.2  Cluster should display ""HIGH COOLANT TEMPERATURE"" warning and ""SIDE STAND DOWN"" and toggle for 3 seconds.
+
+
+
+1.3. The colorbar in soft telltale should be in Red Colour and the hard telltale should glow
+
+
+
+","1. Turn Ignition OFF.[Ignition_SW_IP = 0]
+
+
+
+2. Set the Voltage 0V"
+11,VHIL_N600_VehFunc_WarningToggle3s_OtherWarning_Urban_11 (at 105 °C),Verify warning toggles 3s with other warning present in Urban Mode at 130 deg C,"1. Battery connected
+
+
+
+2. Set the Voltage 13.5V
+
+
+
+3. Turn Ignition ON.[Ignition_SW_IP = 1]
+
+
+
+4. Crank the vehicle [ES_SW_IP=1]
+
+
+
+5. No CAN Failure should not be present
+
+
+
+6. Set ride mode as URBAN","1. Simulate Engine_Coolant_Temperature =130 deg C
+
+
+
+2. Simulate Side stand as down
+
+
+
+2.1  CAN message should have  
+
+
+
+ENGINE_DATA_2 (0x350): OVER_TEMPERATURE_INDICATION = 1 and ENGINE_DATA_2 (0x350): SIDE_STAND_STATUS=0x2 and 
+
+
+
+ENGINE_DATA_2 (0x350): ENGINE_TEMPERATURE= 130
+
+
+
+2.2  Cluster should display ""HIGH COOLANT TEMPERATURE"" warning and ""SIDE STAND DOWN"" and toggle for 3 seconds.
+
+
+
+1.3. The temperature soft telltale colorbar should be  in Amber Colour 
+
+
+
+","1. Turn Ignition OFF.[Ignition_SW_IP = 0]
+
+
+
+2. Set the Voltage 0V"
+12,VHIL_N600_VehFunc_EngTemp_OverTempWarning_Rain_12,Verify high engine temperature warning when OVER_TEMPERATURE_INDICATION is active via CAN in RAIN Mode,"1. Battery connected
+
+
+
+2. Set the Voltage 13.5V
+
+
+
+3. Turn Ignition ON.[Ignition_SW_IP = 1]
+
+
+
+4. Crank the vehicle [ES_SW_IP=1]
+
+
+
+5. No CAN Failure should not be present
+
+
+
+6. Set ride mode as RAIN","1. Simulate Engine_Coolant_Temperature = 110 deg C
+
+
+
+1.1  CAN message should have  
+
+
+
+ENGINE_DATA_2 (0x350): OVER_TEMPERATURE_INDICATION = 1 and ENGINE_DATA_2 (0x350): ENGINE_TEMPERATURE= 110
+
+
+
+1.2 Cluster should display ""HIGH COOLANT TEMPERATURE"" warning for 3 seconds.
+
+
+
+1.3. The colorbar in soft telltale should be in Red Colour and the hard telltale should glow
+
+
+
+","1. Turn Ignition OFF.[Ignition_SW_IP = 0]
+
+
+
+2. Set the Voltage 0V"
+13,VHIL_N600_VehFunc_TempIconColor_AmberBorder_Rain_13,Verify temperature indication icon color (Amber) at border values in RAIN Mode,"1. Battery connected
+
+
+
+2. Set the Voltage 13.5V
+
+
+
+3. Turn Ignition ON.[Ignition_SW_IP = 1]
+
+
+
+4. Crank the vehicle [ES_SW_IP=1]
+
+
+
+5. No CAN Failure should not be present
+
+
+
+6. Set ride mode as RAIN","1. Simulate Engine_Coolant_Temperature = 61 deg C
+
+
+
+1.1  CAN message should have  
+
+
+
+ENGINE_DATA_2 (0x350): OVER_TEMPERATURE_INDICATION = 0 and ENGINE_DATA_2 (0x350): ENGINE_TEMPERATURE= 61
+
+
+
+1.2. The temperature soft telltale colorbar should be  in Amber Colour 
+
+
+
+","1. Turn Ignition OFF.[Ignition_SW_IP = 0]
+
+
+
+2. Set the Voltage 0V"
+14,VHIL_N600_VehFunc_TempIconColor_BlueBorder_Rain_14,Verify temperature indication icon color (Blue) at border values in RAIN Mode,"1. Battery connected
+
+
+
+2. Set the Voltage 13.5V
+
+
+
+3. Turn Ignition ON.[Ignition_SW_IP = 1]
+
+
+
+4. Crank the vehicle [ES_SW_IP=1]
+
+
+
+5. No CAN Failure should not be present
+
+
+
+6. Set ride mode as RAIN","1. Simulate Engine_Coolant_Temperature = 60 deg C
+
+
+
+1.1  CAN message should have  
+
+
+
+ENGINE_DATA_2 (0x350): OVER_TEMPERATURE_INDICATION = 0 and ENGINE_DATA_2 (0x350): ENGINE_TEMPERATURE= 60
+
+
+
+1.2. The temperature soft telltale colorbar should be  in Blue Colour 
+
+
+
+","1. Turn Ignition OFF.[Ignition_SW_IP = 0]
+
+
+
+2. Set the Voltage 0V"
+15,VHIL_N600_VehFunc_TempIconColor_Amber_Rain_15,Verify temperature indication icon color (Amber) at border values in RAIN Mode,"1. Battery connected
+
+
+
+2. Set the Voltage 13.5V
+
+
+
+3. Turn Ignition ON.[Ignition_SW_IP = 1]
+
+
+
+4. Crank the vehicle [ES_SW_IP=1]
+
+
+
+5. No CAN Failure should not be present
+
+
+
+6. Set ride mode as RAIN","1. Simulate Engine_Coolant_Temperature = 105 deg C
+
+
+
+1.1  CAN message should have  
+
+
+
+ENGINE_DATA_2 (0x350): OVER_TEMPERATURE_INDICATION = 0 and ENGINE_DATA_2 (0x350): ENGINE_TEMPERATURE= 105
+
+
+
+1.2. The temperature soft telltale colorbar should be  in Amber Colour 
+
+
+
+","1. Turn Ignition OFF.[Ignition_SW_IP = 0]
+
+
+
+2. Set the Voltage 0V"
+16,VHIL_N600_VehFunc_TempIconColor_RedHigh_Rain_16,Verify temperature indication icon color (Red) and high temperature indication at border values in RAIN Mode,"1. Battery connected
+
+
+
+2. Set the Voltage 13.5V
+
+
+
+3. Turn Ignition ON.[Ignition_SW_IP = 1]
+
+
+
+4. Crank the vehicle [ES_SW_IP=1]
+
+
+
+5. No CAN Failure should not be present
+
+
+
+6. Set ride mode as RAIN","1. Simulate Engine_Coolant_Temperature = 106 deg C
+
+
+
+1.1  CAN message should have  
+
+
+
+ENGINE_DATA_2 (0x350): OVER_TEMPERATURE_INDICATION = 1 and ENGINE_DATA_2 (0x350): ENGINE_TEMPERATURE= 106
+
+
+
+1.2 Cluster should display ""HIGH COOLANT TEMPERATURE"" warning for 3 seconds.
+
+
+
+1.3. The colorbar in soft telltale should be in Red Colour and the hard telltale should glow
+
+
+
+","1. Turn Ignition OFF.[Ignition_SW_IP = 0]
+
+
+
+2. Set the Voltage 0V"
+17,VHIL_N600_VehFunc_TempIconColor_Blue_0degC_Rain_17,Verify temperature indication icon color (blue) in RAIN Mode at 0 deg C,"1. Battery connected
+
+
+
+2. Set the Voltage 13.5V
+
+
+
+3. Turn Ignition ON.[Ignition_SW_IP = 1]
+
+
+
+4. Crank the vehicle [ES_SW_IP=1]
+
+
+
+5. No CAN Failure should not be present
+
+
+
+6. Set ride mode as RAIN","1. Simulate Engine_Coolant_Temperature = 0 deg C
+
+
+
+1.1  CAN message should have  
+
+
+
+ENGINE_DATA_2 (0x350): OVER_TEMPERATURE_INDICATION = 0 and ENGINE_DATA_2 (0x350): ENGINE_TEMPERATURE= 0 deg C
+
+
+
+1.2. The temperature soft telltale colorbar should be  in BlueColour 
+
+
+
+","1. Turn Ignition OFF.[Ignition_SW_IP = 0]
+
+
+
+2. Set the Voltage 0V"
+18,VHIL_N600_VehFunc_TempIconColor_Blue_Minus10degC_Rain_18,Verify temperature indication icon color (blue) in RAIN Mode at -10 deg C,"1. Battery connected
+
+
+
+2. Set the Voltage 13.5V
+
+
+
+3. Turn Ignition ON.[Ignition_SW_IP = 1]
+
+
+
+4. Crank the vehicle [ES_SW_IP=1]
+
+
+
+5. No CAN Failure should not be present
+
+
+
+6. Set ride mode as RAIN","1. Simulate Engine_Coolant_Temperature = -10 deg C
+
+
+
+1.1  CAN message should have  
+
+
+
+ENGINE_DATA_2 (0x350): OVER_TEMPERATURE_INDICATION = 0 and ENGINE_DATA_2 (0x350): ENGINE_TEMPERATURE= -10 deg C
+
+
+
+1.2. The temperature soft telltale colorbar should be  in BlueColour 
+
+
+
+","1. Turn Ignition OFF.[Ignition_SW_IP = 0]
+
+
+
+2. Set the Voltage 0V"
+19,VHIL_N600_VehFunc_TempIconColor_Blue_Minus25degC_Rain_19,Verify temperature indication icon color (blue) in RAIN Mode at -25 deg C,"1. Battery connected
+
+
+
+2. Set the Voltage 13.5V
+
+
+
+3. Turn Ignition ON.[Ignition_SW_IP = 1]
+
+
+
+4. Crank the vehicle [ES_SW_IP=1]
+
+
+
+5. No CAN Failure should not be present
+
+
+
+6. Set ride mode as RAIN","1. Simulate Engine_Coolant_Temperature = -25 deg C
+
+
+
+1.1  CAN message should have  
+
+
+
+ENGINE_DATA_2 (0x350): OVER_TEMPERATURE_INDICATION = 0 and ENGINE_DATA_2 (0x350): ENGINE_TEMPERATURE= -25 deg C
+
+
+
+1.2. The temperature soft telltale colorbar should be  in BlueColour 
+
+
+
+","1. Turn Ignition OFF.[Ignition_SW_IP = 0]
+
+
+
+2. Set the Voltage 0V"
+20,VHIL_N600_VehFunc_TempIconColor_Blue_Minus35degC_Rain_20,Verify temperature indication icon color (blue) in RAIN Mode at -35 deg C,"1. Battery connected
+
+
+
+2. Set the Voltage 13.5V
+
+
+
+3. Turn Ignition ON.[Ignition_SW_IP = 1]
+
+
+
+4. Crank the vehicle [ES_SW_IP=1]
+
+
+
+5. No CAN Failure should not be present
+
+
+
+6. Set ride mode as RAIN","1. Simulate Engine_Coolant_Temperature = -25 deg C
+
+
+
+1.1  CAN message should have  
+
+
+
+ENGINE_DATA_2 (0x350): OVER_TEMPERATURE_INDICATION = 0 and ENGINE_DATA_2 (0x350): ENGINE_TEMPERATURE= -25 deg C
+
+
+
+1.2. The temperature soft telltale colorbar should be  in BlueColour 
+
+
+
+","1. Turn Ignition OFF.[Ignition_SW_IP = 0]
+
+
+
+2. Set the Voltage 0V"
+21,VHIL_N600_VehFunc_WarningToggle3s_OtherWarning_Rain_21 (at 60 °C),Verify warning toggles 3s with other warning present in RAIN Mode at 106 deg C,"1. Battery connected
+
+
+
+2. Set the Voltage 13.5V
+
+
+
+3. Turn Ignition ON.[Ignition_SW_IP = 1]
+
+
+
+4. Crank the vehicle [ES_SW_IP=1]
+
+
+
+5. No CAN Failure should not be present
+
+
+
+6. Set ride mode as RAIN","1. Simulate Engine_Coolant_Temperature =106 deg C
+
+
+
+2. Simulate Side stand as down
+
+
+
+2.1  CAN message should have  
+
+
+
+ENGINE_DATA_2 (0x350): OVER_TEMPERATURE_INDICATION = 1 and ENGINE_DATA_2 (0x350): SIDE_STAND_STATUS=0x2 and
+
+
+
+ENGINE_DATA_2 (0x350): ENGINE_TEMPERATURE= 106
+
+
+
+2.2  Cluster should display ""HIGH COOLANT TEMPERATURE"" warning and ""SIDE STAND DOWN"" and toggle for 3 seconds.
+
+
+
+1.3. The colorbar in soft telltale should be in Red Colour and the hard telltale should glow
+
+
+
+","1. Turn Ignition OFF.[Ignition_SW_IP = 0]
+
+
+
+2. Set the Voltage 0V"
+22,VHIL_N600_VehFunc_WarningToggle3s_OtherWarning_Rain_22 (at 105 °C),Verify warning toggles 3s with other warning present in RAIN Mode at 130 deg C,"1. Battery connected
+
+
+
+2. Set the Voltage 13.5V
+
+
+
+3. Turn Ignition ON.[Ignition_SW_IP = 1]
+
+
+
+4. Crank the vehicle [ES_SW_IP=1]
+
+
+
+5. No CAN Failure should not be present
+
+
+
+6. Set ride mode as RAIN","1. Simulate Engine_Coolant_Temperature =130 deg C
+
+
+
+2. Simulate Side stand as down
+
+
+
+2.1  CAN message should have  
+
+
+
+ENGINE_DATA_2 (0x350): OVER_TEMPERATURE_INDICATION = 1 and ENGINE_DATA_2 (0x350): SIDE_STAND_STATUS=0x2 and 
+
+
+
+ENGINE_DATA_2 (0x350): ENGINE_TEMPERATURE= 130
+
+
+
+2.2  Cluster should display ""HIGH COOLANT TEMPERATURE"" warning and ""SIDE STAND DOWN"" and toggle for 3 seconds.
+
+
+
+1.3. The temperature soft telltale colorbar should be  in Amber Colour 
+
+
+
+","1. Turn Ignition OFF.[Ignition_SW_IP = 0]
+
+
+
+2. Set the Voltage 0V"
+23,VHIL_N600_VehFunc_EngTemp_OverTempWarning_Tour_23,Verify high engine temperature warning when OVER_TEMPERATURE_INDICATION is active via CAN in TOUR Mode,"1. Battery connected
+
+
+
+2. Set the Voltage 13.5V
+
+
+
+3. Turn Ignition ON.[Ignition_SW_IP = 1]
+
+
+
+4. Crank the vehicle [ES_SW_IP=1]
+
+
+
+5. No CAN Failure should not be present
+
+
+
+6. Set ride mode as TOUR","1. Simulate Engine_Coolant_Temperature = 110 deg C
+
+
+
+1.1  CAN message should have  
+
+
+
+ENGINE_DATA_2 (0x350): OVER_TEMPERATURE_INDICATION = 1 and ENGINE_DATA_2 (0x350): ENGINE_TEMPERATURE= 110
+
+
+
+1.2 Cluster should display ""HIGH COOLANT TEMPERATURE"" warning for 3 seconds.
+
+
+
+1.3. The colorbar in soft telltale should be in Red Colour and the hard telltale should glow
+
+
+
+","1. Turn Ignition OFF.[Ignition_SW_IP = 0]
+
+
+
+2. Set the Voltage 0V"
+24,VHIL_N600_VehFunc_EngTemp_OverTempWarning_Tour_24,Verify high engine temperature warning when OVER_TEMPERATURE_INDICATION is active via CAN in TOUR Mode,"1. Battery connected
+
+
+
+2. Set the Voltage 13.5V
+
+
+
+3. Turn Ignition ON.[Ignition_SW_IP = 1]
+
+
+
+4. Crank the vehicle [ES_SW_IP=1]
+
+
+
+5. No CAN Failure should not be present
+
+
+
+6. Set ride mode as TOUR","1. Simulate Engine_Coolant_Temperature = 61 deg C
+
+
+
+1.1  CAN message should have  
+
+
+
+ENGINE_DATA_2 (0x350): OVER_TEMPERATURE_INDICATION = 0 and ENGINE_DATA_2 (0x350): ENGINE_TEMPERATURE= 61
+
+
+
+1.2. The temperature soft telltale colorbar should be  in Amber Colour 
+
+
+
+","1. Turn Ignition OFF.[Ignition_SW_IP = 0]
+
+
+
+2. Set the Voltage 0V"
+25,VHIL_N600_VehFunc_EngTemp_OverTempWarning_Tour_25,Verify high engine temperature warning when OVER_TEMPERATURE_INDICATION is active via CAN in TOUR Mode,"1. Battery connected
+
+
+
+2. Set the Voltage 13.5V
+
+
+
+3. Turn Ignition ON.[Ignition_SW_IP = 1]
+
+
+
+4. Crank the vehicle [ES_SW_IP=1]
+
+
+
+5. No CAN Failure should not be present
+
+
+
+6. Set ride mode as TOUR","1. Simulate Engine_Coolant_Temperature = 60 deg C
+
+
+
+1.1  CAN message should have  
+
+
+
+ENGINE_DATA_2 (0x350): OVER_TEMPERATURE_INDICATION = 0 and ENGINE_DATA_2 (0x350): ENGINE_TEMPERATURE= 60
+
+
+
+1.2. The temperature soft telltale colorbar should be  in Blue Colour 
+
+
+
+","1. Turn Ignition OFF.[Ignition_SW_IP = 0]
+
+
+
+2. Set the Voltage 0V"
+26,VHIL_N600_VehFunc_EngTemp_OverTempWarning_Tour_26,Verify high engine temperature warning when OVER_TEMPERATURE_INDICATION is active via CAN in TOUR Mode,"1. Battery connected
+
+
+
+2. Set the Voltage 13.5V
+
+
+
+3. Turn Ignition ON.[Ignition_SW_IP = 1]
+
+
+
+4. Crank the vehicle [ES_SW_IP=1]
+
+
+
+5. No CAN Failure should not be present
+
+
+
+6. Set ride mode as TOUR","1. Simulate Engine_Coolant_Temperature = 105 deg C
+
+
+
+1.1  CAN message should have  
+
+
+
+ENGINE_DATA_2 (0x350): OVER_TEMPERATURE_INDICATION = 0 and ENGINE_DATA_2 (0x350): ENGINE_TEMPERATURE= 105
+
+
+
+1.2. The temperature soft telltale colorbar should be  in Amber Colour 
+
+
+
+","1. Turn Ignition OFF.[Ignition_SW_IP = 0]
+
+
+
+2. Set the Voltage 0V"
+27,VHIL_N600_VehFunc_EngTemp_OverTempWarning_Tour_27,Verify high engine temperature warning when OVER_TEMPERATURE_INDICATION is active via CAN in TOUR Mode,"1. Battery connected
+
+
+
+2. Set the Voltage 13.5V
+
+
+
+3. Turn Ignition ON.[Ignition_SW_IP = 1]
+
+
+
+4. Crank the vehicle [ES_SW_IP=1]
+
+
+
+5. No CAN Failure should not be present
+
+
+
+6. Set ride mode as TOUR","1. Simulate Engine_Coolant_Temperature = 106 deg C
+
+
+
+1.1  CAN message should have  
+
+
+
+ENGINE_DATA_2 (0x350): OVER_TEMPERATURE_INDICATION = 1 and ENGINE_DATA_2 (0x350): ENGINE_TEMPERATURE= 106
+
+
+
+1.2 Cluster should display ""HIGH COOLANT TEMPERATURE"" warning for 3 seconds.
+
+
+
+1.3. The colorbar in soft telltale should be in Red Colour and the hard telltale should glow
+
+
+
+","1. Turn Ignition OFF.[Ignition_SW_IP = 0]
+
+
+
+2. Set the Voltage 0V"
+28,VHIL_N600_VehFunc_EngTemp_OverTempWarning_Tour_28,Verify high engine temperature warning when OVER_TEMPERATURE_INDICATION is active via CAN in TOUR Mode,"1. Battery connected
+
+
+
+2. Set the Voltage 13.5V
+
+
+
+3. Turn Ignition ON.[Ignition_SW_IP = 1]
+
+
+
+4. Crank the vehicle [ES_SW_IP=1]
+
+
+
+5. No CAN Failure should not be present
+
+
+
+6. Set ride mode as TOUR","1. Simulate Engine_Coolant_Temperature = 0 deg C
+
+
+
+1.1  CAN message should have  
+
+
+
+ENGINE_DATA_2 (0x350): OVER_TEMPERATURE_INDICATION = 0 and ENGINE_DATA_2 (0x350): ENGINE_TEMPERATURE= 0 deg C
+
+
+
+1.2. The temperature soft telltale colorbar should be  in BlueColour 
+
+
+
+","1. Turn Ignition OFF.[Ignition_SW_IP = 0]
+
+
+
+2. Set the Voltage 0V"
+29,VHIL_N600_VehFunc_EngTemp_OverTempWarning_Tour_29,Verify high engine temperature warning when OVER_TEMPERATURE_INDICATION is active via CAN in TOUR Mode,"1. Battery connected
+
+
+
+2. Set the Voltage 13.5V
+
+
+
+3. Turn Ignition ON.[Ignition_SW_IP = 1]
+
+
+
+4. Crank the vehicle [ES_SW_IP=1]
+
+
+
+5. No CAN Failure should not be present
+
+
+
+6. Set ride mode as TOUR","1. Simulate Engine_Coolant_Temperature = -10 deg C
+
+
+
+1.1  CAN message should have  
+
+
+
+ENGINE_DATA_2 (0x350): OVER_TEMPERATURE_INDICATION = 0 and ENGINE_DATA_2 (0x350): ENGINE_TEMPERATURE= -10 deg C
+
+
+
+1.2. The temperature soft telltale colorbar should be  in BlueColour 
+
+
+
+","1. Turn Ignition OFF.[Ignition_SW_IP = 0]
+
+
+
+2. Set the Voltage 0V"
+30,VHIL_N600_VehFunc_EngTemp_OverTempWarning_Tour_30,Verify high engine temperature warning when OVER_TEMPERATURE_INDICATION is active via CAN in TOUR Mode,"1. Battery connected
+
+
+
+2. Set the Voltage 13.5V
+
+
+
+3. Turn Ignition ON.[Ignition_SW_IP = 1]
+
+
+
+4. Crank the vehicle [ES_SW_IP=1]
+
+
+
+5. No CAN Failure should not be present
+
+
+
+6. Set ride mode as TOUR","1. Simulate Engine_Coolant_Temperature = -25 deg C
+
+
+
+1.1  CAN message should have  
+
+
+
+ENGINE_DATA_2 (0x350): OVER_TEMPERATURE_INDICATION = 0 and ENGINE_DATA_2 (0x350): ENGINE_TEMPERATURE= -25 deg C
+
+
+
+1.2. The temperature soft telltale colorbar should be  in BlueColour 
+
+
+
+","1. Turn Ignition OFF.[Ignition_SW_IP = 0]
+
+
+
+2. Set the Voltage 0V"
+31,VHIL_N600_VehFunc_EngTemp_OverTempWarning_Tour_31,Verify high engine temperature warning when OVER_TEMPERATURE_INDICATION is active via CAN in TOUR Mode,"1. Battery connected
+
+
+
+2. Set the Voltage 13.5V
+
+
+
+3. Turn Ignition ON.[Ignition_SW_IP = 1]
+
+
+
+4. Crank the vehicle [ES_SW_IP=1]
+
+
+
+5. No CAN Failure should not be present
+
+
+
+6. Set ride mode as TOUR","1. Simulate Engine_Coolant_Temperature = -25 deg C
+
+
+
+1.1  CAN message should have  
+
+
+
+ENGINE_DATA_2 (0x350): OVER_TEMPERATURE_INDICATION = 0 and ENGINE_DATA_2 (0x350): ENGINE_TEMPERATURE= -25 deg C
+
+
+
+1.2. The temperature soft telltale colorbar should be  in BlueColour 
+
+
+
+","1. Turn Ignition OFF.[Ignition_SW_IP = 0]
+
+
+
+2. Set the Voltage 0V"
+32,VHIL_N600_VehFunc_EngTemp_OverTempWarning_Tour_32,Verify high engine temperature warning when OVER_TEMPERATURE_INDICATION is active via CAN in TOUR Mode,"1. Battery connected
+
+
+
+2. Set the Voltage 13.5V
+
+
+
+3. Turn Ignition ON.[Ignition_SW_IP = 1]
+
+
+
+4. Crank the vehicle [ES_SW_IP=1]
+
+
+
+5. No CAN Failure should not be present
+
+
+
+6. Set ride mode as TOUR","1. Simulate Engine_Coolant_Temperature =106 deg C
+
+
+
+2. Simulate Side stand as down
+
+
+
+2.1  CAN message should have  
+
+
+
+ENGINE_DATA_2 (0x350): OVER_TEMPERATURE_INDICATION = 1 and ENGINE_DATA_2 (0x350): SIDE_STAND_STATUS=0x2 and
+
+
+
+ENGINE_DATA_2 (0x350): ENGINE_TEMPERATURE= 106
+
+
+
+2.2  Cluster should display ""HIGH COOLANT TEMPERATURE"" warning and ""SIDE STAND DOWN"" and toggle for 3 seconds.
+
+
+
+1.3. The colorbar in soft telltale should be in Red Colour and the hard telltale should glow
+
+
+
+","1. Turn Ignition OFF.[Ignition_SW_IP = 0]
+
+
+
+2. Set the Voltage 0V"
+33,VHIL_N600_VehFunc_EngTemp_OverTempWarning_Tour_33,Verify high engine temperature warning when OVER_TEMPERATURE_INDICATION is active via CAN in TOUR Mode,"1. Battery connected
+
+
+
+2. Set the Voltage 13.5V
+
+
+
+3. Turn Ignition ON.[Ignition_SW_IP = 1]
+
+
+
+4. Crank the vehicle [ES_SW_IP=1]
+
+
+
+5. No CAN Failure should not be present
+
+
+
+6. Set ride mode as TOUR","1. Simulate Engine_Coolant_Temperature =130 deg C
+
+
+
+2. Simulate Side stand as down
+
+
+
+2.1  CAN message should have  
+
+
+
+ENGINE_DATA_2 (0x350): OVER_TEMPERATURE_INDICATION = 1 and ENGINE_DATA_2 (0x350): SIDE_STAND_STATUS=0x2 and 
+
+
+
+ENGINE_DATA_2 (0x350): ENGINE_TEMPERATURE= 130
+
+
+
+2.2  Cluster should display ""HIGH COOLANT TEMPERATURE"" warning and ""SIDE STAND DOWN"" and toggle for 3 seconds.
+
+
+
+1.3. The temperature soft telltale colorbar should be  in Amber Colour 
+
+
+
+","1. Turn Ignition OFF.[Ignition_SW_IP = 0]
+
+
+
+2. Set the Voltage 0V"
+34,VHIL_N600_VehFunc_EngTemp_OverTempWarning_Enduro_34,Verify high engine temperature warning when OVER_TEMPERATURE_INDICATION is active via CAN in ENDURO Mode,"1. Battery connected
+
+
+
+2. Set the Voltage 13.5V
+
+
+
+3. Turn Ignition ON.[Ignition_SW_IP = 1]
+
+
+
+4. Crank the vehicle [ES_SW_IP=1]
+
+
+
+5. No CAN Failure should not be present
+
+
+
+6. Set ride mode as ENDURO","1. Simulate Engine_Coolant_Temperature = 110 deg C
+
+
+
+1.1  CAN message should have  
+
+
+
+ENGINE_DATA_2 (0x350): OVER_TEMPERATURE_INDICATION = 1 and ENGINE_DATA_2 (0x350): ENGINE_TEMPERATURE= 110
+
+
+
+1.2 Cluster should display ""HIGH COOLANT TEMPERATURE"" warning for 3 seconds.
+
+
+
+1.3. The colorbar in soft telltale should be in Red Colour and the hard telltale should glow
+
+
+
+","1. Turn Ignition OFF.[Ignition_SW_IP = 0]
+
+
+
+2. Set the Voltage 0V"
+35,VHIL_N600_VehFunc_EngTemp_OverTempWarning_Enduro_35,Verify high engine temperature warning when OVER_TEMPERATURE_INDICATION is active via CAN in ENDURO Mode,"1. Battery connected
+
+
+
+2. Set the Voltage 13.5V
+
+
+
+3. Turn Ignition ON.[Ignition_SW_IP = 1]
+
+
+
+4. Crank the vehicle [ES_SW_IP=1]
+
+
+
+5. No CAN Failure should not be present
+
+
+
+6. Set ride mode as ENDURO","1. Simulate Engine_Coolant_Temperature = 61 deg C
+
+
+
+1.1  CAN message should have  
+
+
+
+ENGINE_DATA_2 (0x350): OVER_TEMPERATURE_INDICATION = 0 and ENGINE_DATA_2 (0x350): ENGINE_TEMPERATURE= 61
+
+
+
+1.2. The temperature soft telltale colorbar should be  in Amber Colour 
+
+
+
+","1. Turn Ignition OFF.[Ignition_SW_IP = 0]
+
+
+
+2. Set the Voltage 0V"
+36,VHIL_N600_VehFunc_EngTemp_OverTempWarning_Enduro_36,Verify high engine temperature warning when OVER_TEMPERATURE_INDICATION is active via CAN in ENDURO Mode,"1. Battery connected
+
+
+
+2. Set the Voltage 13.5V
+
+
+
+3. Turn Ignition ON.[Ignition_SW_IP = 1]
+
+
+
+4. Crank the vehicle [ES_SW_IP=1]
+
+
+
+5. No CAN Failure should not be present
+
+
+
+6. Set ride mode as ENDURO","1. Simulate Engine_Coolant_Temperature = 60 deg C
+
+
+
+1.1  CAN message should have  
+
+
+
+ENGINE_DATA_2 (0x350): OVER_TEMPERATURE_INDICATION = 0 and ENGINE_DATA_2 (0x350): ENGINE_TEMPERATURE= 60
+
+
+
+1.2. The temperature soft telltale colorbar should be  in Blue Colour 
+
+
+
+","1. Turn Ignition OFF.[Ignition_SW_IP = 0]
+
+
+
+2. Set the Voltage 0V"
+37,VHIL_N600_VehFunc_EngTemp_OverTempWarning_Enduro_37,Verify high engine temperature warning when OVER_TEMPERATURE_INDICATION is active via CAN in ENDURO Mode,"1. Battery connected
+
+
+
+2. Set the Voltage 13.5V
+
+
+
+3. Turn Ignition ON.[Ignition_SW_IP = 1]
+
+
+
+4. Crank the vehicle [ES_SW_IP=1]
+
+
+
+5. No CAN Failure should not be present
+
+
+
+6. Set ride mode as ENDURO","1. Simulate Engine_Coolant_Temperature = 105 deg C
+
+
+
+1.1  CAN message should have  
+
+
+
+ENGINE_DATA_2 (0x350): OVER_TEMPERATURE_INDICATION = 0 and ENGINE_DATA_2 (0x350): ENGINE_TEMPERATURE= 105
+
+
+
+1.2. The temperature soft telltale colorbar should be  in Amber Colour 
+
+
+
+","1. Turn Ignition OFF.[Ignition_SW_IP = 0]
+
+
+
+2. Set the Voltage 0V"
+38,VHIL_N600_VehFunc_EngTemp_OverTempWarning_Enduro_38,Verify high engine temperature warning when OVER_TEMPERATURE_INDICATION is active via CAN in ENDURO Mode,"1. Battery connected
+
+
+
+2. Set the Voltage 13.5V
+
+
+
+3. Turn Ignition ON.[Ignition_SW_IP = 1]
+
+
+
+4. Crank the vehicle [ES_SW_IP=1]
+
+
+
+5. No CAN Failure should not be present
+
+
+
+6. Set ride mode as ENDURO","1. Simulate Engine_Coolant_Temperature = 106 deg C
+
+
+
+1.1  CAN message should have  
+
+
+
+ENGINE_DATA_2 (0x350): OVER_TEMPERATURE_INDICATION = 1 and ENGINE_DATA_2 (0x350): ENGINE_TEMPERATURE= 106
+
+
+
+1.2 Cluster should display ""HIGH COOLANT TEMPERATURE"" warning for 3 seconds.
+
+
+
+1.3. The colorbar in soft telltale should be in Red Colour and the hard telltale should glow
+
+
+
+","1. Turn Ignition OFF.[Ignition_SW_IP = 0]
+
+
+
+2. Set the Voltage 0V"
+39,VHIL_N600_VehFunc_EngTemp_OverTempWarning_Enduro_39,Verify high engine temperature warning when OVER_TEMPERATURE_INDICATION is active via CAN in ENDURO Mode,"1. Battery connected
+
+
+
+2. Set the Voltage 13.5V
+
+
+
+3. Turn Ignition ON.[Ignition_SW_IP = 1]
+
+
+
+4. Crank the vehicle [ES_SW_IP=1]
+
+
+
+5. No CAN Failure should not be present
+
+
+
+6. Set ride mode as ENDURO","1. Simulate Engine_Coolant_Temperature = 0 deg C
+
+
+
+1.1  CAN message should have  
+
+
+
+ENGINE_DATA_2 (0x350): OVER_TEMPERATURE_INDICATION = 0 and ENGINE_DATA_2 (0x350): ENGINE_TEMPERATURE= 0 deg C
+
+
+
+1.2. The temperature soft telltale colorbar should be  in BlueColour 
+
+
+
+","1. Turn Ignition OFF.[Ignition_SW_IP = 0]
+
+
+
+2. Set the Voltage 0V"
+40,VHIL_N600_VehFunc_EngTemp_OverTempWarning_Enduro_40,Verify high engine temperature warning when OVER_TEMPERATURE_INDICATION is active via CAN in ENDURO Mode,"1. Battery connected
+
+
+
+2. Set the Voltage 13.5V
+
+
+
+3. Turn Ignition ON.[Ignition_SW_IP = 1]
+
+
+
+4. Crank the vehicle [ES_SW_IP=1]
+
+
+
+5. No CAN Failure should not be present
+
+
+
+6. Set ride mode as ENDURO","1. Simulate Engine_Coolant_Temperature = -10 deg C
+
+
+
+1.1  CAN message should have  
+
+
+
+ENGINE_DATA_2 (0x350): OVER_TEMPERATURE_INDICATION = 0 and ENGINE_DATA_2 (0x350): ENGINE_TEMPERATURE= -10 deg C
+
+
+
+1.2. The temperature soft telltale colorbar should be  in BlueColour 
+
+
+
+","1. Turn Ignition OFF.[Ignition_SW_IP = 0]
+
+
+
+2. Set the Voltage 0V"
+41,VHIL_N600_VehFunc_EngTemp_OverTempWarning_Enduro_41,Verify high engine temperature warning when OVER_TEMPERATURE_INDICATION is active via CAN in ENDURO Mode,"1. Battery connected
+
+
+
+2. Set the Voltage 13.5V
+
+
+
+3. Turn Ignition ON.[Ignition_SW_IP = 1]
+
+
+
+4. Crank the vehicle [ES_SW_IP=1]
+
+
+
+5. No CAN Failure should not be present
+
+
+
+6. Set ride mode as ENDURO","1. Simulate Engine_Coolant_Temperature = -25 deg C
+
+
+
+1.1  CAN message should have  
+
+
+
+ENGINE_DATA_2 (0x350): OVER_TEMPERATURE_INDICATION = 0 and ENGINE_DATA_2 (0x350): ENGINE_TEMPERATURE= -25 deg C
+
+
+
+1.2. The temperature soft telltale colorbar should be  in BlueColour 
+
+
+
+","1. Turn Ignition OFF.[Ignition_SW_IP = 0]
+
+
+
+2. Set the Voltage 0V"
+42,VHIL_N600_VehFunc_EngTemp_OverTempWarning_Enduro_42,Verify high engine temperature warning when OVER_TEMPERATURE_INDICATION is active via CAN in ENDURO Mode,"1. Battery connected
+
+
+
+2. Set the Voltage 13.5V
+
+
+
+3. Turn Ignition ON.[Ignition_SW_IP = 1]
+
+
+
+4. Crank the vehicle [ES_SW_IP=1]
+
+
+
+5. No CAN Failure should not be present
+
+
+
+6. Set ride mode as ENDURO","1. Simulate Engine_Coolant_Temperature = -25 deg C
+
+
+
+1.1  CAN message should have  
+
+
+
+ENGINE_DATA_2 (0x350): OVER_TEMPERATURE_INDICATION = 0 and ENGINE_DATA_2 (0x350): ENGINE_TEMPERATURE= -25 deg C
+
+
+
+1.2. The temperature soft telltale colorbar should be  in BlueColour 
+
+
+
+","1. Turn Ignition OFF.[Ignition_SW_IP = 0]
+
+
+
+2. Set the Voltage 0V"
+43,VHIL_N600_VehFunc_EngTemp_OverTempWarning_Enduro_43,Verify high engine temperature warning when OVER_TEMPERATURE_INDICATION is active via CAN in ENDURO Mode,"1. Battery connected
+
+
+
+2. Set the Voltage 13.5V
+
+
+
+3. Turn Ignition ON.[Ignition_SW_IP = 1]
+
+
+
+4. Crank the vehicle [ES_SW_IP=1]
+
+
+
+5. No CAN Failure should not be present
+
+
+
+6. Set ride mode as ENDURO","1. Simulate Engine_Coolant_Temperature =106 deg C
+
+
+
+2. Simulate Side stand as down
+
+
+
+2.1  CAN message should have  
+
+
+
+ENGINE_DATA_2 (0x350): OVER_TEMPERATURE_INDICATION = 1 and ENGINE_DATA_2 (0x350): SIDE_STAND_STATUS=0x2 and
+
+
+
+ENGINE_DATA_2 (0x350): ENGINE_TEMPERATURE= 106
+
+
+
+2.2  Cluster should display ""HIGH COOLANT TEMPERATURE"" warning and ""SIDE STAND DOWN"" and toggle for 3 seconds.
+
+
+
+1.3. The colorbar in soft telltale should be in Red Colour and the hard telltale should glow
+
+
+
+","1. Turn Ignition OFF.[Ignition_SW_IP = 0]
+
+
+
+2. Set the Voltage 0V"
+44,VHIL_N600_VehFunc_EngTemp_OverTempWarning_Enduro_44,Verify high engine temperature warning when OVER_TEMPERATURE_INDICATION is active via CAN in ENDURO Mode,"1. Battery connected
+
+
+
+2. Set the Voltage 13.5V
+
+
+
+3. Turn Ignition ON.[Ignition_SW_IP = 1]
+
+
+
+4. Crank the vehicle [ES_SW_IP=1]
+
+
+
+5. No CAN Failure should not be present
+
+
+
+6. Set ride mode as ENDURO","1. Simulate Engine_Coolant_Temperature =130 deg C
+
+
+
+2. Simulate Side stand as down
+
+
+
+2.1  CAN message should have  
+
+
+
+ENGINE_DATA_2 (0x350): OVER_TEMPERATURE_INDICATION = 1 and ENGINE_DATA_2 (0x350): SIDE_STAND_STATUS=0x2 and 
+
+
+
+ENGINE_DATA_2 (0x350): ENGINE_TEMPERATURE= 130
+
+
+
+2.2  Cluster should display ""HIGH COOLANT TEMPERATURE"" warning and ""SIDE STAND DOWN"" and toggle for 3 seconds.
+
+
+
+1.3. The temperature soft telltale colorbar should be  in Amber Colour 
+
+
+
+","1. Turn Ignition OFF.[Ignition_SW_IP = 0]
+
+
+
+2. Set the Voltage 0V"
+45,VHIL_N600_VehFunc_EngTempInd_UnderVoltageCondition_45,Verify the engine temperature indication during Undervoltage Condition,"1. Battery connected
+
+
+
+2. Set the Voltage 13.5V
+
+
+
+3. Turn Ignition ON.[Ignition_SW_IP = 1]
+
+
+
+4. Crank the vehicle [ES_SW_IP=1]
+
+
+
+5. No CAN Failure should not be present
+
+
+
+6. Set ride mode as URBAN","1. Simulate Engine_Coolant_Temperature =130 deg C
+
+
+
+1.1  CAN message should have  
+
+
+
+ENGINE_DATA_2 (0x350): OVER_TEMPERATURE_INDICATION = 1 and 
+
+
+
+ENGINE_DATA_2 (0x350): ENGINE_TEMPERATURE= 130
+
+
+
+1.2  Cluster should display ""HIGH COOLANT TEMPERATURE"" warning  for 3 seconds.
+
+
+
+2. Set Battery voltage to less than 7.2 V
+
+
+
+2.1. Check if the cluster will go to shutdown","1. Turn Ignition OFF.[Ignition_SW_IP = 0]
+
+
+
+2. Set the Voltage 0V"
+46,VHIL_N600_VehFunc_EngTempInd_OverVoltageCondition_46,Verify the engine temperature indication during Overvoltage Condition,"1. Battery connected
+
+
+
+2. Set the Voltage 13.5V
+
+
+
+3. Turn Ignition ON.[Ignition_SW_IP = 1]
+
+
+
+4. Crank the vehicle [ES_SW_IP=1]
+
+
+
+5. No CAN Failure should not be present
+
+
+
+6. Set ride mode as URBAN","1. Simulate Engine_Coolant_Temperature =130 deg C
+
+
+
+1.1  CAN message should have  
+
+
+
+ENGINE_DATA_2 (0x350): OVER_TEMPERATURE_INDICATION = 1 and 
+
+
+
+ENGINE_DATA_2 (0x350): ENGINE_TEMPERATURE= 130
+
+
+
+1.2  Cluster should display ""HIGH COOLANT TEMPERATURE"" warning  for 3 seconds.
+
+
+
+2. Set Battery voltage to greater than 18.8 V
+
+
+
+2.1. Check if the cluster will go to shutdown","1. Turn Ignition OFF.[Ignition_SW_IP = 0]
+
+
+
+2. Set the Voltage 0V"
