@@ -17,7 +17,8 @@ This repository documents the engineering pipeline used to fine-tune a **72-Bill
 
 | ❌ The Bottleneck | ✅ The Solution |
 | :--- | :--- |
-| **Manual Labor:** Engineers manually coding using dSPACE Automation Desk GUI or XML structures. | **Autonomous Generation:** AI converts Natural Language to XML. |
+| **Manual Labor:** Engineers manually coding using 
+dSPACE Automation Desk GUI or XML structures. | **Autonomous Generation:** AI converts Natural Language to XML. |
 | **Slow TTM:** Weeks spent on 2500+ test cases. | **Accelerated Validation:** Instant script generation. |
 | **Human Error:** Syntax errors in proprietary code. | **Syntactically Perfect:** Validated against dSPACE libraries. |
 
