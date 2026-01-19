@@ -77,6 +77,7 @@ pip install -e . --no-deps
 accelerate launch -m axolotl.cli.train config.yaml
 
 ```
+Logs should look something like this,
 
 <img width="1919" height="870" alt="image" src="https://github.com/user-attachments/assets/9f839771-0622-48d0-9e35-28711bb3b9e0" />
 
