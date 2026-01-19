@@ -1,0 +1,51 @@
+# config.yaml - H200 STABLE EDITION (plz place it in Root Folder (working directory in the pod).
+base_model: Qwen/Qwen2.5-72B-Instruct
+model_type: AutoModelForCausalLM
+tokenizer_type: AutoTokenizer
+
+load_in_4bit: true
+strict: false
+adapter: qlora
+lora_r: 32
+lora_alpha: 64
+lora_dropout: 0.05
+lora_target_linear: true
+
+# DATASET (Stable Syntax)
+datasets:
+  - path: json
+    data_files: fine_tuning_data.jsonl
+    type: alpaca
+
+# MEMORY (H200 + Flash Attn)
+sequence_len: 24576
+sample_packing: true
+pad_to_sequence_len: true
+
+# TRAINING
+gradient_accumulation_steps: 4
+micro_batch_size: 1
+num_epochs: 3
+optimizer: adamw_bnb_8bit
+lr_scheduler: cosine
+learning_rate: 0.0001
+
+# OPTIMIZATION
+train_on_inputs: false
+group_by_length: false
+bf16: true
+fp16: false
+tf32: false
+gradient_checkpointing: true
+local_rank:
+logging_steps: 1
+
+# FLASH ATTENTION (Enabled)
+flash_attention: true
+xformers_attention: false
+
+warmup_steps: 10
+evals_per_epoch: 0
+saves_per_epoch: 1
+weight_decay: 0.0
+output_dir: ./model-out
