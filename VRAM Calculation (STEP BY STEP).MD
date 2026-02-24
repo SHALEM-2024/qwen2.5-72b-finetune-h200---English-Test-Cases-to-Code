@@ -90,7 +90,7 @@ Memory becomes:
 * Optimizer states only for adapters = 2.7 billion parameters * 8 Bytes = 21.6B Bytes ~ 21.6 GB
 * Activations still required
 
-~ (170 GB + Activation memory)
+~ (170 GB + Activation memory) -> H200 has only 141 GB of VRAM
 
 Total:
 
@@ -100,6 +100,8 @@ QLoRA (4-bit base weights):
 
 * Base weights: ~36 GB
 * Total training VRAM: ~60–100 GB
+
+** I used This Approach **
 
 ---
 
