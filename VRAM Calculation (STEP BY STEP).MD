@@ -1,7 +1,6 @@
-For a **72B parameter model**, **144 GB VRAM** estimate matches:
 
 * **72B params × 2 bytes (FP16/BF16)** ≈ **144 GB**
-  **model weights**  = static storage.
+  **model weights**  = only static storage.
 
 During **fine-tuning**, VRAM usage has to increase because we need to account also for:
 
