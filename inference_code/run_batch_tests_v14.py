@@ -200,7 +200,7 @@ for i, input_file in enumerate(input_files):
             <subsystems>
                 <FrameworkBuilder.ActualDataSlot name="Data">
                     <subsystems>
-{generated_text}
+                        {generated_text}
                     </subsystems>
                 </FrameworkBuilder.ActualDataSlot>
             </subsystems>
