@@ -125,11 +125,9 @@ This is why models this size are trained using:
 
 ---
 
-If you tell me:
+if we know the below values we can calculate the activation much tightly:
 
 * Sequence length
 * Batch size
 * Optimizer
-* Whether using ZeRO/FSDP
 
-I can calculate a much tighter estimate for your exact setup.
